@@ -1,0 +1,146 @@
+html,
+body {
+    background:#f3f3f3;
+    font-family: 'Muli', sans-serif;
+
+}
+
+p {
+    margin: 0;
+    color: #777;
+    font-size: 14px;
+    line-height: 1.8;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: 'Muli', sans-serif;
+    margin: 0;
+}
+
+ul,
+label {
+    margin: 0;
+    list-style-type: none;
+    padding: 0;
+}
+
+body a {
+    transition: 0.5s all;
+    -webkit-transition: 0.5s all;
+    -moz-transition: 0.5s all;
+    -o-transition: 0.5s all;
+    -ms-transition: 0.5s all;
+    text-decoration: none;
+    outline: none;
+}
+
+body a:hover {
+    text-decoration: none;
+}
+
+/*HEADER*/
+section.header{
+    background-color: rgba(0,0,0,0.8);
+}
+section.header header{
+    background: linear-gradient(140deg,#ab032d 10%,#eb1d50 60%);
+}
+section.header nav h1 a{
+    font-family: 'Pacifico', cursive;
+    font-size: 28px;
+    letter-spacing: 1px;
+    color: #fff;
+}
+section.header .navbar{
+    margin: 0.5em !important;
+}
+section.header ul.navbar-nav{
+    float: right;
+    margin: 0;
+    padding-right: 40px;
+}
+section.header ul li a{
+    color: #000;
+    text-transform: capitalize;
+}
+section.header ul li.active a{
+    color: #fff;
+}
+section.header ul li.active a:hover{
+    color: #000;
+}
+.banner{
+    background: url("../image/baner.jpg") no-repeat 0px 0px;
+    background-size: cover;
+    background-position: center;
+    min-height: 680px;
+    position: relative;
+    opacity: 0.8;
+    background-position: 0 -120px;
+}
+
+.banner-btm{
+    position: relative;
+}
+.banner-bottom-main{
+    box-shadow: -3px 0px 15px 1px rgba(0, 0, 0, 0.08);
+    padding: 4em 3em;
+    background: #fff;
+    text-align: left;
+    margin-top: -6em;
+}
+.banner-bottom-main div.col-md-4:nth-child(2){
+    border-right: 1px solid #d8d8d8;
+    border-left: 1px solid #d8d8d8;
+}
+.banner-bottom-main div i{
+    text-align: center;
+    display: block;
+    font-size: 24px;
+}
+.banner-bottom-main h3{
+    color: #222222;
+    font-size: 20px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    text-align: center;
+    margin-top: 20px;
+    font-weight: 500;
+    font-family: 'Anton', sans-serif;
+}
+.heading{
+    letter-spacing: 4px;
+    font-size: 40px;
+    text-align: center;
+    color: rgb(235 29 80);
+    text-transform: uppercase;
+    position: relative;
+    margin-top: 0;
+}
+.course{
+    padding: 5em 0;
+}
+
+.heading span{
+    display: block;
+    font-size: 17px!important;
+    margin-top: 1em;
+    letter-spacing: 4px;
+    text-transform: capitalize;
+    color: #000000;
+    font-weight: 500;
+}
+.heading span:after{
+    content: '';
+    background: #212121;
+    height: 2px;
+    width: 70px;
+    position: absolute;
+    top: 132%;
+    right: 47%;
+}
