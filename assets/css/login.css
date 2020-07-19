@@ -1,0 +1,61 @@
+.login-banner{
+    background: url("../image/undraw_Graduation_ktn0.svg") no-repeat 70px 170px;
+    background-size: 45%;
+    height: 100vh;
+}
+.login-sec{
+    height: 100%;
+}
+.lg-right,.lg-left{
+    display: flex;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+}
+.login-frame{
+    padding: 4em;
+    text-align: center;
+    width: 60%;
+    background: #fff;
+    border-radius: 0.125rem;
+}
+.login-frame h3{
+    font-weight: bold;
+    font-size: 30px;
+    margin: 0em 0 1em 0;
+}
+.login-frame .divider{
+    background: #212121;
+    height: 2px;
+    width: 70px;
+    margin-bottom: 2em;
+    margin-left: auto;
+    margin-right: auto;
+}
+.login-frame form button{
+    display: block;
+    background: linear-gradient(140deg,#ab032d 10%,#eb1d50 60%);
+    width: 98%;
+    color:#fff;
+    padding: 10px 0;
+    font-size: 16px;
+    text-transform: uppercase;
+    margin: 1em auto;
+    border: none;
+    border-radius: 0.125rem;
+}
+
+.login-frame form button:hover{
+    background: linear-gradient(284deg, rgba(131,34,75,1) 1%, rgba(161,15,32,1) 57%, rgba(161,56,100,1) 100%);
+}
+
+.login-frame form input{
+    width: 49%;
+    border: 1px #ccc solid;
+    padding: 10px 5px;
+}
+
+.login-frame .register input{
+    width: 100%;
+    margin: 0.5em 0px;
+}

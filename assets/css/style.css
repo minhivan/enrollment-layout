@@ -1,3 +1,4 @@
+@import "login.css";
 html,
 body {
     background:#f3f3f3;
@@ -42,6 +43,7 @@ body a {
 body a:hover {
     text-decoration: none;
 }
+
 
 /*HEADER*/
 section.header{
@@ -144,3 +146,23 @@ section.header ul li.active a:hover{
     top: 132%;
     right: 47%;
 }
+
+
+.apply .title{
+    font-family: 'Anton', sans-serif;
+    font-weight: bold;
+    margin: 1em 0;
+    text-align: left;
+}
+.apply h3.title{
+    font-size: 30px;
+    text-align: center;
+}
+
+.student-info label{
+    width: 10%;
+}
+.student-info form input#student_name, select#student_sex{
+    width: 35%;
+}
+
