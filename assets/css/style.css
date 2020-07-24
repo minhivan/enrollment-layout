@@ -153,16 +153,259 @@ section.header ul li.active a:hover{
     font-weight: bold;
     margin: 1em 0;
     text-align: left;
+    text-transform: uppercase;
 }
 .apply h3.title{
     font-size: 30px;
     text-align: center;
 }
 
-.student-info label{
-    width: 10%;
-}
-.student-info form input#student_name, select#student_sex{
-    width: 35%;
+.majors{
+    margin: 70px 0;
+    display: flex;
+    flex-flow: row wrap;
+
 }
 
+.card{
+    position: relative;
+    border: 1px solid rgba(0, 0, 0, 0.125);
+    padding: 0 !important;
+    border-radius: 0.25rem;
+    display: flex;
+    flex: 1 0 0%;
+    flex-direction: column;
+    margin: 0 15px;
+}
+
+.card img{
+    height: 300px;
+    max-width: 100%;
+    vertical-align: middle;
+}
+.card-title{
+    padding: 1.25em;
+}
+.card-title h5{
+    font-size: 20px;
+    letter-spacing: 2px;
+    margin-bottom: 1em;
+    color: #000;
+}
+section.about{
+    background: url("../image/cntt-min.jpg") no-repeat center;
+    padding: 4em 0;
+    background-attachment: fixed;
+}
+.about-content{
+    padding: 4em;
+    background: #fff;
+}
+.about-content h5{
+    color: #761c19;
+    font-size: 24px;
+    font-family: 'Anton', sans-serif;
+    font-weight: 500;
+    margin-bottom: 1em;
+}
+.about-content h4{
+    font-size: 28px;
+    letter-spacing: 1px;
+    line-height: 1.5;
+    font-weight: bold;
+    margin-bottom: 1em;
+}
+
+section.slider{
+    padding: 4em 0;
+}
+.flexslider{
+    margin: 0 0 60px;
+    background: transparent;
+    position: relative;
+    padding: 0;
+}
+.slides:after{
+    clear: both;
+    display: table;
+    content: " ";
+}
+.flex-active-slide{
+    width: 1110px;
+    float: left;
+    display: block;
+}
+.flexslider .slides img{
+    width: 15%;
+    margin: auto;
+    display: block;
+    border-radius: 50%;
+}
+.flexslider .slides p{
+    line-height: 30px;
+    text-align: center;
+    color: #777;
+    font-style: italic;
+    width: 70%;
+    margin: 30px auto;
+    letter-spacing: 2px;
+    font-size: 15px;
+}
+.control-paging{
+    width: 100%;
+    text-align: center;
+    padding: 0;
+    list-style: none;
+    margin-top: 20px;
+}
+
+.control-paging li{
+    display: inline-block;
+    margin: 0 5px;
+}
+.control-paging li a{
+    width: 11px;
+    height: 11px;
+    display: block;
+    background: #C5C5C5;
+    cursor: pointer;
+    text-indent: -9999px;
+    border-radius: 50%;
+}
+.control-paging li a.active{
+    background: #f14156;
+    cursor: default;
+}
+
+.student h5{
+    font-size: 25px;
+    color: #f14156;
+    text-align: center;
+}
+
+.flex-slide{
+    -webkit-animation-name: fade;
+    -webkit-animation-duration: 1.5s;
+    animation-name: fade;
+    animation-duration: 1.5s;
+}
+
+
+@-webkit-keyframes flex-slide {
+    from {opacity: .4}
+    to {opacity: 1}
+}
+
+@keyframes flex-slide {
+    from {opacity: .4}
+    to {opacity: 1}
+}
+
+
+.footer-section h4{
+    color: #eb1d50;
+    text-transform: capitalize;
+    font-size: 25px;
+    margin-bottom: 1.5em;
+    letter-spacing: 2px;
+    font-family: 'Anton', sans-serif;
+}
+.footer-section a,.footer-section p{
+    display: block;
+    color: #bbbbbb;
+    line-height: 28px;
+    font-size: 15px;
+    letter-spacing: .7px;
+}
+.d-flex{
+    display: flex;
+    justify-content: space-around;
+}
+.col-4{
+    flex: 0 0 33.333333%;
+    max-width: 33.333333%;
+}
+.footer-section a img{
+    width: 100%;
+    margin-bottom: 0px;
+    border: 2px solid #fff;
+}
+.img-fluid{
+    max-width: 100%;
+    height: 85px;
+}
+.copyright{
+    background: #000000;
+    border-top: 1px solid #2b2b2b;
+    padding: 1.5em 0;
+}
+.copyright p{
+    color: #fff;
+    font-size: 14px;
+    letter-spacing: 2px;
+    text-align: center;
+}
+.copyright a{
+    color: #eb1d50;
+    text-decoration: none;
+}
+
+/*apply form*/
+.student-info div label,
+.student-choice div label{
+    width: 170px;
+}
+.student-info div input,
+.student-info div select{
+    width: 340px;
+    margin: 0;
+    padding: 5px 8px;
+    border: 1px solid #ccc;
+    background: transparent;
+    border-radius: 0.125rem;
+}
+.student-info div,.student-choice div{
+    margin: 1em 0;
+    padding: 0 !important;
+}
+
+.student-addr-details, .student-choice{
+    border-top: 1px dotted #ccc;
+    margin: 1em 0;
+    padding: 1em 0;
+}
+.student-addr-details h4, .student-choice h4{
+    margin: 0em 0 1em 0;
+}
+
+.student-addr-details textarea{
+    height: 60px;
+    resize: none;
+    min-width: 82%;
+    padding: 5px 8px;
+}
+.student-choice select{
+    min-width: 82%;
+    margin: 0;
+    padding: 5px 8px;
+    border: 1px solid #ccc;
+    background: transparent;
+    border-radius: 0.125rem;
+}
+
+.student-mark div.row div.col-md-1,
+.student-mark div.row div.col-md-2{
+    border: 1px solid #ccc;
+    padding: 1em;
+    display: flex;
+    justify-content: center;
+    height: 60px;
+    align-items: center;
+}
+.student-mark input{
+    width: 50%;
+    text-align: center;
+}
+.student-mark .header-title h5{
+    font-weight: bold;
+}
