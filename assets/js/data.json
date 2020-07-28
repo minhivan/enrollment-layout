@@ -1,0 +1,36 @@
+{
+  "7580201C" : {
+    "name" : "Kỹ thuật xây dựng (Chất lượng cao)",
+    "tohop": ["A00","A01"],
+    "id": 1
+  },
+
+  "7580201H" : {
+    "name" : "Kỹ thuật xây dựng - Học tại khu Hòa An",
+    "tohop" : ["A00","A01"],
+    "id": 2
+  },
+
+  "7380101" : {
+    "name" : "Luật",
+    "tohop" : ["B00","D07"],
+    "id": 3
+  },
+
+  "7380101H" : {
+    "name" : "Luật (Luật hành chính) - Học tại khu Hòa An",
+    "tohop" : ["B00","D07"],
+    "id": 4
+  },
+
+  "7340115" : {
+    "name" : "Marketing",
+    "tohop" : ["B00","D07"],
+    "id": 5
+  },
+  "7480102" : {
+    "name" : "Mạng máy tính và truyền thông dữ liệu",
+    "tohop" : ["A00","A01"],
+    "id": 6
+  }
+}

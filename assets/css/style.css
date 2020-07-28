@@ -3,7 +3,7 @@ html,
 body {
     background:#f3f3f3;
     font-family: 'Muli', sans-serif;
-
+    font-size: 14px;
 }
 
 p {
@@ -148,14 +148,14 @@ section.header ul li.active a:hover{
 }
 
 
-.apply .title{
+.section-body .title{
     font-family: 'Anton', sans-serif;
     font-weight: bold;
     margin: 1em 0;
     text-align: left;
     text-transform: uppercase;
 }
-.apply h3.title{
+.section-body h3.title{
     font-size: 30px;
     text-align: center;
 }
@@ -383,6 +383,9 @@ section.slider{
     resize: none;
     min-width: 82%;
     padding: 5px 8px;
+    background-color: transparent;
+    border: 1px solid #ccc;
+
 }
 .student-choice select{
     min-width: 82%;
@@ -403,9 +406,49 @@ section.slider{
     align-items: center;
 }
 .student-mark input{
-    width: 50%;
+    width: 70%;
     text-align: center;
 }
 .student-mark .header-title h5{
     font-weight: bold;
 }
+/* METHOD */
+.section-body{
+    font-size: 14px;
+    padding: 3em 0;
+}
+
+.method-content{
+    padding: 2em 0;
+}
+.method-content h5{
+    margin: 2em 2em;
+    text-align: left;
+    font-size: 16px;
+}
+.method-content h5 a{
+    color: #222222;
+    cursor: pointer;
+    border-bottom: 1px solid #ccc;
+}
+.method-content h5 a:hover{
+    color: #2e6da4;
+}
+.method-title h4{
+    display: inline-block;
+    padding: 0 10px;
+    font-size: 18px;
+    border-bottom: 1px solid #ccc;
+    margin: 5px 0;
+}
+.method-details{
+    padding: 1em 0 1em 2em;
+    display: none;
+}
+.method-details p{
+    line-height: 26px;
+    text-align: justify;
+    text-justify: inter-word;
+    color: #2b2b2b;
+}
+

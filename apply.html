@@ -14,6 +14,7 @@
     <script src="./source/Bootstrap/js/bootstrap.min.js"></script>
     <!--  Css + JS  -->
     <link href="./assets/css/style.css" rel="stylesheet">
+    <script src="assets/js/tohop.js"></script>
     <!--  Font  -->
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Muli:wght@500&display=swap" rel="stylesheet">
@@ -62,7 +63,7 @@
     </header>
 </section>
 
-<section class="apply">
+<section class="section-body apply">
     <div class="container">
         <div class="apply__title">
             <h3 class="title">PHIẾU ĐĂNG KÝ XÉT TUYỂN</h3>
@@ -234,91 +235,95 @@
                         <label for="student_address">Địa chỉ liên hệ</label>
                         <input id="student_address" name="student_address" type="text">
                     </div>
-                    </fieldset>
+                </fieldset>
 
-                    <fieldset class="student-addr-details">
-                        <h4 class="title">HỘ KHẨU THƯỜNG TRÚ</h4>
-                        <div class="col-md-6">
-                            <label for="select-city">Tỉnh, thành phố</label>
-                            <select name="id_city" required="required"  id="select-city"><option value="">Chọn tỉnh (thành phố)</option>
-                                <option value="51">An Giang</option>
-                                <option value="60">Bạc Liêu</option>
-                                <option value="56">Bến Tre</option>
-                                <option value="61">Cà Mau</option>
-                                <option value="55">Cần Thơ</option>
-                                <option value="50">Đồng Tháp</option>
-                                <option value="64">Hậu Giang</option>
-                                <option value="54">Kiên Giang</option>
-                                <option value="49">Long An</option>
-                                <option value="59">Sóc Trăng</option>
-                                <option value="53">Tiền Giang</option>
-                                <option value="58">Trà Vinh</option>
-                                <option value="57">Vĩnh Long</option>
-                                <option value="52">Bà Rịa-Vũng Tàu</option>
-                                <option value="18">Bắc Giang</option>
-                                <option value="11">Bắc Kạn</option>
-                                <option value="19">Bắc Ninh</option>
-                                <option value="37">Bình Định</option>
-                                <option value="44">Bình Dương</option>
-                                <option value="43">Bình Phước</option>
-                                <option value="47">Bình Thuận</option>
-                                <option value="06">Cao Bằng</option>
-                                <option value="04">Đà Nẵng</option>
-                                <option value="40">Đắk Lắk</option>
-                                <option value="63">Đăk Nông</option>
-                                <option value="62">Điện Biên</option>
-                                <option value="48">Đồng Nai</option>
-                                <option value="38">Gia Lai</option>
-                                <option value="05">Hà Giang</option>
-                                <option value="24">Hà Nam</option>
-                                <option value="01">Hà Nội</option>
-                                <option value="30">Hà Tĩnh</option>
-                                <option value="21">Hải Dương</option>
-                                <option value="03">Hải Phòng</option>
-                                <option value="23">Hoà Bình</option>
-                                <option value="22">Hưng Yên</option>
-                                <option value="41">Khánh Hoà</option>
-                                <option value="36">Kon Tum</option>
-                                <option value="07">Lai Châu</option>
-                                <option value="42">Lâm Đồng</option>
-                                <option value="10">Lạng Sơn</option>
-                                <option value="08">Lào Cai</option>
-                                <option value="25">Nam Định</option>
-                                <option value="29">Nghệ An</option>
-                                <option value="27">Ninh Bình</option>
-                                <option value="45">Ninh Thuận</option>
-                                <option value="15">Phú Thọ</option>
-                                <option value="39">Phú Yên</option>
-                                <option value="31">Quảng Bình</option>
-                                <option value="34">Quảng Nam</option>
-                                <option value="35">Quảng Ngãi</option>
-                                <option value="17">Quảng Ninh</option>
-                                <option value="32">Quảng Trị</option>
-                                <option value="14">Sơn La</option>
-                                <option value="46">Tây Ninh</option>
-                                <option value="26">Thái Bình</option>
-                                <option value="12">Thái Nguyên</option>
-                                <option value="28">Thanh Hoá</option>
-                                <option value="33">Thừa Thiên -Huế</option>
-                                <option value="02">Tp. Hồ Chí Minh</option>
-                                <option value="09">Tuyên Quang</option>
-                                <option value="16">Vĩnh Phúc</option>
-                                <option value="13">Yên Bái</option>
-                                <option value="99">Nước ngoài</option></select>
-                        </div>
-                        <div class="col-md-6">
-                            <label for="select-district">Huyện (Quận)</label>
-                            <select name="id_district" required="required"  id="select-district"><option value="">Chọn huyện (quận)</option></select>
-                        </div>
-                        <div class="col-md-6">
-                            <label for="ward">Xã, phường</label>
-                            <input id="ward" name="ward" type="text">
-                        </div>
-                        <div class="col-md-12">
-                            <label for="addr">Địa chỉ</label>
-                            <textarea name="addr" id="addr" ></textarea>
-                        </div>
-                    </fieldset>
+                <fieldset class="student-addr-details">
+                    <h4 class="title">HỘ KHẨU THƯỜNG TRÚ</h4>
+                    <div class="col-md-6">
+                        <label for="select-city">Tỉnh, thành phố</label>
+                        <select id="select-city" name="id_city" required="required">
+                            <option value="">Chọn tỉnh (thành phố)</option>
+                            <option value="51">An Giang</option>
+                            <option value="60">Bạc Liêu</option>
+                            <option value="56">Bến Tre</option>
+                            <option value="61">Cà Mau</option>
+                            <option value="55">Cần Thơ</option>
+                            <option value="50">Đồng Tháp</option>
+                            <option value="64">Hậu Giang</option>
+                            <option value="54">Kiên Giang</option>
+                            <option value="49">Long An</option>
+                            <option value="59">Sóc Trăng</option>
+                            <option value="53">Tiền Giang</option>
+                            <option value="58">Trà Vinh</option>
+                            <option value="57">Vĩnh Long</option>
+                            <option value="52">Bà Rịa-Vũng Tàu</option>
+                            <option value="18">Bắc Giang</option>
+                            <option value="11">Bắc Kạn</option>
+                            <option value="19">Bắc Ninh</option>
+                            <option value="37">Bình Định</option>
+                            <option value="44">Bình Dương</option>
+                            <option value="43">Bình Phước</option>
+                            <option value="47">Bình Thuận</option>
+                            <option value="06">Cao Bằng</option>
+                            <option value="04">Đà Nẵng</option>
+                            <option value="40">Đắk Lắk</option>
+                            <option value="63">Đăk Nông</option>
+                            <option value="62">Điện Biên</option>
+                            <option value="48">Đồng Nai</option>
+                            <option value="38">Gia Lai</option>
+                            <option value="05">Hà Giang</option>
+                            <option value="24">Hà Nam</option>
+                            <option value="01">Hà Nội</option>
+                            <option value="30">Hà Tĩnh</option>
+                            <option value="21">Hải Dương</option>
+                            <option value="03">Hải Phòng</option>
+                            <option value="23">Hoà Bình</option>
+                            <option value="22">Hưng Yên</option>
+                            <option value="41">Khánh Hoà</option>
+                            <option value="36">Kon Tum</option>
+                            <option value="07">Lai Châu</option>
+                            <option value="42">Lâm Đồng</option>
+                            <option value="10">Lạng Sơn</option>
+                            <option value="08">Lào Cai</option>
+                            <option value="25">Nam Định</option>
+                            <option value="29">Nghệ An</option>
+                            <option value="27">Ninh Bình</option>
+                            <option value="45">Ninh Thuận</option>
+                            <option value="15">Phú Thọ</option>
+                            <option value="39">Phú Yên</option>
+                            <option value="31">Quảng Bình</option>
+                            <option value="34">Quảng Nam</option>
+                            <option value="35">Quảng Ngãi</option>
+                            <option value="17">Quảng Ninh</option>
+                            <option value="32">Quảng Trị</option>
+                            <option value="14">Sơn La</option>
+                            <option value="46">Tây Ninh</option>
+                            <option value="26">Thái Bình</option>
+                            <option value="12">Thái Nguyên</option>
+                            <option value="28">Thanh Hoá</option>
+                            <option value="33">Thừa Thiên -Huế</option>
+                            <option value="02">Tp. Hồ Chí Minh</option>
+                            <option value="09">Tuyên Quang</option>
+                            <option value="16">Vĩnh Phúc</option>
+                            <option value="13">Yên Bái</option>
+                            <option value="99">Nước ngoài</option>
+                        </select>
+                    </div>
+                    <div class="col-md-6">
+                        <label for="select-district">Huyện (Quận)</label>
+                        <select id="select-district" name="id_district" required="required">
+                            <option value="">Chọn huyện (quận)</option>
+                        </select>
+                    </div>
+                    <div class="col-md-6">
+                        <label for="ward">Xã, phường</label>
+                        <input id="ward" name="ward" type="text">
+                    </div>
+                    <div class="col-md-12">
+                        <label for="addr">Địa chỉ</label>
+                        <textarea id="addr" name="addr"></textarea>
+                    </div>
+                </fieldset>
             </form>
         </div>
 
@@ -327,7 +332,7 @@
                 <h4 class="title">NGÀNH XÉT TUYỂN</h4>
                 <div class="col-md-8">
                     <label for="nv1">NV1:</label>
-                    <select name="nvong" id="nv1" required="required">
+                    <select id="nv1" name="nvong" required="required">
                         <option value="">Chọn ngành học</option>
                         <option value="7580201C">Kỹ thuật xây dựng (Chất lượng cao)</option>
                         <option value="7580201H">Kỹ thuật xây dựng - Học tại khu Hòa An</option>
@@ -345,7 +350,7 @@
                 </div>
                 <div class="col-md-4">
                     <label for="th1">NV1:</label>
-                    <select name="thop" id="th1" required="required" class="form-control">
+                    <select class="form-control" id="th1" name="thop" required="required">
                         <option disabled="" selected="" value="">Chọn tổ hợp</option>
                         <option value="A00">A00 - Toán, Vật lý, Hóa học</option>
                         <option value="A01">A01 - Toán, Vật lý, Tiếng Anh</option>
@@ -355,16 +360,10 @@
                 </div>
                 <div class="col-md-8">
                     <label for="nv1">NV2:</label>
-                    <select name="nvong" id="nv2" required="required">
+                    <select id="nv2" name="nvong" required="required">
                         <option value="">Chọn ngành học</option>
                         <option value="7580201C">Kỹ thuật xây dựng (Chất lượng cao)</option>
                         <option value="7580201H">Kỹ thuật xây dựng - Học tại khu Hòa An</option>
-                        <option value="7580205">Kỹ thuật xây dựng công trình giao thông</option>
-                        <option value="7580202">Kỹ thuật xây dựng công trình thủy</option>
-                        <option value="7520201C">Kỹ thuật Điện (Chất lượng cao)</option>
-                        <option value="7520216">Kỹ thuật điều khiển và tự động hóa</option>
-                        <option value="7520201">Kỹ thuật điện</option>
-                        <option value="7520207">Kỹ thuật điện tử - viễn thông</option>
                         <option value="7380101">Luật</option>
                         <option value="7380101H">Luật (Luật hành chính) - Học tại khu Hòa An</option>
                         <option value="7340115">Marketing</option>
@@ -373,7 +372,7 @@
                 </div>
                 <div class="col-md-4">
                     <label for="th2">NV2:</label>
-                    <select name="thop" id="th2" required="required" class="form-control">
+                    <select class="form-control" id="th2" name="thop" required="required">
                         <option disabled="" selected="" value="">Chọn tổ hợp</option>
                         <option value="A00">A00 - Toán, Vật lý, Hóa học</option>
                         <option value="A01">A01 - Toán, Vật lý, Tiếng Anh</option>
@@ -383,7 +382,7 @@
                 </div>
                 <div class="col-md-8">
                     <label for="nv3">NV3:</label>
-                    <select name="nvong" id="nv3" required="required">
+                    <select id="nv3" name="nvong" required="required">
                         <option value="">Chọn ngành học</option>
                         <option value="7580201C">Kỹ thuật xây dựng (Chất lượng cao)</option>
                         <option value="7580201H">Kỹ thuật xây dựng - Học tại khu Hòa An</option>
@@ -401,7 +400,7 @@
                 </div>
                 <div class="col-md-4">
                     <label for="th3">NV3:</label>
-                    <select name="thop" id="th3" required="required" class="form-control">
+                    <select class="form-control" id="th3" name="thop" required="required">
                         <option disabled="" selected="" value="">Chọn tổ hợp</option>
                         <option value="A00">A00 - Toán, Vật lý, Hóa học</option>
                         <option value="A01">A01 - Toán, Vật lý, Tiếng Anh</option>
@@ -437,27 +436,27 @@
                         <h5>TB</h5>
                     </div>
                 </div>
-                <div class="row">
+                <div class="row score-input">
                     <div class="col-md-1">
                         <h5>Toán</h5>
                     </div>
                     <div class="col-md-2">
-                        <input type="number" name="toan10_hk1" id="toan10_hk1">
+                        <input id="toan10_hk1" name="toan10_hk1" type="number">
                     </div>
                     <div class="col-md-2">
-                        <input type="number" name="toan10_hk2" id="toan10_hk2">
+                        <input id="toan10_hk2" name="toan10_hk2" type="number">
                     </div>
                     <div class="col-md-2">
-                        <input type="number" name="toan11_hk1" id="toan11_hk1">
+                        <input id="toan11_hk1" name="toan11_hk1" type="number">
                     </div>
                     <div class="col-md-2">
-                        <input type="number" name="toan11_hk2" id="toan11_hk2">
+                        <input id="toan11_hk2" name="toan11_hk2" type="number">
                     </div>
                     <div class="col-md-2">
-                        <input type="number" name="toan12_hk1" id="toan12_hk1">
+                        <input id="toan12_hk1" name="toan12_hk1" type="number">
                     </div>
                     <div class="col-md-1">
-                        <input type="number" name="toanTB" id="toanTB">
+                        <input id="toanTB" name="toanTB" type="number">
                     </div>
                 </div>
             </fieldset>
@@ -478,25 +477,25 @@
             <div class="col-md-4">
                 <h4>TIN MỚI NHẤT</h4>
                 <div class="d-flex justify-content-around">
-                    <a href="#" class="col-4">
-                        <img src="./assets/image/g2.jpg" class="img-fluid" alt="Responsive image">
+                    <a class="col-4" href="#">
+                        <img alt="Responsive image" class="img-fluid" src="./assets/image/g2.jpg">
                     </a>
-                    <a href="#" class="col-4">
-                        <img src="./assets/image/g1.jpg" class="img-fluid" alt="Responsive image">
+                    <a class="col-4" href="#">
+                        <img alt="Responsive image" class="img-fluid" src="./assets/image/g1.jpg">
                     </a>
-                    <a href="#" class="col-4">
-                        <img src="./assets/image/g3.jpg" class="img-fluid" alt="Responsive image">
+                    <a class="col-4" href="#">
+                        <img alt="Responsive image" class="img-fluid" src="./assets/image/g3.jpg">
                     </a>
                 </div>
                 <div class="d-flex justify-content-around">
-                    <a href="#" class="col-4">
-                        <img src="./assets/image/cntt-min.jpg" class="img-fluid" alt="Responsive image">
+                    <a class="col-4" href="#">
+                        <img alt="Responsive image" class="img-fluid" src="./assets/image/cntt-min.jpg">
                     </a>
-                    <a href="#" class="col-4">
-                        <img src="./assets/image/sv1.png" class="img-fluid" alt="Responsive image">
+                    <a class="col-4" href="#">
+                        <img alt="Responsive image" class="img-fluid" src="./assets/image/sv1.png">
                     </a>
-                    <a href="#" class="col-4">
-                        <img src="./assets/image/sv3.png" class="img-fluid" alt="Responsive image">
+                    <a class="col-4" href="#">
+                        <img alt="Responsive image" class="img-fluid" src="./assets/image/sv3.png">
                     </a>
                 </div>
             </div>
