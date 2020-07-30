@@ -18,6 +18,7 @@
     width: 60%;
     background: #fff;
     border-radius: 0.125rem;
+    box-shadow: 0px 0px 8px 0px rgba(19,20,5,1);
 }
 .login-frame h3{
     font-weight: bold;
@@ -52,7 +53,7 @@
 .login-frame form input{
     width: 49%;
     border: 1px #ccc solid;
-    padding: 10px 5px;
+    padding: 10px 10px;
 }
 
 .login-frame .register input{
