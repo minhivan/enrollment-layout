@@ -80,7 +80,6 @@ section.header ul li.active a:hover{
     background: url("../image/baner.jpg") no-repeat 0px 0px;
     background-size: cover;
     background-position: center;
-    min-height: 680px;
     position: relative;
     opacity: 0.8;
     background-position: 0 -120px;
@@ -91,7 +90,6 @@ section.header ul li.active a:hover{
 }
 .banner-bottom-main{
     box-shadow: -3px 0px 15px 1px rgba(0, 0, 0, 0.08);
-    padding: 4em 3em;
     background: #fff;
     text-align: left;
     margin-top: -6em;
@@ -123,9 +121,6 @@ section.header ul li.active a:hover{
     text-transform: uppercase;
     position: relative;
     margin-top: 0;
-}
-.course{
-    padding: 5em 0;
 }
 
 .heading span{
@@ -495,6 +490,10 @@ section.slider{
     background: linear-gradient(108deg, #f7434c, #ff8949) !important;
     color: #fff;
 }
+.myaccount-menu li.active{
+    background: linear-gradient(108deg, #f7434c, #ff8949) !important;
+    color: #fff;
+}
 .my-acc-content{
     padding: 3em 4em;
 }
@@ -521,7 +520,8 @@ section.slider{
     padding: 0 20px;
 }
 .panel-body{
-    padding: 1em 0em 1em 3em !important;
+    margin: auto;
+    text-align: center;
 }
 .panel-body h4{
     margin: 15px 0;
@@ -532,4 +532,23 @@ section.slider{
 .panel-body .status span{
     font-size: 14px;
     margin-right: 15px;
+}
+.value-choice{
+    display: none;
+}
+.value-choice.active{
+    display: block;
+}
+
+@media (min-width: 1281px) {
+    .banner{
+        min-height: 680px;
+    }
+    .banner-bottom-main{
+        padding: 4em 3em;
+    }
+    .course{
+        padding: 5em 0;
+    }
+
 }
