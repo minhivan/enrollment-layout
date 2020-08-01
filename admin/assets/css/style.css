@@ -43,3 +43,88 @@ body a:hover {
     text-decoration: none;
 }
 
+ection.header{
+    background-color: rgba(0,0,0,0.8);
+}
+section.header header{
+    background: linear-gradient(140deg,#ab032d 10%,#eb1d50 60%);
+}
+section.header nav h1 a{
+    font-family: 'Pacifico', cursive;
+    font-size: 28px;
+    letter-spacing: 1px;
+    color: #fff;
+}
+section.header .navbar{
+    margin: 0.5em !important;
+}
+section.header ul.navbar-nav{
+    float: right;
+    margin: 0;
+    padding-right: 40px;
+}
+section.header ul li a{
+    color: #000;
+    text-transform: capitalize;
+}
+section.header ul li.active a{
+    color: #fff;
+}
+section.header ul li.active a:hover{
+    color: #000;
+}
+.header-tools{
+    display: inline-block;
+    float: right;
+}
+ul.ts-quick-nav{
+    display: inline-flex;
+}
+
+
+.user-dropdown,.notify-dropdown{
+    padding: 10px 0;
+}
+.ts-quick-nav .user-toggle{
+    display: flex;
+    lign-items: center;
+    padding: 0 1px 1px;
+}
+.ts-quick-nav .user-toggle .user-avatar,
+.icon-status{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+    background: #798bff;
+    font-size: 14px;
+    font-weight: 500;
+    letter-spacing: 0.06em;
+    flex-shrink: 0;
+    position: relative;
+    border-radius: 50%;
+    padding: 10px;
+}
+.ts-quick-nav .user-toggle .user-avatar img,
+.notify-dropdown .icon-status img{
+    height: 15px;
+    width: 15px;
+}
+
+.ts-quick-nav .user-toggle .user-name{
+    display: flex;
+    padding: 5px;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+    font-size: 14px;
+    font-weight: 500;
+    letter-spacing: 0.06em;
+    flex-shrink: 0;
+    position: relative;
+}
+.icon-status{
+    position: relative;
+    display: inline-flex;
+    margin-left: 15px;
+}
