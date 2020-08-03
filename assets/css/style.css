@@ -540,6 +540,7 @@ section.slider{
     display: block;
 }
 
+
 @media (min-width: 1281px) {
     .banner{
         min-height: 680px;

@@ -140,7 +140,12 @@ ul.ts-quick-nav{
 }
 
 /* Profile sidebar */
-
+.st-menu-heading h6{
+    padding: 0.5rem 24px 0.5rem;
+    color: #8094ae;
+    font-weight: bold;
+    text-transform: uppercase;
+}
 .profile-usermenu {
     margin-top: 2em;
 }
@@ -259,4 +264,7 @@ ul.ts-quick-nav{
     display: block;
     line-height: 1.3;
     padding: 1.5rem;
+}
+.st-block .row > div{
+    padding: 15px !important;
 }
