@@ -1,0 +1,382 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"
+          name="viewport">
+    <meta content="ie=edge" http-equiv="X-UA-Compatible">
+    <!-- Font awsome -->
+    <link crossorigin="anonymous" href="https://use.fontawesome.com/releases/v5.13.1/css/all.css"
+          integrity="sha384-xxzQGERXS00kBmZW/6qxqJPyxW3UR0BPsL4c8ILaIWXva5kFi7TxkIIaMiKtqV1Q" rel="stylesheet">
+    <!--  Jquery & Bootstrap  -->
+    <link href="../../source/Bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <script src="../../source/JQuery/jquery.js"></script>
+    <script src="../../source/Bootstrap/js/bootstrap.min.js"></script>
+
+    <!--  Css + JS  -->
+    <link href="../assets/css/style.css" rel="stylesheet">
+    <!--    <script src="./assets/js/slide.js" type="text/javascript"></script>-->
+    <!--  Font  -->
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Muli:wght@500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Anton&display=swap" rel="stylesheet">
+
+    <title>Danh sách</title>
+</head>
+<body>
+<section class="header">
+    <header>
+        <div class="container">
+            <nav class="navbar navbar-expand-lg navbar-light bg-gradient-secondary">
+                <h1>
+                    <a class="navbar-brand" href="index.html">
+                        Tuyển Sinh 247
+                    </a>
+                </h1>
+                <div class="header-tools">
+                    <ul class="ts-quick-nav">
+                        <li class="dropdown user-dropdown">
+                            <a href="#">
+                                <div class="user-toggle">
+                                    <div class="user-avatar">
+                                        <img alt="" src="../assets/image/user.svg">
+                                    </div>
+                                    <div class="user-name">
+                                        <span>Nhật Minh</span>
+                                    </div>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="dropdown notify-dropdown">
+                            <a href="#">
+                                <div class="icon-status">
+                                    <img alt="" src="../assets/image/notification.svg">
+                                </div>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </div>
+    </header>
+</section>
+
+<div class="ts-content">
+    <div class="container">
+        <div class="ts-content-inner">
+            <div class="st-sidebar-menu col-md-3">
+                <div class="profile-sidebar">
+                    <!-- SIDEBAR MENU -->
+                    <div class="profile-usermenu">
+                        <ul class="nav">
+                            <li class="st-menu-heading">
+                                <h6 class="overline-title">Menu</h6>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <i class="glyphicon glyphicon-home"></i>
+                                    Tổng quan </a>
+                            </li>
+                            <li class="active">
+                                <a href="#">
+                                    <i class="glyphicon glyphicon-user"></i>
+                                    Danh sách </a>
+                            </li>
+                            <li>
+                                <a href="#" target="_blank">
+                                    <i class="glyphicon glyphicon-ok"></i>
+                                    Ứng tuyển </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <i class="glyphicon glyphicon-flag"></i>
+                                    Help </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <i class="glyphicon glyphicon-user"></i>
+                                    Account Settings </a>
+                            </li>
+                        </ul>
+                    </div>
+                    <!-- END MENU -->
+                </div>
+            </div>
+            <div class="st-content-body col-md-9">
+                <div class="st-content-wrap">
+                    <div class="st-block-head">
+                        <h2 class="st-block-title ">Danh sách thành viên</h2>
+                        <div class="st-block-des">
+                            <p>Here is your list of account.</p>
+                        </div>
+                    </div>
+                    <div class="st-block">
+                        <div class="row">
+                            <div class="card card-bordered">
+                                <table class="table table-member">
+                                    <thead class="tb-member-head thead-light">
+                                    <tr class="tb-member-item">
+                                        <th class="tb-member-info"><span class="overline-title">Team Member</span></th>
+                                        <th class="tb-member-type tb-col-sm"><span
+                                                class="overline-title">Permission</span></th>
+                                        <th class="tb-member-role tb-col-md"><span class="overline-title">Role</span>
+                                        </th>
+                                        <th class="tb-member-action"><span class="overline-title">Action</span></th>
+                                    </tr>
+                                    </thead>
+                                    <tbody class="tb-member-body">
+                                    <tr class="tb-member-item">
+                                        <td class="tb-member-info">
+                                            <div class="user-card">
+                                                <div class="user-avatar bg-primary"><span>AB</span></div>
+                                                <div class="user-info"><span
+                                                        class="lead-text">Abu Bin Ishityak</span><span class="sub-text">info@softnio.com</span>
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td class="tb-member-type tb-col-sm"><span>Owner</span></td>
+                                        <td class="tb-member-role tb-col-md"><span>All</span></td>
+                                        <td class="tb-member-action">
+                                            <div class="d-none d-md-inline"><a class="link link-sm"
+                                                                               href="#"><span>Edit</span></a><a
+                                                    class="link link-sm link-danger" href="#"><span>Remove</span></a>
+                                            </div>
+                                            <div class="dropdown d-md-none"><a
+                                                    class="dropdown-toggle btn btn-icon btn-trigger"
+                                                    data-toggle="dropdown"><em class="icon ni ni-more-v"></em></a>
+                                                <div class="dropdown-menu dropdown-menu-right dropdown-menu-xs">
+                                                    <ul class="link-list-plain no-bdr">
+                                                        <li class="active"><a class="link link-sm" href="#">Edit</a>
+                                                        </li>
+                                                        <li><a class="link link-sm link-danger" href="#">Remove</a></li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr class="tb-member-item">
+                                        <td class="tb-member-info">
+                                            <div class="user-card">
+                                                <div class="user-avatar bg-success"><span>JF</span></div>
+                                                <div class="user-info"><span
+                                                        class="lead-text">Joseph Figueroa</span><span class="sub-text">joseffig@gmail.com</span>
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td class="tb-member-type tb-col-sm"><span>Member</span></td>
+                                        <td class="tb-member-role tb-col-md">
+                                            <div class="form">
+                                                <select aria-hidden="true"
+                                                        class="form-select select2-hidden-accessible" data-search="off"
+                                                        data-select2-id="1" data-ui="clean"
+                                                        tabindex="-1">
+                                                    <option data-select2-id="3" value="superadmin">Super Admin</option>
+                                                    <option value="admin">Admin</option>
+                                                    <option value="manager">Manager</option>
+                                                </select>
+                                            </div>
+                                        </td>
+                                        <td class="tb-member-action">
+                                            <div class="d-none d-md-inline"><a class="link link-sm"
+                                                                               href="#"><span>Edit</span></a><a
+                                                    class="link link-sm link-danger" href="#"><span>Remove</span></a>
+                                            </div>
+                                            <div class="dropdown d-md-none"><a
+                                                    class="dropdown-toggle btn btn-icon btn-trigger"
+                                                    data-toggle="dropdown"><em class="icon ni ni-more-v"></em></a>
+                                                <div class="dropdown-menu dropdown-menu-right dropdown-menu-xs">
+                                                    <ul class="link-list-plain no-bdr">
+                                                        <li class="active"><a class="link link-sm" href="#">Edit</a>
+                                                        </li>
+                                                        <li><a class="link link-sm link-danger" href="#">Remove</a></li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr class="tb-member-item">
+                                        <td class="tb-member-info">
+                                            <div class="user-card">
+                                                <div class="user-avatar bg-success"><span>JF</span></div>
+                                                <div class="user-info"><span
+                                                        class="lead-text">Joseph Figueroa</span><span class="sub-text">joseffig@gmail.com</span>
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td class="tb-member-type tb-col-sm"><span>Member</span></td>
+                                        <td class="tb-member-role tb-col-md">
+                                            <div class="form">
+                                                <select aria-hidden="true"
+                                                        class="form-select select2-hidden-accessible" data-search="off"
+                                                        data-select2-id="1" data-ui="clean"
+                                                        tabindex="-1">
+                                                    <option data-select2-id="3" value="superadmin">Super Admin</option>
+                                                    <option value="admin">Admin</option>
+                                                    <option value="manager">Manager</option>
+                                                </select>
+                                            </div>
+                                        </td>
+                                        <td class="tb-member-action">
+                                            <div class="d-none d-md-inline"><a class="link link-sm"
+                                                                               href="#"><span>Edit</span></a><a
+                                                    class="link link-sm link-danger" href="#"><span>Remove</span></a>
+                                            </div>
+                                            <div class="dropdown d-md-none"><a
+                                                    class="dropdown-toggle btn btn-icon btn-trigger"
+                                                    data-toggle="dropdown"><em class="icon ni ni-more-v"></em></a>
+                                                <div class="dropdown-menu dropdown-menu-right dropdown-menu-xs">
+                                                    <ul class="link-list-plain no-bdr">
+                                                        <li class="active"><a class="link link-sm" href="#">Edit</a>
+                                                        </li>
+                                                        <li><a class="link link-sm link-danger" href="#">Remove</a></li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr class="tb-member-item">
+                                        <td class="tb-member-info">
+                                            <div class="user-card">
+                                                <div class="user-avatar bg-success"><span>JF</span></div>
+                                                <div class="user-info"><span
+                                                        class="lead-text">Joseph Figueroa</span><span class="sub-text">joseffig@gmail.com</span>
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td class="tb-member-type tb-col-sm"><span>Member</span></td>
+                                        <td class="tb-member-role tb-col-md">
+                                            <div class="form">
+                                                <select aria-hidden="true"
+                                                        class="form-select select2-hidden-accessible" data-search="off"
+                                                        data-select2-id="1" data-ui="clean"
+                                                        tabindex="-1">
+                                                    <option data-select2-id="3" value="superadmin">Super Admin</option>
+                                                    <option value="admin">Admin</option>
+                                                    <option value="manager">Manager</option>
+                                                </select>
+                                            </div>
+                                        </td>
+                                        <td class="tb-member-action">
+                                            <div class="d-none d-md-inline"><a class="link link-sm"
+                                                                               href="#"><span>Edit</span></a><a
+                                                    class="link link-sm link-danger" href="#"><span>Remove</span></a>
+                                            </div>
+                                            <div class="dropdown d-md-none"><a
+                                                    class="dropdown-toggle btn btn-icon btn-trigger"
+                                                    data-toggle="dropdown"><em class="icon ni ni-more-v"></em></a>
+                                                <div class="dropdown-menu dropdown-menu-right dropdown-menu-xs">
+                                                    <ul class="link-list-plain no-bdr">
+                                                        <li class="active"><a class="link link-sm" href="#">Edit</a>
+                                                        </li>
+                                                        <li><a class="link link-sm link-danger" href="#">Remove</a></li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr class="tb-member-item">
+                                        <td class="tb-member-info">
+                                            <div class="user-card">
+                                                <div class="user-avatar bg-success"><span>JF</span></div>
+                                                <div class="user-info"><span
+                                                        class="lead-text">Joseph Figueroa</span><span class="sub-text">joseffig@gmail.com</span>
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td class="tb-member-type tb-col-sm"><span>Member</span></td>
+                                        <td class="tb-member-role tb-col-md">
+                                            <div class="form">
+                                                <select aria-hidden="true"
+                                                        class="form-select select2-hidden-accessible" data-search="off"
+                                                        data-select2-id="1" data-ui="clean"
+                                                        tabindex="-1">
+                                                    <option data-select2-id="3" value="superadmin">Super Admin</option>
+                                                    <option value="admin">Admin</option>
+                                                    <option value="manager">Manager</option>
+                                                </select>
+                                            </div>
+                                        </td>
+                                        <td class="tb-member-action">
+                                            <div class="d-none d-md-inline"><a class="link link-sm"
+                                                                               href="#"><span>Edit</span></a><a
+                                                    class="link link-sm link-danger" href="#"><span>Remove</span></a>
+                                            </div>
+                                            <div class="dropdown d-md-none"><a
+                                                    class="dropdown-toggle btn btn-icon btn-trigger"
+                                                    data-toggle="dropdown"><em class="icon ni ni-more-v"></em></a>
+                                                <div class="dropdown-menu dropdown-menu-right dropdown-menu-xs">
+                                                    <ul class="link-list-plain no-bdr">
+                                                        <li class="active"><a class="link link-sm" href="#">Edit</a>
+                                                        </li>
+                                                        <li><a class="link link-sm link-danger" href="#">Remove</a></li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr class="tb-member-item">
+                                        <td class="tb-member-info">
+                                            <div class="user-card">
+                                                <div class="user-avatar bg-success"><span>JF</span></div>
+                                                <div class="user-info"><span
+                                                        class="lead-text">Joseph Figueroa</span><span class="sub-text">joseffig@gmail.com</span>
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td class="tb-member-type tb-col-sm"><span>Member</span></td>
+                                        <td class="tb-member-role tb-col-md">
+                                            <div class="form">
+                                                <select aria-hidden="true"
+                                                        class="form-select select2-hidden-accessible" data-search="off"
+                                                        data-select2-id="1" data-ui="clean"
+                                                        tabindex="-1">
+                                                    <option data-select2-id="3" value="superadmin">Super Admin</option>
+                                                    <option value="admin">Admin</option>
+                                                    <option value="manager">Manager</option>
+                                                </select>
+                                            </div>
+                                        </td>
+                                        <td class="tb-member-action">
+                                            <div class="d-none d-md-inline"><a class="link link-sm"
+                                                                               href="#"><span>Edit</span></a><a
+                                                    class="link link-sm link-danger" href="#"><span>Remove</span></a>
+                                            </div>
+                                            <div class="dropdown d-md-none"><a
+                                                    class="dropdown-toggle btn btn-icon btn-trigger"
+                                                    data-toggle="dropdown"><em class="icon ni ni-more-v"></em></a>
+                                                <div class="dropdown-menu dropdown-menu-right dropdown-menu-xs">
+                                                    <ul class="link-list-plain no-bdr">
+                                                        <li class="active"><a class="link link-sm" href="#">Edit</a>
+                                                        </li>
+                                                        <li><a class="link link-sm link-danger" href="#">Remove</a></li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script crossorigin="anonymous"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+<!-- Popper.JS -->
+<script crossorigin="anonymous"
+        integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ"
+        src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js"></script>
+<!-- Bootstrap JS -->
+<script crossorigin="anonymous"
+        integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm"
+        src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"></script>
+
+</body>
+</html>
