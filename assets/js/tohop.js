@@ -37,13 +37,15 @@ var nvong = {
 var tohop = {
     "A00" : {
         "name" : "To hop A00",
-            "Mon": ["Toán","Lý","Hóa"],
+            "subject": ["Toán","Lý","Hóa"],
+            "slug":["toan","ly","hoa"],
             "id": 1
     },
 
     "A01" : {
         "name" : "To hop A01",
-            "tohop" : ["Toán","Lý","Anh văn"],
+            "subject" : ["Toán","Lý","Anh văn"],
+            "slug": ["toan"],
             "id": 2
     },
 
@@ -59,5 +61,5 @@ var tohop = {
             "id": 4
     }
 };
-console.log(tohop["7480102"]);
+// console.log(tohop["7480102"]);
 
