@@ -6,8 +6,8 @@
           name="viewport">
     <meta content="ie=edge" http-equiv="X-UA-Compatible">
     <!-- Font awsome -->
-    <link crossorigin="anonymous" href="https://use.fontawesome.com/releases/v5.13.1/css/all.css"
-          integrity="sha384-xxzQGERXS00kBmZW/6qxqJPyxW3UR0BPsL4c8ILaIWXva5kFi7TxkIIaMiKtqV1Q" rel="stylesheet">
+<!--    <link crossorigin="anonymous" href="https://use.fontawesome.com/releases/v5.13.1/css/all.css"-->
+<!--          integrity="sha384-xxzQGERXS00kBmZW/6qxqJPyxW3UR0BPsL4c8ILaIWXva5kFi7TxkIIaMiKtqV1Q" rel="stylesheet">-->
     <!--  Jquery & Bootstrap  -->
     <link href="./source/Bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <script src="./source/JQuery/jquery.js"></script>
@@ -15,12 +15,13 @@
     <!--  Css + JS  -->
     <link href="./assets/css/style.css" rel="stylesheet">
     <script src="assets/js/tohop.js"></script>
+    <script src="assets/js/function.js"></script>
     <!--  Font  -->
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Muli:wght@500&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@600&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Anton&display=swap" rel="stylesheet">
+<!--    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans&display=swap" rel="stylesheet">-->
+<!--    <link href="https://fonts.googleapis.com/css2?family=Muli:wght@500&display=swap" rel="stylesheet">-->
+<!--    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@600&display=swap" rel="stylesheet">-->
+<!--    <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">-->
+<!--    <link href="https://fonts.googleapis.com/css2?family=Anton&display=swap" rel="stylesheet">-->
     <title>Đăng ký xét tuyển</title>
 </head>
 <body>
@@ -324,143 +325,92 @@
                         <textarea id="addr" name="addr"></textarea>
                     </div>
                 </fieldset>
+
+                <div class="student-choice">
+                    <fieldset>
+                        <h4 class="title">NGÀNH XÉT TUYỂN</h4>
+                        <div class="col-md-8">
+                            <label for="nv1">NV1:</label>
+                            <select id="nv1" name="nvong" required="required" onchange="change_nvong()">
+                                <option value="">Chọn ngành học</option>
+                                <option value="7580201C">Kỹ thuật xây dựng (Chất lượng cao)</option>
+                                <option value="7580201H">Kỹ thuật xây dựng - Học tại khu Hòa An</option>
+                                <option value="7380101">Luật</option>
+                                <option value="7380101H">Luật (Luật hành chính) - Học tại khu Hòa An</option>
+                                <option value="7340115">Marketing</option>
+                                <option value="7480102">Mạng máy tính và truyền thông dữ liệu</option>
+                            </select>
+                        </div>
+                        <div class="col-md-4">
+                            <label for="th1">NV1:</label>
+                            <select class="form-control" id="th1" name="thop" required="required" onchange="change_score_input()">
+                                <option selected="selected" value="">Chọn tổ hợp</option>
+                                <!--                        <option value="A00">A00 - Toán, Vật lý, Hóa học</option>-->
+                                <!--                        <option value="A01">A01 - Toán, Vật lý, Tiếng Anh</option>-->
+                                <!--                        <option value="B00">B00 - Toán, Hóa học, Sinh học</option>-->
+                                <!--                        <option value="D07">D07 - Toán, Hóa học, Tiếng Anh</option>-->
+                            </select>
+                        </div>
+                    </fieldset>
+                </div>
+                <div class="student-mark">
+                    <fieldset>
+                        <h4 class="title">ĐIỂM XÉT TUYỂN</h4>
+                        <div class="row header-title">
+                            <div class="col-md-1">
+                                <h5>Môn</h5>
+                            </div>
+                            <div class="col-md-2">
+                                <h5>HK1-Lớp 10</h5>
+                            </div>
+                            <div class="col-md-2">
+                                <h5>HK2-Lớp 10</h5>
+                            </div>
+                            <div class="col-md-2">
+                                <h5>HK1-Lớp 11</h5>
+                            </div>
+                            <div class="col-md-2">
+                                <h5>HK2-Lớp 11</h5>
+                            </div>
+                            <div class="col-md-2">
+                                <h5>HK1-Lớp 12</h5>
+                            </div>
+                            <div class="col-md-1">
+                                <h5>TB</h5>
+                            </div>
+                        </div>
+                        <div class="row score-input" id="score_input">
+                            <!--                    <div class="score-row">-->
+                            <!--                        <div class="col-md-1">-->
+                            <!--                            <h5>Toán</h5>-->
+                            <!--                        </div>-->
+                            <!--                        <div class="col-md-2">-->
+                            <!--                            <input id="toan10_hk1" name="toan10_hk1" type="number">-->
+                            <!--                        </div>-->
+                            <!--                        <div class="col-md-2">-->
+                            <!--                            <input id="toan10_hk2" name="toan10_hk2" type="number">-->
+                            <!--                        </div>-->
+                            <!--                        <div class="col-md-2">-->
+                            <!--                            <input id="toan11_hk1" name="toan11_hk1" type="number">-->
+                            <!--                        </div>-->
+                            <!--                        <div class="col-md-2">-->
+                            <!--                            <input id="toan11_hk2" name="toan11_hk2" type="number">-->
+                            <!--                        </div>-->
+                            <!--                        <div class="col-md-2">-->
+                            <!--                            <input id="toan12_hk1" name="toan12_hk1" type="number">-->
+                            <!--                        </div>-->
+                            <!--                        <div class="col-md-1">-->
+                            <!--                            <input id="toanTB" name="toanTB" type="number">-->
+                            <!--                        </div>-->
+                            <!--                    </div>-->
+                        </div>
+                    </fieldset>
+                </div>
+                <button type="submit">SUBMIT</button>
             </form>
         </div>
 
-        <div class="student-choice">
-            <fieldset>
-                <h4 class="title">NGÀNH XÉT TUYỂN</h4>
-                <div class="col-md-8">
-                    <label for="nv1">NV1:</label>
-                    <select id="nv1" name="nvong" required="required">
-                        <option value="">Chọn ngành học</option>
-                        <option value="7580201C">Kỹ thuật xây dựng (Chất lượng cao)</option>
-                        <option value="7580201H">Kỹ thuật xây dựng - Học tại khu Hòa An</option>
-                        <option value="7580205">Kỹ thuật xây dựng công trình giao thông</option>
-                        <option value="7580202">Kỹ thuật xây dựng công trình thủy</option>
-                        <option value="7520201C">Kỹ thuật Điện (Chất lượng cao)</option>
-                        <option value="7520216">Kỹ thuật điều khiển và tự động hóa</option>
-                        <option value="7520201">Kỹ thuật điện</option>
-                        <option value="7520207">Kỹ thuật điện tử - viễn thông</option>
-                        <option value="7380101">Luật</option>
-                        <option value="7380101H">Luật (Luật hành chính) - Học tại khu Hòa An</option>
-                        <option value="7340115">Marketing</option>
-                        <option value="7480102">Mạng máy tính và truyền thông dữ liệu</option>
-                    </select>
-                </div>
-                <div class="col-md-4">
-                    <label for="th1">NV1:</label>
-                    <select class="form-control" id="th1" name="thop" required="required">
-                        <option disabled="" selected="" value="">Chọn tổ hợp</option>
-                        <option value="A00">A00 - Toán, Vật lý, Hóa học</option>
-                        <option value="A01">A01 - Toán, Vật lý, Tiếng Anh</option>
-                        <option value="B00">B00 - Toán, Hóa học, Sinh học</option>
-                        <option value="D07">D07 - Toán, Hóa học, Tiếng Anh</option>
-                    </select>
-                </div>
-                <div class="col-md-8">
-                    <label for="nv1">NV2:</label>
-                    <select id="nv2" name="nvong" required="required">
-                        <option value="">Chọn ngành học</option>
-                        <option value="7580201C">Kỹ thuật xây dựng (Chất lượng cao)</option>
-                        <option value="7580201H">Kỹ thuật xây dựng - Học tại khu Hòa An</option>
-                        <option value="7380101">Luật</option>
-                        <option value="7380101H">Luật (Luật hành chính) - Học tại khu Hòa An</option>
-                        <option value="7340115">Marketing</option>
-                        <option value="7480102">Mạng máy tính và truyền thông dữ liệu</option>
-                    </select>
-                </div>
-                <div class="col-md-4">
-                    <label for="th2">NV2:</label>
-                    <select class="form-control" id="th2" name="thop" required="required">
-                        <option disabled="" selected="" value="">Chọn tổ hợp</option>
-                        <option value="A00">A00 - Toán, Vật lý, Hóa học</option>
-                        <option value="A01">A01 - Toán, Vật lý, Tiếng Anh</option>
-                        <option value="B00">B00 - Toán, Hóa học, Sinh học</option>
-                        <option value="D07">D07 - Toán, Hóa học, Tiếng Anh</option>
-                    </select>
-                </div>
-                <div class="col-md-8">
-                    <label for="nv3">NV3:</label>
-                    <select id="nv3" name="nvong" required="required">
-                        <option value="">Chọn ngành học</option>
-                        <option value="7580201C">Kỹ thuật xây dựng (Chất lượng cao)</option>
-                        <option value="7580201H">Kỹ thuật xây dựng - Học tại khu Hòa An</option>
-                        <option value="7580205">Kỹ thuật xây dựng công trình giao thông</option>
-                        <option value="7580202">Kỹ thuật xây dựng công trình thủy</option>
-                        <option value="7520201C">Kỹ thuật Điện (Chất lượng cao)</option>
-                        <option value="7520216">Kỹ thuật điều khiển và tự động hóa</option>
-                        <option value="7520201">Kỹ thuật điện</option>
-                        <option value="7520207">Kỹ thuật điện tử - viễn thông</option>
-                        <option value="7380101">Luật</option>
-                        <option value="7380101H">Luật (Luật hành chính) - Học tại khu Hòa An</option>
-                        <option value="7340115">Marketing</option>
-                        <option value="7480102">Mạng máy tính và truyền thông dữ liệu</option>
-                    </select>
-                </div>
-                <div class="col-md-4">
-                    <label for="th3">NV3:</label>
-                    <select class="form-control" id="th3" name="thop" required="required">
-                        <option disabled="" selected="" value="">Chọn tổ hợp</option>
-                        <option value="A00">A00 - Toán, Vật lý, Hóa học</option>
-                        <option value="A01">A01 - Toán, Vật lý, Tiếng Anh</option>
-                        <option value="B00">B00 - Toán, Hóa học, Sinh học</option>
-                        <option value="D07">D07 - Toán, Hóa học, Tiếng Anh</option>
-                    </select>
-                </div>
-            </fieldset>
-        </div>
-        <div class="student-mark">
-            <fieldset>
-                <h4 class="title">ĐIỂM XÉT TUYỂN</h4>
-                <div class="row header-title">
-                    <div class="col-md-1">
-                        <h5>Môn</h5>
-                    </div>
-                    <div class="col-md-2">
-                        <h5>HK1-Lớp 10</h5>
-                    </div>
-                    <div class="col-md-2">
-                        <h5>HK2-Lớp 10</h5>
-                    </div>
-                    <div class="col-md-2">
-                        <h5>HK1-Lớp 11</h5>
-                    </div>
-                    <div class="col-md-2">
-                        <h5>HK2-Lớp 11</h5>
-                    </div>
-                    <div class="col-md-2">
-                        <h5>HK1-Lớp 12</h5>
-                    </div>
-                    <div class="col-md-1">
-                        <h5>TB</h5>
-                    </div>
-                </div>
-                <div class="row score-input">
-                    <div class="col-md-1">
-                        <h5>Toán</h5>
-                    </div>
-                    <div class="col-md-2">
-                        <input id="toan10_hk1" name="toan10_hk1" type="number">
-                    </div>
-                    <div class="col-md-2">
-                        <input id="toan10_hk2" name="toan10_hk2" type="number">
-                    </div>
-                    <div class="col-md-2">
-                        <input id="toan11_hk1" name="toan11_hk1" type="number">
-                    </div>
-                    <div class="col-md-2">
-                        <input id="toan11_hk2" name="toan11_hk2" type="number">
-                    </div>
-                    <div class="col-md-2">
-                        <input id="toan12_hk1" name="toan12_hk1" type="number">
-                    </div>
-                    <div class="col-md-1">
-                        <input id="toanTB" name="toanTB" type="number">
-                    </div>
-                </div>
-            </fieldset>
-        </div>
+
     </div>
 </section>
 <!--Footer-->

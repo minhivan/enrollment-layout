@@ -27,3 +27,8 @@ function openTab(tabName) {
     console.log(tabName);
     event.currentTarget.className += " active";
 }
+
+function change_nvonge(id){
+
+}
+
