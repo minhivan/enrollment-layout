@@ -1,0 +1,48 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"
+          name="viewport">
+    <meta content="ie=edge" http-equiv="X-UA-Compatible">
+    <!-- Font awsome -->
+    <link crossorigin="anonymous" href="https://use.fontawesome.com/releases/v5.13.1/css/all.css"
+          integrity="sha384-xxzQGERXS00kBmZW/6qxqJPyxW3UR0BPsL4c8ILaIWXva5kFi7TxkIIaMiKtqV1Q" rel="stylesheet">
+    <!--  Jquery & Bootstrap  -->
+    <link href="{% static 'myapp/source/Bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+    <script src="{% static 'myapp/source/JQuery/jquery.js' %}"></script>
+    <script src="{% static 'myapp/source/Bootstrap/js/bootstrap.min.js' %}"></script>
+
+    <!--  Css + JS  -->
+    <link href="{% static 'myapp/assets/css/style.css' %}" rel="stylesheet">
+    <!--    <script src="./assets/js/slide.js" type="text/javascript"></script>-->
+    <!--  Font  -->
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Muli:wght@500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Anton&display=swap" rel="stylesheet">
+    <title>Sign In</title>
+</head>
+<body>
+<div class="login-banner">
+    <div class="container-fluid login-sec">
+        <div class="col-md-6 lg-left"></div>
+        <div class="col-md-6 lg-right">
+            <div class="login-frame">
+                <h3>ĐĂNG NHẬP</h3>
+                <div class="divider"></div>
+                <form action="" method="post">
+                    <input placeholder="Email" type="text">
+                    <input placeholder="Password" type="password">
+                    <button type="submit">ĐĂNG NHẬP</button>
+                    <a href="./register.html">Chưa có tài khoản ? Đăng ký ngay</a>
+                </form>
+            </div>
+        </div>
+        <div class="clearfix"></div>
+    </div>
+</div>
+</body>
+</html>

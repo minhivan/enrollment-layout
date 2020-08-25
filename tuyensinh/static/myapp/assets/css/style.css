@@ -1,0 +1,561 @@
+@import "login.css";
+html,
+body {
+    background:#f3f3f3;
+    font-family: 'Muli', sans-serif;
+    font-size: 14px;
+}
+
+p {
+    margin: 0;
+    color: #777;
+    font-size: 14px;
+    line-height: 1.8;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: 'Muli', sans-serif;
+    margin: 0;
+}
+
+ul,
+label {
+    margin: 0;
+    list-style-type: none;
+    padding: 0;
+}
+
+body a {
+    transition: 0.5s all;
+    -webkit-transition: 0.5s all;
+    -moz-transition: 0.5s all;
+    -o-transition: 0.5s all;
+    -ms-transition: 0.5s all;
+    text-decoration: none;
+    outline: none;
+}
+
+body a:hover {
+    text-decoration: none;
+}
+
+
+/*HEADER*/
+section.header{
+    background-color: rgba(0,0,0,0.8);
+}
+section.header header{
+    background: linear-gradient(140deg,#ab032d 10%,#eb1d50 60%);
+}
+section.header nav h1 a{
+    font-family: 'Pacifico', cursive;
+    font-size: 28px;
+    letter-spacing: 1px;
+    color: #fff;
+}
+section.header .navbar{
+    margin: 0.5em !important;
+}
+section.header ul.navbar-nav{
+    float: right;
+    margin: 0;
+    padding-right: 40px;
+}
+section.header ul li a{
+    color: #000;
+    text-transform: capitalize;
+}
+section.header ul li.active a{
+    color: #fff;
+}
+section.header ul li.active a:hover{
+    color: #000;
+}
+.banner{
+    background: url("../image/baner.jpg") no-repeat 0px 0px;
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    opacity: 0.8;
+    background-position: 0 -120px;
+}
+
+.banner-btm{
+    position: relative;
+}
+.banner-bottom-main{
+    box-shadow: -3px 0px 15px 1px rgba(0, 0, 0, 0.08);
+    background: #fff;
+    text-align: left;
+    margin-top: -6em;
+}
+.banner-bottom-main div.col-md-4:nth-child(2){
+    border-right: 1px solid #d8d8d8;
+    border-left: 1px solid #d8d8d8;
+}
+.banner-bottom-main div i{
+    text-align: center;
+    display: block;
+    font-size: 24px;
+}
+.banner-bottom-main h3{
+    color: #222222;
+    font-size: 20px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    text-align: center;
+    margin-top: 20px;
+    font-weight: 500;
+    font-family: 'Anton', sans-serif;
+}
+.heading{
+    letter-spacing: 4px;
+    font-size: 40px;
+    text-align: center;
+    color: rgb(235 29 80);
+    text-transform: uppercase;
+    position: relative;
+    margin-top: 0;
+}
+
+.heading span{
+    display: block;
+    font-size: 17px!important;
+    margin-top: 1em;
+    letter-spacing: 4px;
+    text-transform: capitalize;
+    color: #000000;
+    font-weight: 500;
+}
+.heading span:after{
+    content: '';
+    background: #212121;
+    height: 2px;
+    width: 70px;
+    position: absolute;
+    top: 132%;
+    right: 47%;
+}
+
+
+.section-body .title{
+    font-family: 'Anton', sans-serif;
+    font-weight: bold;
+    margin: 1em 0;
+    text-align: left;
+    text-transform: uppercase;
+}
+.section-body h3.title{
+    font-size: 30px;
+    text-align: center;
+}
+
+.majors{
+    margin: 70px 0;
+    display: flex;
+    flex-flow: row wrap;
+
+}
+
+.card{
+    position: relative;
+    border: 1px solid rgba(0, 0, 0, 0.125);
+    padding: 0 !important;
+    border-radius: 0.25rem;
+    display: flex;
+    flex: 1 0 0%;
+    flex-direction: column;
+    margin: 0 15px;
+}
+
+.card img{
+    height: 300px;
+    max-width: 100%;
+    vertical-align: middle;
+}
+.card-title{
+    padding: 1.25em;
+}
+.card-title h5{
+    font-size: 20px;
+    letter-spacing: 2px;
+    margin-bottom: 1em;
+    color: #000;
+}
+section.about{
+    background: url("../image/cntt-min.jpg") no-repeat center;
+    padding: 4em 0;
+    background-attachment: fixed;
+}
+.about-content{
+    padding: 4em;
+    background: #fff;
+}
+.about-content h5{
+    color: #761c19;
+    font-size: 24px;
+    font-family: 'Anton', sans-serif;
+    font-weight: 500;
+    margin-bottom: 1em;
+}
+.about-content h4{
+    font-size: 28px;
+    letter-spacing: 1px;
+    line-height: 1.5;
+    font-weight: bold;
+    margin-bottom: 1em;
+}
+
+section.slider{
+    padding: 4em 0;
+}
+.flexslider{
+    margin: 0 0 60px;
+    background: transparent;
+    position: relative;
+    padding: 0;
+}
+.slides:after{
+    clear: both;
+    display: table;
+    content: " ";
+}
+.flex-active-slide{
+    width: 1110px;
+    float: left;
+    display: block;
+}
+.flexslider .slides img{
+    width: 15%;
+    margin: auto;
+    display: block;
+    border-radius: 50%;
+}
+.flexslider .slides p{
+    line-height: 30px;
+    text-align: center;
+    color: #777;
+    font-style: italic;
+    width: 70%;
+    margin: 30px auto;
+    letter-spacing: 2px;
+    font-size: 15px;
+}
+.control-paging{
+    width: 100%;
+    text-align: center;
+    padding: 0;
+    list-style: none;
+    margin-top: 20px;
+}
+
+.control-paging li{
+    display: inline-block;
+    margin: 0 5px;
+}
+.control-paging li a{
+    width: 11px;
+    height: 11px;
+    display: block;
+    background: #C5C5C5;
+    cursor: pointer;
+    text-indent: -9999px;
+    border-radius: 50%;
+}
+.control-paging li a.active{
+    background: #f14156;
+    cursor: default;
+}
+
+.student h5{
+    font-size: 25px;
+    color: #f14156;
+    text-align: center;
+}
+
+.flex-slide{
+    -webkit-animation-name: fade;
+    -webkit-animation-duration: 1.5s;
+    animation-name: fade;
+    animation-duration: 1.5s;
+}
+
+
+@-webkit-keyframes flex-slide {
+    from {opacity: .4}
+    to {opacity: 1}
+}
+
+@keyframes flex-slide {
+    from {opacity: .4}
+    to {opacity: 1}
+}
+
+
+.footer-section h4{
+    color: #eb1d50;
+    text-transform: capitalize;
+    font-size: 25px;
+    margin-bottom: 1.5em;
+    letter-spacing: 2px;
+    font-family: 'Anton', sans-serif;
+}
+.footer-section a,.footer-section p{
+    display: block;
+    color: #bbbbbb;
+    line-height: 28px;
+    font-size: 15px;
+    letter-spacing: .7px;
+}
+.d-flex{
+    display: flex;
+    justify-content: space-around;
+}
+.col-4{
+    flex: 0 0 33.333333%;
+    max-width: 33.333333%;
+}
+.footer-section a img{
+    width: 100%;
+    margin-bottom: 0px;
+    border: 2px solid #fff;
+}
+.img-fluid{
+    max-width: 100%;
+    height: 85px;
+}
+.copyright{
+    background: #000000;
+    border-top: 1px solid #2b2b2b;
+    padding: 1.5em 0;
+}
+.copyright p{
+    color: #fff;
+    font-size: 14px;
+    letter-spacing: 2px;
+    text-align: center;
+}
+.copyright a{
+    color: #eb1d50;
+    text-decoration: none;
+}
+
+/*apply form*/
+.student-info div label,
+.student-choice div label{
+    width: 170px;
+}
+.student-info div input,
+.student-info div select{
+    width: 340px;
+    margin: 0;
+    padding: 5px 8px;
+    border: 1px solid #ccc;
+    background: transparent;
+    border-radius: 0.125rem;
+}
+.student-info div,.student-choice div{
+    margin: 1em 0;
+    padding: 0;
+}
+
+.student-addr-details, .student-choice{
+    border-top: 1px dotted #ccc;
+    margin: 1em 0;
+    padding: 1em 0;
+}
+.student-addr-details h4, .student-choice h4{
+    margin: 0em 0 1em 0;
+}
+
+.student-addr-details textarea{
+    height: 60px;
+    resize: none;
+    min-width: 82%;
+    padding: 5px 8px;
+    background-color: transparent;
+    border: 1px solid #ccc;
+
+}
+.student-choice select{
+    min-width: 82%;
+    margin: 0;
+    padding: 5px 8px;
+    border: 1px solid #ccc;
+    background: transparent;
+    border-radius: 0.125rem;
+}
+
+.student-mark div.row div.col-md-1,
+.student-mark div.row div.col-md-2{
+    border: 1px solid #ccc;
+    padding: 1em;
+    display: flex;
+    justify-content: center;
+    height: 60px;
+    align-items: center;
+}
+.student-mark input{
+    width: 70% !important;
+    text-align: center;
+}
+.student-mark .header-title h5{
+    font-weight: bold;
+}
+.student-mark div{
+    margin: 0 !important;
+}
+.score-row{
+    margin: 0 !important;
+}
+/* METHOD */
+.section-body{
+    font-size: 14px;
+    padding: 3em 0;
+}
+
+.method-content{
+    padding: 2em 0;
+}
+.method-content h5{
+    margin: 2em 2em;
+    text-align: left;
+    font-size: 16px;
+}
+.method-content h5 a{
+    color: #222222;
+    cursor: pointer;
+    border-bottom: 1px solid #ccc;
+}
+.method-content h5 a:hover{
+    color: #2e6da4;
+}
+.method-title h4{
+    display: inline-block;
+    padding: 0 10px;
+    font-size: 18px;
+    border-bottom: 1px solid #ccc;
+    margin: 5px 0;
+}
+.method-details{
+    padding: 1em 0 1em 2em;
+    display: none;
+}
+.method-details p{
+    line-height: 26px;
+    text-align: justify;
+    text-justify: inter-word;
+    color: #2b2b2b;
+}
+
+/*account*/
+.my-acc{
+    padding: 2em 0;
+}
+.my-acc-menu, .my-acc-content{
+    background-color: white;
+    border-radius: 0.125rem;
+}
+.user-profile{
+    padding: 1em 0;
+}
+.user-profile .user-image{
+    display: flex;
+    justify-content: center;
+}
+
+.user-profile .user-image img{
+    max-width: 100%;
+    height: 150px;
+    display: block;
+    border-radius: 0;
+}
+.user-profile .user-name,.logout{
+    text-align: center;
+    font-size: 14px;
+    display: block;
+}
+
+.myaccount-menu{
+    border-top: 1px solid #0f0f0f;
+    list-style-type: none;
+    display: flex;
+    flex-flow: column;
+    padding: 1em 0;
+}
+.myaccount-menu li{
+    padding: 10px 10px;
+}
+
+.myaccount-menu li:hover{
+    background: linear-gradient(108deg, #f7434c, #ff8949) !important;
+    color: #fff;
+}
+.myaccount-menu li.active{
+    background: linear-gradient(108deg, #f7434c, #ff8949) !important;
+    color: #fff;
+}
+.my-acc-content{
+    padding: 3em 4em;
+}
+.accout-details{
+    margin-top : 2em;
+    border-top: 1px solid #2e6da4;
+}
+.student-info-details h4,
+.accout-details h4{
+    text-align: center;
+    margin: 15px;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+.student-info button{
+    padding: 1em 2em;
+    border: none;
+    background: linear-gradient(108deg, #f7434c, #ff8949) !important;
+    border-radius: 0.125rem;
+    color: #fff;
+}
+.panel-title{
+    background-color: white;
+    padding: 0 20px;
+}
+.panel-body{
+    margin: auto;
+    text-align: center;
+}
+.panel-body h4{
+    margin: 15px 0;
+}
+.pannel-body .status{
+    padding: 1em 0;
+}
+.panel-body .status span{
+    font-size: 14px;
+    margin-right: 15px;
+}
+.value-choice{
+    display: none;
+}
+.value-choice.active{
+    display: block;
+}
+
+
+@media (min-width: 1281px) {
+    .banner{
+        min-height: 680px;
+    }
+    .banner-bottom-main{
+        padding: 4em 3em;
+    }
+    .course{
+        padding: 5em 0;
+    }
+
+}
