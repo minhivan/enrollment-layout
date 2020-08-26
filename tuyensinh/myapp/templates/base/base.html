@@ -1,0 +1,125 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"
+          name="viewport">
+    <meta content="ie=edge" http-equiv="X-UA-Compatible">
+    <link rel="icon" href="{% static 'myapp/assets/image/icon/icon.ico' %}" type="image/x-icon">
+    <!-- Font awsome -->
+    <link crossorigin="anonymous" href="https://use.fontawesome.com/releases/v5.13.1/css/all.css"
+          integrity="sha384-xxzQGERXS00kBmZW/6qxqJPyxW3UR0BPsL4c8ILaIWXva5kFi7TxkIIaMiKtqV1Q" rel="stylesheet">
+    <!--  Jquery & Bootstrap  -->
+    <link href="{% static 'myapp/source/Bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+    <script src="{% static 'myapp/source/JQuery/jquery.js' %}"></script>
+    <script src="{% static 'myapp/source/Bootstrap/js/bootstrap.min.js' %}"></script>
+    <!--  Css + JS  -->
+    <link href="{% static 'myapp/assets/css/style.css' %}" rel="stylesheet">
+    <script src="{% static 'myapp/assets/js/tohop.js' %}"></script>
+    <script src="{% static 'myapp/assets/js/function.js' %}"></script>
+    <!--  Font  -->
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Muli:wght@500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Anton&display=swap" rel="stylesheet">
+    <title>Đăng ký xét tuyển</title>
+</head>
+<body>
+<!--  Header  -->
+<section class="header">
+    <header>
+        <div class="container">
+            <nav class="navbar navbar-expand-lg navbar-light bg-gradient-secondary">
+                <h1>
+                    <a class="navbar-brand" href="../index.html">
+                        Tuyển Sinh 247
+                    </a>
+                </h1>
+                <button class="navbar-toggle collapsed" data-target="#bs-example-navbar-collapse-1" data-toggle="collapse"
+                        type="button">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                    <ul class="nav navbar-nav">
+                        <li class="active">
+                            <a href="/">Trang chủ</a>
+                        </li>
+                        <li>
+                            <a href="#">Đại học chính quy</a>
+                        </li>
+                        <li>
+                            <a href="/method">Đăng ký xét tuyển</a>
+                        </li>
+                        <li>
+                            <a href="/login">Đăng nhập</a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </div>
+    </header>
+</section>
+{% block content %}
+
+
+{% endblock %}
+
+<!--Footer-->
+<footer class="footer-section">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4">
+                <h4>THÔNG TIN CẦN BIẾT</h4>
+                <a href="#">Đề án tuyển sinh</a>
+                <a href="#">Mức điểm đăng ký xét tuyển</a>
+                <a href="#">Danh mục ngành, chỉ tiêu tuyển sinh</a>
+                <a href="#">Tra cứu kết quả tuyển sinh</a>
+            </div>
+            <div class="col-md-4">
+                <h4>TIN MỚI NHẤT</h4>
+                <div class="d-flex justify-content-around">
+                    <a href="#" class="col-4">
+                        <img src="{% static 'myapp/assets/image/g2.jpg' %}" class="img-fluid" alt="Responsive image">
+                    </a>
+                    <a href="#" class="col-4">
+                        <img src="{% static 'myapp/assets/image/g1.jpg' %}" class="img-fluid" alt="Responsive image">
+                    </a>
+                    <a href="#" class="col-4">
+                        <img src="{% static 'myapp/assets/image/g3.jpg' %}" class="img-fluid" alt="Responsive image">
+                    </a>
+                </div>
+                <div class="d-flex justify-content-around">
+                    <a href="#" class="col-4">
+                        <img src="{% static 'myapp/assets/image/cntt-min.jpg' %}" class="img-fluid" alt="Responsive image">
+                    </a>
+                    <a href="#" class="col-4">
+                        <img src="{% static 'myapp/assets/image/sv1.png' %}" class="img-fluid" alt="Responsive image">
+                    </a>
+                    <a href="#" class="col-4">
+                        <img src="{% static 'myapp/assets/image/sv3.png' %}" class="img-fluid" alt="Responsive image">
+                    </a>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <h4>ĐỊA CHỈ</h4>
+                <p>Khu II, đường 3/2, P. Xuân Khánh, Q. Ninh Kiều, TP. Cần Thơ</p>
+                <a href="">Điện thoại: (84-292) 3832663</a>
+            </div>
+        </div>
+    </div>
+</footer>
+<section class="copyright">
+    <div class="container">
+        <p>© 2020 TuyenSinh247 . All Rights Reserved | Design by
+            <a href="#"> PhamMinh </a>
+        </p>
+    </div>
+</section>
+<!--End Footer-->
+</body>
+</html>
