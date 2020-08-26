@@ -1,0 +1,273 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"
+          name="viewport">
+    <meta content="ie=edge" http-equiv="X-UA-Compatible">
+     <!-- Font awsome -->
+    <link rel="icon" href="{% static 'myapp/assets/image/icon/icon.ico' %}" type="image/x-icon">
+    <link crossorigin="anonymous" href="https://use.fontawesome.com/releases/v5.13.1/css/all.css"
+          integrity="sha384-xxzQGERXS00kBmZW/6qxqJPyxW3UR0BPsL4c8ILaIWXva5kFi7TxkIIaMiKtqV1Q" rel="stylesheet">
+
+    <!--  Jquery & Bootstrap  -->
+    <link href="{% static 'myapp/source/Bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+    <script src="{% static 'myapp/source/JQuery/jquery.js' %}"></script>
+    <script src="{% static 'myapp/source/Bootstrap/js/bootstrap.min.js' %}"></script>
+
+    <!--  Css + JS  -->
+    <link href="{% static 'myapp/assets/css/style.css' %}" rel="stylesheet">
+    <script src="{% static 'myapp/assets/js/tohop.js' %}"></script>
+    <script src="{% static 'myapp/assets/js/function.js' %}"></script>
+    <!--    <script src="./assets/js/slide.js" type="text/javascript"></script>-->
+    <!--  Font  -->
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Muli:wght@500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Anton&display=swap" rel="stylesheet">
+    <title>Phương thức 1</title>
+</head>
+<body>
+<!-- Header -->
+<section class="header">
+    <header>
+        <div class="container">
+            <nav class="navbar navbar-expand-lg navbar-light bg-gradient-secondary">
+                <h1>
+                    <a class="navbar-brand" href="index.html">
+                        Tuyển Sinh 247
+                    </a>
+                </h1>
+                <button class="navbar-toggle collapsed" data-target="#bs-example-navbar-collapse-1" data-toggle="collapse"
+                        type="button">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                    <ul class="nav navbar-nav">
+                        <li class="active">
+                            <a href="/">Trang chủ</a>
+                        </li>
+                        <li>
+                            <a href="#">Đại học chính quy</a>
+                        </li>
+                        <li>
+                            <a href="/method">Đăng ký xét tuyển</a>
+                        </li>
+                        <li>
+                            <a href="/login">Đăng nhập</a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </div>
+    </header>
+</section>
+<!-- End header -->
+
+<section class="section-body method-content">
+    <h3 class="title">Phương thức 1 - Tuyển thẳng, ưu tiên xét tuyển</h3>
+    <div class="method-title">
+        <div class="container">
+            <div class="row">
+                <i class="fas fa-caret-right"></i><h4 class="" onclick="toggle_visibility('tuyenthang')">Tuyển
+                thẳng</h4>
+                <div class="method-details" id="tuyenthang">
+                    <p><strong>1. Đối tượng:</strong></p>
+                    <p>Thí sinh đã tốt nghiệp THPT thuộc các đối tượng sau được tuyển thẳng vào đại học hệ chính
+                        quy:</p>
+                    <p>a) Anh hùng lao động, Anh hùng lực lượng vũ trang nhân dân, Chiến sĩ thi đua toàn quốc;</p>
+                    <p>b) Thí sinh đã trúng tuyển vào Trường ĐHCT nhưng có lệnh điều động đi nghĩa vụ quân sự hoặc đi
+                        thanh niên xung phong tập trung nay đã hoàn thành nghĩa vụ, được phục viên, xuất ngũ;</p>
+                    <p>c) Thí sinh đoạt giải nhất, nhì, ba trong Kỳ thi chọn học sinh giỏi quốc gia; </p>
+                    <p>d) Thí sinh tham dự kỳ thi chọn đội tuyển quốc gia dự thi Olympic quốc tế; </p>
+                    <p>đ) Thí sinh đoạt giải nhất, nhì, ba trong Cuộc thi khoa học, kỹ thuật cấp quốc gia;</p>
+                    <p>e) Thí sinh trong đội tuyển quốc gia tham dự Cuộc thi khoa học, kỹ thuật quốc tế;</p>
+                    <p>g) Thí sinh đạt một trong các giải nhất, nhì, ba tại các kỳ thi tay nghề khu vực ASEAN và thi tay
+                        nghề quốc tế;</p>
+                    <p>h) Thí sinh là thành viên đội tuyển quốc gia, được Bộ Văn hoá thể thao và du lịch xác nhận đã
+                        hoàn thành nhiệm vụ tham gia thi đấu trong các giải quốc tế chính thức, bao gồm: Giải vô địch
+                        thế giới, Cúp thế giới, Thế vận hội Olympic, Đại hội Thể thao châu Á (ASIAD), Giải vô địch châu
+                        Á, Cúp châu Á, Giải vô địch Đông Nam Á, Đại hội Thể thao Đông Nam Á (SEA GAMES), Cúp Đông Nam Á.
+                        Những thí sinh đoạt giải các ngành TDTT, thời gian được tính để hưởng ưu tiên là không quá 4 năm
+                        tính đến ngày đăng ký tuyển thẳng vào trường;</p>
+                    <p>i)&nbsp; Học sinh đã tốt nghiệp trường THPT chuyên của các tỉnh, thành phố được tuyển thẳng vào
+                        các ngành sư phạm phù hợp với môn học chuyên hoặc môn đoạt giải nếu đáp ứng điều kiện: ba năm
+                        học THPT chuyên của tỉnh đạt học sinh giỏi hoặc đoạt giải nhất, nhì, ba trong các kỳ thi học
+                        sinh giỏi do cấp tỉnh trở lên tổ chức. </p>
+                    <p>k) Đối với thí sinh là người khuyết tật đặc biệt nặng có giấy xác nhận khuyết tật của cơ quan có
+                        thẩm quyền cấp theo quy định;</p>
+                    <p>l) Đối với thí sinh là người nước ngoài: căn cứ kết quả học tập THPT của học sinh (bảng điểm),
+                        kết quả kiểm tra kiến thức và năng lực Tiếng Việt quy định tại Điều 6 Thông tư số
+                        30/2018/TT-BGDĐT ngày 24/12/2018 quy định về quản lý người nước ngoài học tập tại Việt Nam của
+                        Bộ trưởng Bộ GDĐT để xem xét, quyết định.</p>
+                    <p><strong>2. Danh mục ngành tuyển thẳng:</strong></p>
+                    <p>a) Thí sinh là đối tượng được quy định tại điểm c hoặc điểm d được tuyển thẳng vào đại học theo
+                        ngành phù hợp với môn mà thí sinh đã tham dự kỳ thi chọn đội tuyển hoặc đoạt giải (Danh mục
+                        ngành tuyển thẳng học sinh giỏi cấp quốc gia).</p>
+                    <p>b) Thí sinh là đối tượng được quy định tại điểm đ, điểm e hoặc điểm g sẽ được tuyển thẳng vào đại
+                        học theo ngành phù hợp với nội dung đề tài dự thi hoặc phù hợp với nghề đã dự thi của thí sinh. Thí sinh liên hệ Phòng Đào tạo để được hướng dẫn và tư vấn chọn ngành phù hợp.
+                    </p>
+                    <p>c) Thí sinh là đối tượng được quy định tại điểm h được tuyển thẳng vào ngành Giáo dục thể chất
+                        (mã ngành 7140206).</p>
+                    <p>d) Thí sinh là đối tượng được quy định tại điểm i được tuyển thẳng vào các ngành sư phạm phù hợp
+                        với môn học chuyên hoặc môn đoạt giải (Danh mục tuyển thẳng vào ngành đào tạo giáo viên).</p>
+                    <p>đ) Thí sinh là đối tượng được quy định tại điểm k hoặc điểm l liên hệ Phòng Đào tạo để được hướng
+                        dẫn đăng ký và tư vấn chọn ngành phù hợp.</p>
+                    <p>Đối với các ngành đào tạo giáo viên, Trường dành tối đa 40% chỉ tiêu mỗi ngành để tuyển thẳng,
+                        nếu số thí sinh đăng ký nhiều hơn chỉ tiêu, Trường xét theo thứ tự các tiêu chí sau:</p>
+                    <p>(1) Cấp tổ chức kỳ thi học sinh giỏi;</p>
+                    <p>(2) Thứ hạng đoạt giải nhất, nhì, ba trong các kỳ thi học sinh giỏi cùng cấp;</p>
+                    <p>(3) Đạt học sinh giỏi 3 năm học THPT chuyên;</p>
+                    <p>(4) Điểm trung bình cộng môn chuyên của 3 năm học THPT (làm tròn 2 số lẻ).</p>
+                    <p>Thí sinh được tuyển thẳng thuộc đối tượng quy định tại điểm a, c, d, đ, e, g, h, i được Trường
+                        ĐHCT cấp học bổng khuyến khích học tập học kỳ I và II, năm học 2020-2021 (3.150.000 đồng/học
+                        kỳ).</p>
+
+
+                </div>
+            </div>
+            <div class="row">
+                <i class="fas fa-caret-right"></i><h4 class="" onclick="toggle_visibility('uutien')">Ưu tiên xét
+                tuyển</h4>
+                <div class="method-details" id="uutien">
+                    <p><strong>1. Điều kiện:</strong></p>
+                    <p>- Thí sinh có tham dự kỳ thi THPT quốc gia năm 2020 và đã tốt nghiệp THPT;</p>
+                    <p>- Có kết quả các môn thi văn hóa ứng với tổ hợp môn thi của ngành đăng ký ưu tiên xét tuyển tối
+                        thiểu bằng ngưỡng đảm bảo chất lượng đầu vào do Bộ GD&amp;ĐT quy định và không có môn nào từ 1,0
+                        điểm (thang điểm 10) trở xuống;</p>
+                    <p>- Đối với ngành Giáo dục thể chất, ngoài các điều kiện trên, môn Năng khiếu TDTT đạt từ 5,0 điểm
+                        trở lên (theo thang điểm 10).</p>
+                    <p><strong>2. Đối tượng ưu tiên xét tuyển</strong></p>
+                    <p>Thí sinh có đủ các điều kiện trên và thuộc các đối tượng sau được ưu tiên xét tuyển vào đại học
+                        hệ chính quy:</p>
+                    <p>a) Thí sinh đoạt giải nhất, nhì, ba trong Kỳ thi chọn học sinh giỏi quốc gia; Cuộc thi khoa học,
+                        kỹ thuật cấp quốc gia hoặc các kỳ thi tay nghề khu vực ASEAN và thi tay nghề quốc tế được ưu
+                        tiên xét tuyển vào ngành học do thí sinh đăng ký xét tuyển.</p>
+                    <p>b) Thí sinh đoạt huy chương vàng các giải vô địch hạng nhất quốc gia tổ chức một lần trong năm và
+                        thí sinh được Tổng cục TDTT có quyết định công nhận là kiện tướng quốc gia được ưu tiên xét
+                        tuyển vào ngành Giáo dục thể chất. Những thí sinh đoạt giải các ngành thể dục thể thao, thời
+                        gian được tính để hưởng ưu tiên là không quá 4 năm tính đến ngày đăng ký ưu tiên xét tuyển vào
+                        Trường.</p>
+                    <p>Thí sinh ưu tiên xét tuyển được Trường ĐHCT cấp học bổng khuyến khích học tập học kỳ I, năm học
+                        2020-2021 (3.150.000 đồng/học kỳ).</p>
+                </div>
+            </div>
+            <div class="row">
+                <i class="fas fa-caret-right"></i><h4 class="" onclick="toggle_visibility('lephi')">Lệ phí đăng ký</h4>
+                <div class="method-details" id="lephi">
+                    <p>30.000đ/nguyện vọng</p>
+                </div>
+            </div>
+            <div class="row">
+                <i class="fas fa-caret-right"></i><h4 class="" onclick="toggle_visibility('hoso')">Hồ sơ và thời gian
+                đăng ký</h4>
+                <div class="method-details" id="hoso">
+                    <p>Nộp hồ sơ tại các Sở Giáo dục và Đào tạo trước ngày 20/7/2020 (Hướng dẫn số 1778/BGDĐT-GDĐH ngày
+                        22/5/2020 của Bộ GDĐT)</p>
+                    <p>1/ Tuyển thẳng:</p>
+                    <p class="MsoNormal"><span lang="DE" style="color: black;"> - Hồ sơ của thí sinh là đối tượng được quy định tại các điểm a, c, d, đ, e, g, h gồm:</span>
+                    </p>
+                    <p class="MsoNormal"><span lang="DE"
+                                               style="color: black;">&nbsp; + Phiếu đăng ký xét tuyển thẳng</span></p>
+                    <p class="MsoNormal"><span lang="DE" style="color: black;">&nbsp; + Ít nhất một trong các bản photocopy sau: Chứng nhận là thành viên được triệu tập tham dự kỳ thi chọn đội tuyển quốc gia dự thi Olympic khu vực và quốc tế hoặc chứng nhận là thành viên đội tuyển tham dự cuộc thi Khoa học kỹ thuật quốc tế <i>(có tên trong danh sách của Bộ GDĐT)</i>; Giấy chứng nhận đoạt giải Kỳ thi chọn HSG quốc gia; Giấy chứng nhận đoạt giải Cuộc thi Khoa học kỹ thuật quốc gia; Giấy chứng nhận đoạt giải quốc tế về thể dục thể thao, năng khiếu nghệ thuật; Giấy chứng nhận đoạt giải kỳ thi tay nghề khu vực ASEAN và thi tay nghề quốc tế và giấy chứng nhận các đối tượng ưu tiên tuyển thẳng khác;</span>
+                    </p>
+                    <p class="MsoNormal"><span lang="DE" style="color: black; letter-spacing: -.4pt;">&nbsp; + Hai phong bì đã dán tem và ghi rõ họ tên, địa chỉ liên lạc, số điện thoại của thí sinh; </span>
+                    </p>
+                    <p class="MsoNormal"><span lang="EN-US">&nbsp; + Hai ảnh chân dung cỡ 4 x 6.</span></p>
+                    <p class="MsoNormal"><span lang="EN-US">- Hồ sơ của thí sinh là đối tượng được quy định tại </span>
+                        <span lang="DE">điểm i </span> <span lang="EN-US">gồm:</span></p>
+                    <p class="MsoNormal"><span lang="EN-US">&nbsp;&nbsp;+ Phiếu đăng ký xét tuyển thẳng </span>
+                    </p>
+                    <p class="MsoNormal"><span lang="EN-US">&nbsp;&nbsp;+ Bản photocopy học bạ 3 năm học THPT;</span>
+                    </p>
+                    <p class="MsoNormal"><span lang="EN-US">&nbsp;&nbsp;&nbsp;+ Hai phong bì đã dán tem và ghi rõ họ tên, địa chỉ liên lạc, số điện thoại của thí sinh; </span>
+                    </p>
+                    <p class="MsoNormal"><span lang="EN-US">&nbsp;&nbsp;+ Hai ảnh chân dung cỡ 4 x 6;</span></p>
+                    <p class="MsoNormal"><span lang="EN-US">&nbsp;&nbsp;+ Bản photocopy hộ khẩu thường trú.</span></p>
+                    <p class="MsoNormal"><span lang="en-us"> 2/ Ưu tiên xét tuyển: </span></p>
+                    <p class="MsoNormal"><span lang="DE"> - Hồ sơ gồm có: </span></p>
+                    <p class="MsoNormal"><span lang="DE">+ Phiếu đăng ký ưu tiên xét tuyển </span>
+                    </p>
+                    <p class="MsoNormal"><span lang="DE">+ Ít nhất một trong các bản photocopy sau: Giấy chứng nhận đoạt giải Kỳ thi chọn HSG quốc gia; Giấy chứng nhận đoạt giải Cuộc thi Khoa học kỹ thuật quốc gia, quốc tế; Giấy chứng nhận đoạt giải quốc tế về thể dục thể thao, năng khiếu nghệ thuật, Giấy chứng nhận đoạt giải kỳ thi tay nghề khu vực ASEAN và thi tay nghề quốc tế.</span>
+                    </p>
+                    <p class="MsoNormal"><span lang="DE">- Ngoài ra, thí sinh phải nộp Phiếu đăng ký nguyện vọng xét tuyển vào ĐH, CĐ cùng với hồ sơ đăng ký dự thi Kỳ thi tốt nghiệp THPT năm 2020 (từ ngày 15/6 đến 30/6);</span>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="about">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-7 about-content">
+                <h5 class="mb-3">LEARNING PRACTICE AND USEFUL TIPS</h5>
+                <h4>WE PREPARE THE STUDENTS FOR EXAMS AND TESTING</h4>
+                <p class="mt-3 mb-3">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do Lorem ipsum dolor
+                    sit amet, consectetur adipisicing elit, sed do Lorem ipsum dolor sit amet, consectetur adipisicing
+                    elit, sed do Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do</p>
+            </div>
+        </div>
+    </div>
+</section>
+<!--Footer-->
+<footer class="footer-section">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4">
+                <h4>THÔNG TIN CẦN BIẾT</h4>
+                <a href="#">Đề án tuyển sinh</a>
+                <a href="#">Mức điểm đăng ký xét tuyển</a>
+                <a href="#">Danh mục ngành, chỉ tiêu tuyển sinh</a>
+                <a href="#">Tra cứu kết quả tuyển sinh</a>
+            </div>
+            <div class="col-md-4">
+                <h4>TIN MỚI NHẤT</h4>
+                <div class="d-flex justify-content-around">
+                    <a href="#" class="col-4">
+                        <img src="{% static 'myapp/assets/image/g2.jpg' %}" class="img-fluid" alt="Responsive image">
+                    </a>
+                    <a href="#" class="col-4">
+                        <img src="{% static 'myapp/assets/image/g1.jpg' %}" class="img-fluid" alt="Responsive image">
+                    </a>
+                    <a href="#" class="col-4">
+                        <img src="{% static 'myapp/assets/image/g3.jpg' %}" class="img-fluid" alt="Responsive image">
+                    </a>
+                </div>
+                <div class="d-flex justify-content-around">
+                    <a href="#" class="col-4">
+                        <img src="{% static 'myapp/assets/image/cntt-min.jpg' %}" class="img-fluid" alt="Responsive image">
+                    </a>
+                    <a href="#" class="col-4">
+                        <img src="{% static 'myapp/assets/image/sv1.png' %}" class="img-fluid" alt="Responsive image">
+                    </a>
+                    <a href="#" class="col-4">
+                        <img src="{% static 'myapp/assets/image/sv3.png' %}" class="img-fluid" alt="Responsive image">
+                    </a>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <h4>ĐỊA CHỈ</h4>
+                <p>Khu II, đường 3/2, P. Xuân Khánh, Q. Ninh Kiều, TP. Cần Thơ</p>
+                <a href="">Điện thoại: (84-292) 3832663</a>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<section class="copyright">
+    <div class="container">
+        <p>© 2020 TuyenSinh247 . All Rights Reserved | Design by
+            <a href="#"> PhamMinh </a>
+        </p>
+    </div>
+</section>
+<!--End Footer-->
+</body>
+</html>

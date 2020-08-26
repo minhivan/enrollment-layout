@@ -1,0 +1,180 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"
+          name="viewport">
+    <meta content="ie=edge" http-equiv="X-UA-Compatible">
+    <link rel="icon" href="{% static 'myapp/assets/image/icon/icon.ico' %}" type="image/x-icon">
+
+     <!-- Font awsome -->
+    <link crossorigin="anonymous" href="https://use.fontawesome.com/releases/v5.13.1/css/all.css"
+          integrity="sha384-xxzQGERXS00kBmZW/6qxqJPyxW3UR0BPsL4c8ILaIWXva5kFi7TxkIIaMiKtqV1Q" rel="stylesheet">
+
+    <!--  Jquery & Bootstrap  -->
+    <link href="{% static 'myapp/source/Bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+    <script src="{% static 'myapp/source/JQuery/jquery.js' %}"></script>
+    <script src="{% static 'myapp/source/Bootstrap/js/bootstrap.min.js' %}"></script>
+
+    <!--  Css + JS  -->
+    <link href="{% static 'myapp/assets/css/style.css' %}" rel="stylesheet">
+    <script src="{% static 'myapp/assets/js/tohop.js' %}"></script>
+    <script src="{% static 'myapp/assets/js/function.js' %}"></script>
+    <!--    <script src="./assets/js/slide.js" type="text/javascript"></script>-->
+    <!--  Font  -->
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Muli:wght@500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Anton&display=swap" rel="stylesheet">
+    <title>Phương thức 6</title>
+</head>
+<body>
+<!-- Header -->
+<section class="header">
+    <header>
+        <div class="container">
+            <nav class="navbar navbar-expand-lg navbar-light bg-gradient-secondary">
+                <h1>
+                    <a class="navbar-brand" href="index.html">
+                        Tuyển Sinh 247
+                    </a>
+                </h1>
+                <button class="navbar-toggle collapsed" data-target="#bs-example-navbar-collapse-1" data-toggle="collapse"
+                        type="button">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                    <ul class="nav navbar-nav">
+                        <li class="active">
+                            <a href="/">Trang chủ</a>
+                        </li>
+                        <li>
+                            <a href="#">Đại học chính quy</a>
+                        </li>
+                        <li>
+                            <a href="/method">Đăng ký xét tuyển</a>
+                        </li>
+                        <li>
+                            <a href="/login">Đăng nhập</a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </div>
+    </header>
+</section>
+<!-- End header -->
+
+<section class="section-body method-content">
+    <h3 class="title">Phương thức 6: Xét tuyển vào Sư phạm bằng học bạ THPT</h3>
+    <div class="method-title">
+        <div class="container">
+            <div class="row">
+                <div class="method-details" style="display: block">
+                    <p>- Xét tuyển dựa vào Điểm trung bình môn <strong> 6 học kỳ</strong>&nbsp;của 3 môn trong tổ hợp xét tuyển ứng với ngành do thí sinh đăng ký. Điểm mỗi môn (gọi là&nbsp;<strong>Điểm M</strong>) được tính bằng trung bình cộng của điểm trung bình môn trong 6 học kỳ (làm tròn đến 2 chữ số thập phân). Công thức tính ĐiểmM như sau:</p>
+                    <p><em> Trong đó: ĐTBM<sub>HK</sub>&nbsp; là Điểm trung bình môn học kỳ (HK1L10: Học kỳ 1 Lớp 10)</em></p>
+                    <p>Riêng ngành Giáo dục thể chất thì thí sinh phải dự thi môn Năng khiếu TDTT do Trường ĐHCT tổ chức thi vào ngày 16/8/2020 để lấy điểm.</p>
+                    <p><strong> - Ngành xét tuyển:</strong>&nbsp;13 ngành<strong> đào tạo giáo viên</strong></p>
+                    <p><strong> - Chỉ tiêu tuyển sinh:</strong>&nbsp;tối đa 40% chỉ tiêu ngành</p>
+                    <p><strong> - Đối tượng:&nbsp;</strong>Thí sinh tốt nghiệp THPT từ năm 2020 về trước</p>
+                    <p><strong> - Điều kiện đăng ký xét tuyển:</strong>&nbsp;thí sinh đạt điều kiện dưới đây được đăng ký xét tuyển</p>
+                    <p>+ Đối với ngành Giáo dục thể chất: Học lực cả năm lớp 12 được xếp loại KHÁ trở lên; Những trường hợp sau đây chỉ yêu cầu học lực cả năm lớp 12 xếp loại TRUNG BÌNH trở lên:</p>
+                    <p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; * Thí sinh là vận động viên cấp 1, kiện tướng, vận động viên đã từng đoạt huy chương tại Hội khỏe Phù Đổng, các giải trẻ quốc gia và quốc tế hoặc giải vô địch quốc gia và quốc tế.</p>
+                    <p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;*&nbsp;Thí sinh có điểm thi môn Năng khiếu TDTT (do Trường ĐHCT tổ chức thi) từ 9,0 trở lên (theo thang điểm 10).</p>
+                    <p>+ Đối với những ngành còn lại: Học lực cả năm lớp 12 được xếp loại GIỎI.</p>
+                    <p><strong> - Điểm xét tuyển (ĐXT):</strong>&nbsp;là tổng điểm 3 môn theo tổ hợp xét tuyển, cộng với điểm ưu tiên&nbsp;<em>(đối tượng ưu tiên, khu vực ưu tiên quy định tại Điều 7 của Quy chế tuyển sinh)</em>. Không nhân hệ số và tính theo công thức:&nbsp;</p>
+                    <p><strong> - Nguyên tắc xét tuyển:</strong>&nbsp;&nbsp;&nbsp;&nbsp;</p>
+                    <p>&nbsp; &nbsp;+ Thí sinh được đăng ký tối đa <strong>03 nguyện vọng</strong> và phải xếp theo thứ tự ưu tiên từ cao xuống thấp&nbsp;<em>(ưu tiên 1 là nguyện vọng cao nhất)</em>. Đối với từng ngành, các thí sinh được xét tuyển bình đẳng theo điểm xét tuyển và không phân biệt thứ tự ưu tiên. Xét theo điểm từ cao xuống thấp.</p>
+                    <p>&nbsp; &nbsp; +&nbsp;Đối với mỗi thí sinh, tất cả các nguyện vọng đều được xét tuyển và chỉ trúng tuyển vào 1 nguyện vọng có ưu tiên cao nhất trong số các nguyện vọng đủ điều kiện trúng tuyển.</p>
+                    <p>&nbsp;&nbsp;&nbsp; +&nbsp;Điểm trúng tuyển giữa các tổ hợp xét tuyển trong cùng 1 ngành là bằng nhau và được xác định theo ngành. Đây chính là điểm xét tuyển của thí sinh cuối cùng trong danh sách trúng tuyển và gọi là Điểm chuẩn trúng tuyển của ngành.</p>
+                    <p><strong> -&nbsp;Lệ phí đăng ký:&nbsp;</strong>30.000đ/nguyện vọng.</p>
+                    <p><strong> - Thời gian ĐKXT: </strong> từ ngày 06/7/2020 đến trước ngày 30/7/2020.</p>
+                    <p><strong> - Đăng ký trực tuyến tại website </strong> <a href="http://xettuyen.ctu.edu.vn/"> http://xettuyen.ctu.edu.vn</a>&nbsp;</p>
+                    <p>&nbsp; &nbsp; &nbsp;+ Để tránh mọi sai sót, thí sinh cần đọc kỹ các nội dung hướng dẫn trên hệ thống trước khi đăng ký).</p>
+                    <p>&nbsp;&nbsp;&nbsp;&nbsp; + Sau khi đăng ký trực tuyến xong, thí sinh gửi hồ sơ về Trường gồm có:</p>
+                    <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;Phiếu đăng ký xét tuyển (in từ hệ thống đăng ký trực tuyến của Trường);</p>
+                    <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;01 bản photo Học bạ hoặc giấy xác nhận điểm học bạ của trường THPT;</p>
+                    <p><em> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Đối với thí sinh đã tốt nghiệp THPT từ năm 2019 trở về trước: </em> nộp thêm 01 bản photo Bằng tốt nghiệp THPT&nbsp;hoặc Giấy chứng nhận tốt nghiệp THPT tạm thời</p>
+                    <p><strong> - LƯU Ý: </strong></p>
+                    <p>+ Phương thức này chỉ để đăng ký vào ngành sư phạm xét bằng học bạ. Do đó, những thí sinh nào có mong muốn học ngành Sư phạm thì có thể đăng ký tham gia.</p>
+                    <p>+ Những thí sinh đã đăng ký xét tuyển học bạ các ngành khác (ngoài sư phạm) theo Phương thức 3 thì không điều chỉnh hồ sơ đã đăng ký, mà đăng ký thêm 1 hồ sơ theo phương thức 6 này.</p>
+                    <p>+ Nếu thí sinh vừa có đăng ký phương thức 3 và vừa có đăng ký phương thức 6 thì Trường vẫn xét tuyển độc lập từng phương thức và có khả năng trúng tuyển cả 2 phương thức. Khi đó, thí sinh được chọn để nhập học.</p>
+                    <p>&nbsp;</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="about">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-7 about-content">
+                <h5 class="mb-3">LEARNING PRACTICE AND USEFUL TIPS</h5>
+                <h4>WE PREPARE THE STUDENTS FOR EXAMS AND TESTING</h4>
+                <p class="mt-3 mb-3">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do Lorem ipsum dolor
+                    sit amet, consectetur adipisicing elit, sed do Lorem ipsum dolor sit amet, consectetur adipisicing
+                    elit, sed do Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do</p>
+            </div>
+        </div>
+    </div>
+</section>
+<!--Footer-->
+<footer class="footer-section">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4">
+                <h4>THÔNG TIN CẦN BIẾT</h4>
+                <a href="#">Đề án tuyển sinh</a>
+                <a href="#">Mức điểm đăng ký xét tuyển</a>
+                <a href="#">Danh mục ngành, chỉ tiêu tuyển sinh</a>
+                <a href="#">Tra cứu kết quả tuyển sinh</a>
+            </div>
+            <div class="col-md-4">
+                <h4>TIN MỚI NHẤT</h4>
+                <div class="d-flex justify-content-around">
+                    <a href="#" class="col-4">
+                        <img src="{% static 'myapp/assets/image/g2.jpg' %}" class="img-fluid" alt="Responsive image">
+                    </a>
+                    <a href="#" class="col-4">
+                        <img src="{% static 'myapp/assets/image/g1.jpg' %}" class="img-fluid" alt="Responsive image">
+                    </a>
+                    <a href="#" class="col-4">
+                        <img src="{% static 'myapp/assets/image/g3.jpg' %}" class="img-fluid" alt="Responsive image">
+                    </a>
+                </div>
+                <div class="d-flex justify-content-around">
+                    <a href="#" class="col-4">
+                        <img src="{% static 'myapp/assets/image/cntt-min.jpg' %}" class="img-fluid" alt="Responsive image">
+                    </a>
+                    <a href="#" class="col-4">
+                        <img src="{% static 'myapp/assets/image/sv1.png' %}" class="img-fluid" alt="Responsive image">
+                    </a>
+                    <a href="#" class="col-4">
+                        <img src="{% static 'myapp/assets/image/sv3.png' %}" class="img-fluid" alt="Responsive image">
+                    </a>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <h4>ĐỊA CHỈ</h4>
+                <p>Khu II, đường 3/2, P. Xuân Khánh, Q. Ninh Kiều, TP. Cần Thơ</p>
+                <a href="">Điện thoại: (84-292) 3832663</a>
+            </div>
+        </div>
+    </div>
+</footer>
+<section class="copyright">
+    <div class="container">
+        <p>© 2020 TuyenSinh247 . All Rights Reserved | Design by
+            <a href="#"> PhamMinh </a>
+        </p>
+    </div>
+</section>
+<!--End Footer-->
+</body>
+</html>

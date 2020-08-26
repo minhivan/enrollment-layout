@@ -1,0 +1,299 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"
+          name="viewport">
+    <meta content="ie=edge" http-equiv="X-UA-Compatible">
+    <link rel="icon" href="{% static 'myapp/assets/image/icon/icon.ico' %}" type="image/x-icon">
+     <!-- Font awsome -->
+    <link crossorigin="anonymous" href="https://use.fontawesome.com/releases/v5.13.1/css/all.css"
+          integrity="sha384-xxzQGERXS00kBmZW/6qxqJPyxW3UR0BPsL4c8ILaIWXva5kFi7TxkIIaMiKtqV1Q" rel="stylesheet">
+
+    <!--  Jquery & Bootstrap  -->
+    <link href="{% static 'myapp/source/Bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+    <script src="{% static 'myapp/source/JQuery/jquery.js' %}"></script>
+    <script src="{% static 'myapp/source/Bootstrap/js/bootstrap.min.js' %}"></script>
+
+    <!--  Css + JS  -->
+    <link href="{% static 'myapp/assets/css/style.css' %}" rel="stylesheet">
+    <script src="{% static 'myapp/assets/js/tohop.js' %}"></script>
+    <script src="{% static 'myapp/assets/js/function.js' %}"></script>
+    <!--    <script src="./assets/js/slide.js" type="text/javascript"></script>-->
+    <!--  Font  -->
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Muli:wght@500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Anton&display=swap" rel="stylesheet">
+    <title>Phương thức 3</title>
+</head>
+<body>
+<!-- Header -->
+<section class="header">
+    <header>
+        <div class="container">
+            <nav class="navbar navbar-expand-lg navbar-light bg-gradient-secondary">
+                <h1>
+                    <a class="navbar-brand" href="index.html">
+                        Tuyển Sinh 247
+                    </a>
+                </h1>
+                <button class="navbar-toggle collapsed" data-target="#bs-example-navbar-collapse-1" data-toggle="collapse"
+                        type="button">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                    <ul class="nav navbar-nav">
+                        <li class="active">
+                            <a href="/">Trang chủ</a>
+                        </li>
+                        <li>
+                            <a href="#">Đại học chính quy</a>
+                        </li>
+                        <li>
+                            <a href="/method">Đăng ký xét tuyển</a>
+                        </li>
+                        <li>
+                            <a href="/login">Đăng nhập</a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </div>
+    </header>
+</section>
+<!-- End header -->
+
+<section class="section-body method-content">
+    <h3 class="title">Phương thức 3 - Xét tuyển điểm học bạ THPT</h3>
+    <div class="method-title">
+        <div class="container">
+            <div class="row">
+                <div class="method-details" style="display: block">
+                    <p style="text-align: center;">&nbsp;</p>
+                    <p>- Xét tuyển dựa vào Điểm trung bình môn 5 học kỳ <em>(5 học kỳ: các học kỳ lớp 10, lớp 11 và học kỳ 1 lớp 12)</em> của 3 môn trong tổ hợp xét tuyển ứng với ngành do thí sinh đăng ký. Điểm mỗi môn (gọi là <strong>ĐiểmM</strong>) được tính bằng trung bình cộng của điểm trung bình môn trong 5 học kỳ (làm tròn đến 2 chữ số thập phân). Công thức tính ĐiểmM như sau:</p>
+                    <p><img style="text-align: center;" src="https://tuyensinh.ctu.edu.vn/images/upload/TS_DHCQ/DiemM.png" width="80%"></p>
+                    <p><i><span lang="EN-US">Trong đó: ĐTBM<sub>HK</sub>&nbsp; là Điểm trung bình môn học kỳ (HK1L10: Học kỳ 1 Lớp 10)</span></i></p>
+                    <p><strong>- Ngành xét tuyển:</strong> tất cả các ngành chương trình tiên tiến, chương trình chất lượng cao và chương trình đại trà <strong>(trừ các ngành đào tạo giáo viên)</strong></p>
+                    <p><strong>- Chỉ tiêu xét tuyển:</strong> tối đa 40% tổng chỉ tiêu</p>
+                    <p><strong>- Đối tượng: </strong>Thí sinh tốt nghiệp THPT từ năm 2020 về trước</p>
+                    <p><strong>- Điều kiện đăng ký xét tuyển:</strong> <span style="line-height: 107%;" lang="SV"> tổng điểm 3 môn theo tổ hợp xét tuyển ứng với ngành do thí sinh đăng ký từ <b> 19,50 </b>điểm trở lên <i>(không cộng điểm ưu tiên)</i>. Công thức như sau:</span></p>
+                    <p>Tổng điểm 3 môn = ĐiểmM<sub>1</sub> + ĐiểmM<sub>2</sub> + ĐiểmM<sub>3 </sub> &gt;= <span style="line-height: 107%;" lang="SV"> 19,50</span></p>
+                    <p><strong>- Điểm xét tuyển (ĐXT):</strong> <span style="line-height: 107%;" lang="SV"> là tổng điểm 3 môn theo tổ hợp xét tuyển, cộng với điểm ưu tiên <i>(đối tượng ưu tiên, khu vực ưu tiên quy định tại Điều 7 của Quy chế tuyển sinh)</i>. Không nhân hệ số và tính theo công thức:</span> ĐXT = (ĐiểmM<sub>1</sub> + ĐiểmM<sub>2</sub> + ĐiểmM<sub>3</sub>) + Điểm ưu tiên</p>
+                    <p><strong>- Nguyên tắc xét tuyển:</strong>&nbsp;&nbsp;&nbsp;&nbsp;</p>
+                    <p>&nbsp;&nbsp;&nbsp; +<span lang="SV">Thí sinh được đăng ký tối đa 05 nguyện vọng và phải xếp theo thứ tự ưu tiên từ cao xuống thấp <i>(ưu tiên 1 là nguyện vọng cao nhất)</i>. Đối với từng ngành, các thí sinh được xét tuyển bình đẳng theo điểm xét tuyển và không phân biệt thứ tự ưu tiên. Xét theo điểm từ cao xuống thấp.</span></p>
+                    <p>&nbsp;&nbsp;&nbsp; + <span lang="SV">Đối với mỗi thí sinh, tất cả các nguyện vọng đều được xét tuyển và chỉ trúng tuyển vào 1 nguyện vọng có ưu tiên cao nhất trong số các nguyện vọng đủ điều kiện trúng tuyển.</span></p>
+                    <p>&nbsp;&nbsp;&nbsp; +<span lang="SV"> Điểm trúng tuyển giữa các tổ hợp xét tuyển trong cùng 1 ngành là bằng nhau và được xác định theo ngành. Đây chính là điểm xét tuyển của thí sinh cuối cùng trong danh sách trúng tuyển và gọi là Điểm chuẩn trúng tuyển của ngành.</span></p>
+                    <p>+ <span lang="SV">Đối với những ngành có chuyên ngành, sau khi trúng tuyển và nhập học theo ngành, thí sinh được chọn chuyên ngành theo học.</span></p>
+                    <p  style="text-align: justify; line-height: normal; margin: 6.0pt 0cm .0001pt 0cm;"><b>- <span lang="SV">Lệ phí đăng ký: </span></b><span lang="SV">30.000đ/nguyện vọng</span>.</p>
+                    <p><strong>- Hồ sơ và đợt đăng ký: </strong></p>
+                    <p><b><strong>&nbsp;&nbsp;&nbsp; </strong><span lang="SV">Hồ sơ: </span></b> <span lang="SV">thí sinh Đăng ký trực tuyến tại website <span > <a style="color: blue; text-decoration: underline; text-underline: single;" href="/apply">tại đây</a></span> và in Phiếu đăng ký xét tuyển để nộp vào Trường, thành phần hồ sơ nộp gồm có:</span></p>
+                    <p>&nbsp;&nbsp;&nbsp; <span lang="SV">+ Phiếu đăng ký xét tuyển (in từ hệ thống đăng ký trực tuyến của Trường);</span></p>
+                    <p>&nbsp;&nbsp;&nbsp; <span lang="SV">+ 01 bản photo Học bạ hoặc giấy xác nhận điểm học bạ của trường THPT;</span></p>
+                    <p>&nbsp;&nbsp;&nbsp; <span lang="SV">+ 01 bản photo Bằng tốt nghiệp THPT <i> (đối với thí sinh đã tốt nghiệp THPT từ năm 2019 trở về trước)</i>.</span></p>
+                    <p>&nbsp;&nbsp;&nbsp; <b><span lang="SV">Thời gian ĐKXT đợt 1:</span></b><span lang="SV"> từ ngày 15/6/2020 đến trước ngày 30/7/2020. Xem hướng dẫn chi tiết cho từng đợt xét tuyển tại website của Trường.</span></p>
+                    <p><strong>- Ví dụ minh họa:</strong> Một thí sinh đăng ký 2 nguyện vọng:</p>
+                    <p>(1) ngành Kỹ thuật Xây dựng-CLC chọn tổ hợp D07 (Toán, Hóa, Anh);</p>
+                    <p>(2) ngành Kỹ thuật Cơ Khí chọn tổ hợp A00 (Toán, Lý, Hóa)</p>
+                    <p>Thí sinh có điểm trung bình môn trong 5 học kỳ của các môn ứng với tổ hợp xét tuyển và <strong>điểm mỗi môn (ĐiểmM)</strong> được tính:</p>
+                    <table style="border: 1px solid #000000; margin-left: auto; margin-right: auto;" width="90%" cellspacing="0" cellpadding="0" border="1">
+                        <tbody>
+                        <tr style="border-color: #000000;">
+                            <td style="width: 10%; border-color: #000000; text-align: center;" rowspan="2" valign="top"><br> <strong>Môn</strong></td>
+                            <td style="width: 10%; border-color: #000000;" colspan="5" valign="top">
+                                <p align="center"><strong>Điểm trung bình môn học kỳ (ĐTBMHK)</strong></p>
+                            </td>
+                            <td style="width: 10%; border-color: #000000;" rowspan="2" valign="top">
+                                <p align="center"><strong><em>Điểm mỗi môn (ĐiểmM)</em></strong></p>
+                            </td>
+                        </tr>
+                        <tr style="border-color: #000000;">
+                            <td style="width: 10%; border-color: #000000;" width="12%" valign="top">
+                                <p align="center">HK1-L10</p>
+                            </td>
+                            <td style="width: 10%; border-color: #000000;" width="12%" valign="top">
+                                <p align="center">HK2-L10</p>
+                            </td>
+                            <td style="width: 10%; border-color: #000000;" width="12%" valign="top">
+                                <p align="center">HK1-L11</p>
+                            </td>
+                            <td style="width: 10%; border-color: #000000;" width="12%" valign="top">
+                                <p align="center">HK2-L11</p>
+                            </td>
+                            <td style="width: 10%; border-color: #000000;" width="12%" valign="top">
+                                <p align="center">HK1-L12</p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="text-align: center; width: 10%;" valign="top">Toán</td>
+                            <td width="12%" valign="top">
+                                <p align="center">8,2</p>
+                            </td>
+                            <td width="12%" valign="top">
+                                <p align="center">8,0</p>
+                            </td>
+                            <td width="12%" valign="top">
+                                <p align="center">7,9</p>
+                            </td>
+                            <td width="12%" valign="top">
+                                <p align="center">8,3</p>
+                            </td>
+                            <td width="12%" valign="top">
+                                <p align="center">8,2</p>
+                            </td>
+                            <td width="140" valign="top">
+                                <p align="center"><strong>8,12</strong></p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="text-align: center; width: 10%;" valign="top">Lý</td>
+                            <td width="12%" valign="top">
+                                <p align="center">8,0</p>
+                            </td>
+                            <td width="12%" valign="top">
+                                <p align="center">6,8</p>
+                            </td>
+                            <td width="12%" valign="top">
+                                <p align="center">7,0</p>
+                            </td>
+                            <td width="12%" valign="top">
+                                <p align="center">7,0</p>
+                            </td>
+                            <td width="12%" valign="top">
+                                <p align="center">6,0</p>
+                            </td>
+                            <td width="140" valign="top">
+                                <p align="center"><strong>6,96</strong></p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="text-align: center; width: 10%;" valign="top">Hóa</td>
+                            <td width="12%" valign="top">
+                                <p align="center">6,9</p>
+                            </td>
+                            <td width="12%" valign="top">
+                                <p align="center">7,0</p>
+                            </td>
+                            <td width="12%" valign="top">
+                                <p align="center">7,1</p>
+                            </td>
+                            <td width="12%" valign="top">
+                                <p align="center">7,0</p>
+                            </td>
+                            <td width="12%" valign="top">
+                                <p align="center">7,5</p>
+                            </td>
+                            <td width="140" valign="top">
+                                <p align="center"><strong>7,10</strong></p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="text-align: center; width: 10%;" valign="top">Anh</td>
+                            <td width="12%" valign="top">
+                                <p align="center">4,0</p>
+                            </td>
+                            <td width="12%" valign="top">
+                                <p align="center">4,0</p>
+                            </td>
+                            <td width="12%" valign="top">
+                                <p align="center">4,4</p>
+                            </td>
+                            <td width="12%" valign="top">
+                                <p align="center">4,3</p>
+                            </td>
+                            <td width="12%" valign="top">
+                                <p align="center">4,5</p>
+                            </td>
+                            <td width="140" valign="top">
+                                <p align="center"><strong>4,24</strong></p>
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                    <p><strong>Kiểm tra điều kiện đăng ký xét tuyển:</strong></p>
+                    <ol>
+                        <li>Ngành Kỹ thuật Xây dựng-CLC tổ hợp D07: ĐiểmM<span style="color: #3366ff;"><sub>TOÁN</sub></span> + ĐiểmM<span style="color: #3366ff;"><sub>HÓA</sub></span> + ĐiểmM<span style="color: #3366ff;"><sub>ANH</sub> </span>= 8,12 + 7,1 + 4,24 = 19,46 &lt; <strong>19,5</strong> =&gt; Không đạt điều kiện =&gt; loại</li>
+                        <li>Ngành Kỹ thuật Cơ khí tổ hợp A00: ĐiểmM<sub><span style="color: #3366ff;">TOÁN</span></sub> + ĐiểmM<sub><span style="color: #3366ff;">LÝ</span></sub> + ĐiểmM<sub><span style="color: #3366ff;">HÓA</span></sub> = 8,12 + 6,96 + 7,1 = 22,18 &gt; 19,5 =&gt; Đạt điều kiện đăng ký xét tuyển, đưa vào danh sách xét tuyển ngành Kỹ thuật Cơ khí</li>
+                    </ol>
+                    <p>Như vậy, thí sinh đăng ký 2 NV, nhưng chỉ có 1 NV đủ điều kiện để xét tuyển.</p>
+                    <p><strong>Điểm xét tuyển:</strong> Giả sử thí sinh trên thuộc đối tượng ưu tiên 01 (+2đ) và khu vực ưu tiên là KV2-NT (+0,5đ) thì Điểm Xét tuyển của thí sinh dùng để xét tuyển ngành Kỹ thuật Cơ khí là:</p>
+                    <p><strong><span style="color: #ff0000;">ĐXT</span> = (8,12 + 6,96 + 7,1) + 2,0 + 0,5 = <span style="color: #ff0000;">24.68</span></strong></p>
+                    <p  style="text-align: justify; text-indent: 21.3pt; line-height: normal; margin: 3.0pt 0cm .0001pt 0cm;">&nbsp;</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="about">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-7 about-content">
+                <h5 class="mb-3">LEARNING PRACTICE AND USEFUL TIPS</h5>
+                <h4>WE PREPARE THE STUDENTS FOR EXAMS AND TESTING</h4>
+                <p class="mt-3 mb-3">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do Lorem ipsum dolor
+                    sit amet, consectetur adipisicing elit, sed do Lorem ipsum dolor sit amet, consectetur adipisicing
+                    elit, sed do Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do</p>
+            </div>
+        </div>
+    </div>
+</section>
+<!--Footer-->
+<footer class="footer-section">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4">
+                <h4>THÔNG TIN CẦN BIẾT</h4>
+                <a href="#">Đề án tuyển sinh</a>
+                <a href="#">Mức điểm đăng ký xét tuyển</a>
+                <a href="#">Danh mục ngành, chỉ tiêu tuyển sinh</a>
+                <a href="#">Tra cứu kết quả tuyển sinh</a>
+            </div>
+            <div class="col-md-4">
+                <h4>TIN MỚI NHẤT</h4>
+                <div class="d-flex justify-content-around">
+                    <a href="#" class="col-4">
+                        <img src="{% static 'myapp/assets/image/g2.jpg' %}" class="img-fluid" alt="Responsive image">
+                    </a>
+                    <a href="#" class="col-4">
+                        <img src="{% static 'myapp/assets/image/g1.jpg' %}" class="img-fluid" alt="Responsive image">
+                    </a>
+                    <a href="#" class="col-4">
+                        <img src="{% static 'myapp/assets/image/g3.jpg' %}" class="img-fluid" alt="Responsive image">
+                    </a>
+                </div>
+                <div class="d-flex justify-content-around">
+                    <a href="#" class="col-4">
+                        <img src="{% static 'myapp/assets/image/cntt-min.jpg' %}" class="img-fluid" alt="Responsive image">
+                    </a>
+                    <a href="#" class="col-4">
+                        <img src="{% static 'myapp/assets/image/sv1.png' %}" class="img-fluid" alt="Responsive image">
+                    </a>
+                    <a href="#" class="col-4">
+                        <img src="{% static 'myapp/assets/image/sv3.png' %}" class="img-fluid" alt="Responsive image">
+                    </a>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <h4>ĐỊA CHỈ</h4>
+                <p>Khu II, đường 3/2, P. Xuân Khánh, Q. Ninh Kiều, TP. Cần Thơ</p>
+                <a href="">Điện thoại: (84-292) 3832663</a>
+            </div>
+        </div>
+    </div>
+</footer>
+<section class="copyright">
+    <div class="container">
+        <p>© 2020 TuyenSinh247 . All Rights Reserved | Design by
+            <a href="#"> PhamMinh </a>
+        </p>
+    </div>
+</section>
+<!--End Footer-->
+</body>
+</html>
