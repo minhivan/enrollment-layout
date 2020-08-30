@@ -20,6 +20,7 @@
             <h4 class="title">THÔNG TIN THÍ SINH</h4>
             <form action="" method="POST" enctype="multipart/form-data">
                 {% csrf_token %}
+                <!--   Thông tin sinh v   -->
                 <fieldset class="student-info-details">
                     <div class="col-md-6">
                         <label for="student_name">Họ và tên</label>
@@ -188,9 +189,8 @@
                         <label for="student_address">Địa chỉ liên hệ</label>
                         <input id="student_address" name="student_address" type="text" placeholder="Số 1, ngõ 127, đường Lê Văn Thành">
                     </div>
-                </fieldset>
-
-
+                </fieldset>iên
+                <!--   Lựa chọn của sinh viên   -->
                 <div class="student-choice">
                     <fieldset>
                         <h4 class="title">NGÀNH XÉT TUYỂN</h4>
@@ -260,9 +260,20 @@
                 </div>
                 <div class="row score-input">
                     <h4 class="title">UPLOAD BẢNG ĐIỂM</h4>
-                    <input type="file" name="score_image" id="" required>
+                    <input id="file" type="file" name="score_image" accept="image/*" onchange="loadFile(event)"/>
+                    <img id="output" src="#" alt="your image" height="500px" width="80%" style="display: none"/>
+                    <script>
+                        var loadFile = function(event) {
+                            var output = document.getElementById('output');
+                            output.style.display = "block";
+                            output.src = URL.createObjectURL(event.target.files[0]);
+                            output.onload = function() {
+                                URL.revokeObjectURL(output.src) // free memory
+                            }
+                        };
+                    </script>
                 </div>
-                <button type="submit">NỘP PHIẾU</button>
+                <button type="submit" onclick="calculate_score()">NỘP PHIẾU</button>
             </form>
         </div>
     </div>

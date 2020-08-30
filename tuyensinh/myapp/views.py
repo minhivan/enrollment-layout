@@ -53,12 +53,12 @@ def register(request):
             applicant.name = full_name
             applicant.save()
             HttpResponse("Created")
-            return redirect("home")
+            return redirect("login")
         else:
             messages.error(request, 'Failed to create account')
-            return redirect(register)
+            return redirect("register")
     else:
-        return render(request, 'account/register.html')
+        return redirect("register")
 
 
 def logout(request):
@@ -66,6 +66,7 @@ def logout(request):
     return render(request, 'index.html', {})
 
 
+# CLIENT DASHBOARD ONLY
 def client_dashboard(request):
     if not request.user.is_authenticated:
         return redirect("login")
@@ -75,22 +76,60 @@ def client_dashboard(request):
         user = User.objects.get(id=user_id)
         applicant = Applicants.objects.get(id=user_id)
         admissions = Registers.objects.filter(user=user_id)
-        major = []
+        majors = []
         for admission in admissions:
-            test = admission.meta_data
-            majors = Majors.objects.get(label=test['Major']).name
-            major.append(majors)
-            clusters = SubjectCluster.objects.filter(label=test['subject_cluster'])
-            print(clusters)
-        data = zip(admissions, major)
+            major_label = admission.meta_data
+            major = Majors.objects.get(label=major_label['Major'])
+            majors.append(major)
+        data = zip(admissions, majors)
+        data1 = zip(admissions, majors)
         context = {
             "user": user,
             "applicant": applicant,
-            "data": data
+            "data": data,
+            "data1": data1,
+            "admission": admissions
         }
     return render(request, 'page/dashboard.html', context)
 
 
+def delete_admission(request, id):
+    if request.method == "POST":
+        username = request.user.get_username()
+        user_id = User.objects.get(username=username).pk
+        admissions = Registers.objects.filter(user=user_id)
+        confirm = ""
+        for admission in admissions:
+            if admission.id == id:
+                delete_field = Registers.objects.filter(id=id)
+                print(delete_field)
+                delete_field.delete()
+                return redirect("account")
+            else:
+                messages.error(request, "Cannot delete this form")
+    return redirect("account")
+
+
+def submit_admission(request, id):
+    if request.method == "POST":
+        username = request.user.get_username()
+        user_id = User.objects.get(username=username).pk
+        admissions = Registers.objects.filter(user=user_id)
+        confirm = ""
+        for admission in admissions:
+            if admission.id == id:
+                submit_field = Registers.objects.get(id=id)
+                submit_field.status = "submitted"
+                submit_field.save()
+                return redirect("account")
+            else:
+                messages.error(request, "Cannot submit this form")
+    return redirect("account")
+
+
+# END USER DASHBOARD
+
+# USER ACTION
 def update_info(request, id):
     if request.method == "POST":
         password = request.POST.get("password")
@@ -121,14 +160,16 @@ def update_info(request, id):
                 "user": user,
                 "applicant": applicant
             }
+            messages.success(request, "Update success")
             HttpResponse("Updated")
-            return render(request, 'page/dashboard.html', context)
+            return redirect("account")
         else:
             messages.error(request, 'Failed to update account')
             HttpResponse("Updated")
             return redirect("account")
 
 
+# Admission
 def apply(request):
     if not request.user.is_authenticated:
         return redirect("login")
@@ -149,9 +190,10 @@ def apply(request):
             subject_name = request.POST.get("thop")
             avg_scores = {}
             for i in range(0, 3):
-                temp_name = "avg_score"+str(i)
-                avg_score = request.POST.get("avg_score"+str(i))
-                avg_scores["Subject_"+str(i+1)] = avg_score
+                temp_name = "avg_score" + str(i)
+                avg_score = request.POST.get("avg_score" + str(i))
+                avg_name = request.POST.get("avg_name" + str(i))
+                avg_scores[avg_name] = avg_score
             print(avg_scores)
             avg = request.POST.get("final_score")
             meta = {"Major": major, "subject_cluster": subject_name, "average_score": avg}
@@ -159,7 +201,7 @@ def apply(request):
             fs = FileSystemStorage()
             file = fs.save(my_file.name, my_file)
             uploaded_file_url = fs.url(file)
-            apply_form = Registers(user=user_id, status="pending", meta_data=meta, details=avg_scores, image=file)
+            apply_form = Registers(user=user_id, status="pending", result="waiting", meta_data=meta, details=avg_scores, image=file)
             apply_form.save()
             messages.success(request, 'Upload success')
             context = {
@@ -216,7 +258,7 @@ def add_subject(request):
     sub = {}
     index = 1
     for subject_name in subject_names:
-        sub["Subject_"+str(index)] = subject_name
+        sub["Subject_" + str(index)] = subject_name
         index += 1
     name = request.POST.get("name")
     label = request.POST.get("label")

@@ -265,6 +265,8 @@ ul.ts-quick-nav{
 }
 .st-row-text p{
     font-size: 12px;
+    height: 50px;
+    overflow: hidden;
 }
 .st-row-action{
     margin-top: auto;

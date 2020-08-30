@@ -356,7 +356,6 @@ section.slider{
     margin: 0;
     padding: 5px 8px;
     border: 1px solid #ccc;
-    background: transparent;
     border-radius: 0.125rem;
 }
 .student-info div,.student-choice div{
@@ -552,8 +551,12 @@ section.slider{
 .value-choice.active{
     display: block;
 }
-
-
+li.tablinks a{
+    color: #333;
+}
+li.tablinks a:hover{
+    color: #fff;
+}
 @media (min-width: 1281px) {
     .banner{
         min-height: 680px;

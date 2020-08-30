@@ -24,13 +24,6 @@ class Applicants(models.Model):
         return self.name
 
 
-class Subject(models.Model):
-    name = models.CharField(max_length=20)
-    objects = models.DjongoManager()
-    class Meta:
-        abstract = True
-
-
 class SubjectCluster(models.Model):
     name = models.CharField(max_length=100)
     detail = models.CharField(max_length=100)
@@ -50,16 +43,15 @@ class Majors(models.Model):
         return self[i]
 
     def __str__(self):
-        return self.label
+        return self.name
 
 
 class Registers(models.Model):
     user = models.IntegerField()
-    create_via = models.CharField(max_length=10)
+    result = models.CharField(max_length=10)
     status = models.CharField(max_length=20)
     meta_data = models.JSONField()
     created_at = models.DateTimeField(auto_now_add=True)
     details = models.JSONField()
     image = models.ImageField(upload_to='images/', default="")
     objects = models.DjongoManager()
-

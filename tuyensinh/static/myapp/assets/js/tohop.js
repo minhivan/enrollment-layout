@@ -96,6 +96,7 @@ function change_score_input(){
     var arr = tohop[th.value].subject;
     // console.log(arr);
     var slug = tohop[th.value].slug;
+    var name = tohop[th.value].subject;
     var innerHTML = "";
 
 
@@ -107,22 +108,23 @@ function change_score_input(){
             '                            <h5>' + arr[i] + '</h5>\n' +
             '                        </div>\n' +
             '                        <div class="col-md-2">\n' +
-            '                            <input id="' + slug[i] + '10_hk1" name="score" type="number" max="10" min="0" class="index'+i+'">\n' +
+            '                            <input id="' + slug[i] + '10_hk1" name="score" type="number" max="10" min="0" class="index'+i+'" step="0.1">\n' +
             '                        </div>\n' +
             '                        <div class="col-md-2">\n' +
-            '                            <input id="' + slug[i] + '10_hk2" name="score" type="number" max="10" min="0" class="index'+i+'">\n' +
+            '                            <input id="' + slug[i] + '10_hk2" name="score" type="number" max="10" min="0" class="index'+i+'" step="0.1">\n' +
             '                        </div>\n' +
             '                        <div class="col-md-2">\n' +
-            '                            <input id="' + slug[i] + '11_hk1" name="score" type="number" max="10" min="0" class="index'+i+'">\n' +
+            '                            <input id="' + slug[i] + '11_hk1" name="score" type="number" max="10" min="0" class="index'+i+'" step="0.1">\n' +
             '                        </div>\n' +
             '                        <div class="col-md-2">\n' +
-            '                            <input id="' + slug[i] + '11_hk2" name="score" type="number" max="10" min="0" class="index'+i+'">\n' +
+            '                            <input id="' + slug[i] + '11_hk2" name="score" type="number" max="10" min="0" class="index'+i+'" step="0.1">\n' +
             '                        </div>\n' +
             '                        <div class="col-md-2">\n' +
-            '                            <input id="' + slug[i] + '12_hk1" name="score" type="number" max="10" min="0" class="index'+i+'">\n' +
+            '                            <input id="' + slug[i] + '12_hk1" name="score" type="number" max="10" min="0" class="index'+i+'" step="0.1">\n' +
             '                        </div>\n' +
             '                        <div class="col-md-1">\n' +
             '                            <input id="' + slug[i] + 'TB" class="avg_score" name="avg_score'+i+'" type="number" max="10" min="0" readonly>\n' +
+            '<input class="avg_name" name="avg_name'+i+'" type="text" readonly hidden value="'+name[i]+'">\n' +
             '                        </div>\n' +
             '                    </div>\n';
         div.innerHTML = innerHTML;

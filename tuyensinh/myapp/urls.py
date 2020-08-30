@@ -5,6 +5,7 @@ from django.conf.urls.static import static
 from . import views
 
 urlpatterns = [
+    # CLIENT
     path('', views.index, name="home"),
     path('login/', views.login, name="login"),
     path('register/', views.register, name="register"),
@@ -19,11 +20,12 @@ urlpatterns = [
     path('method/pedagogy/', views.pedagogy),
     path('user/dashboard/', views.client_dashboard, name="account"),
     path('user/dashboard/update/<int:id>', views.update_info),
-    path('user/dashboard/upload/admission/', views. client_dashboard),
     # API
     path('myapp/v1/addsubjectCluster/', views.add_subject),
     path('myapp/v1/update/<int:id>', views.update_info),
     path('myapp/v1/addmajor/', views.add_major),
+    path('myapp/v1/user/admission/delete/<int:id>', views.delete_admission, name="delete_admission"),
+    path('myapp/v1/user/admission/submit/<int:id>', views.submit_admission, name="submit_admission")
 ]
 
 

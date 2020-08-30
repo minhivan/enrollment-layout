@@ -21,11 +21,21 @@
             <ul class="myaccount-menu">
                 <li class="tablinks active" onclick="openTab('tab1')">Cá nhân</li>
                 <li class="tablinks" onclick="openTab('tab2')">Nguyện vọng</li>
-                <li class="tablinks" onclick="openTab('tab3')">Đăng ký</li>
-                <li class="tablinks">Xem kết quả</li>
+                <li class="tablinks" onclick="openTab('tab3')">Kết quả</li>
+                <li class="tablinks"><a href="/apply">Đăng ký mới</a></li>
+                {% if user.is_staff %}
+                <li class="tablinks"><a href="/dashboard/">Trang quản lý</a></li>
+                {% endif %}
             </ul>
         </div>
         <div class="col-md-9 col-sm-12 my-acc-content student-info">
+            {% if messages %}
+                {% for message in messages %}
+                <div class="alert alert-info" role="alert">
+                    {{ message }}
+                </div>
+                {% endfor %}
+            {% endif %}
             <div class="value-choice my-acc-form active" id="tab1">
                 <form action="update/{{ user.id }}" method="post">
                     {% csrf_token %}
@@ -87,6 +97,7 @@
                 <div class="panel-group" id="accordion">
                     {% if data %}
                     {% for admission, major in data %}
+                    {% if admission.status == "pending"%}
                     <div class="panel panel-default">
                         <div class="panel-heading">
                             <h4 class="panel-title">
@@ -96,7 +107,7 @@
                         </div>
                         <div id="collapse{{ forloop.counter }}" class="panel-collapse collapse in">
                             <div class="panel-body">
-                                <h4>Mã ngành: {{ admission.meta_data.Major }} | {{ major }}
+                                    <h4>Mã ngành: {{ admission.meta_data.Major }} | {{ major }}
                                     | Khối: {{ admission.meta_data.subject_cluster }}</h4>
                                 <table border="1" style="border-collapse: collapse;margin: auto;">
                                     <tbody><tr>
@@ -104,99 +115,86 @@
                                         <th style=" text-align: center">Điểm M</th>
                                     </tr>
                                     </tbody><tbody>
-                                <tr> <td style="width: 10%; text-align: center">{{ cluster }}</td><td style="width: 10%; text-align: center">{{ admission.details.Subject_1 }}</td>        </tr>
-                                <tr> <td style="width: 10%; text-align: center">Vật lý</td><td style="width: 10%; text-align: center">{{ admission.details.Subject_2 }}</td>        </tr>
-                                <tr> <td style="width: 10%; text-align: center">Hóa học</td><td style="width: 10%; text-align: center">{{ admission.details.Subject_3 }}</td>        </tr>
-                                <tr>         </tr>
-                                <tr>         </tr>
-                                <tr>         </tr>
-                                <tr>         </tr>
-                                <tr>         </tr>
-                                <tr>         </tr>
-                                <tr>         </tr>
+                                {% for key, value in admission.details.items %}
+                                <tr> <td style="width: 10%; text-align: center">{{ key }}</td><td style="width: 10%; text-align: center">{{ value }}</td></tr>
+                                {% endfor %}
+                                <tr> <td style="width: 10%; text-align: center">Điểm tổng</td><td style="width: 10%; text-align: center">{{ admission.meta_data.average_score}}</td></tr>
                                 </tbody>
                                 </table>
                                 <div class="status">
-                                    <span>Trạng thái: {{ admission.status }}</span>
-                                    <a href="#">Có thể nộp phiếu</a>
+                                    <span>Trạng thái: Sẵn sàng duyệt</span>
+                                    <form action="{% url 'submit_admission' admission.id %}" method="POST">
+                                        {% csrf_token %}
+                                        <input type="submit" value="Nộp phiếu" class="btn-default"/>
+                                    </form>
                                 </div>
                                 <div class="status">
-                                    <a href="#" class="alert-danger">Xóa phiếu</a>
+                                    <form action="{% url 'delete_admission' admission.id %}" method="POST">
+                                        {% csrf_token %}
+                                        <input type="submit" value="Xóa phiếu" class="btn-danger"/>
+                                    </form>
                                 </div>
                             </div>
                         </div>
                     </div>
+                    {% endif %}
                     {% endfor %}
                     {% endif %}
                 </div>
             </div>
 
             <div id="tab3" class="value-choice  my-acc-result">
-                <div class="panel-group" id="my-acc-result">
+                <div class="panel-group" id="result">
+                    {% if data1 %}
+                    {{ data1.admissions }}
+                    {% for ad, ma in data1 %}
+                    {% if ad.status != "pending"%}
                     <div class="panel panel-default">
                         <div class="panel-heading">
                             <h4 class="panel-title">
-                                <a data-toggle="collapse" data-parent="#my-acc-result" href="#collapse3">
-                                    Kết quả nguyện vọng 1</a>
+                                <a data-toggle="collapse" data-parent="#result" href="#collapse_t{{ forloop.counter }}">
+                                    Nguyện vọng {{ forloop.counter0 }}</a>
                             </h4>
                         </div>
-                        <div id="collapse3" class="panel-collapse collapse in">
+                        <div id="collapse_t{{ forloop.counter }}" class="panel-collapse collapse in">
                             <div class="panel-body">
-                                <h4>Mã ngành: 7480201 | Công nghệ thông tin	| A00 - Toán, Vật lý, Hóa học</h4>
+                                    <h4>Mã ngành: {{ ad.meta_data.Major }} | {{ ma }}
+                                    | Khối: {{ ad.meta_data.subject_cluster }}</h4>
                                 <table border="1" style="border-collapse: collapse;margin: auto;">
                                     <tbody><tr>
                                         <th style="text-align: center">Môn</th>
                                         <th style=" text-align: center">Điểm M</th>
                                     </tr>
                                     </tbody><tbody>
-                                <tr> <td style="width: 10%; text-align: center">Toán</td><td style="width: 10%; text-align: center">8.30</td>        </tr>
-                                <tr> <td style="width: 10%; text-align: center">Vật lý</td><td style="width: 10%; text-align: center">8.02</td>        </tr>
-                                <tr> <td style="width: 10%; text-align: center">Hóa học</td><td style="width: 10%; text-align: center">8.40</td>        </tr>
-                                <tr>         </tr>
-                                <tr>         </tr>
-                                <tr>         </tr>
-                                <tr>         </tr>
-                                <tr>         </tr>
-                                <tr>         </tr>
-                                <tr>         </tr>
+                                {% for key, value in ad.details.items %}
+                                <tr> <td style="width: 10%; text-align: center">{{ key }}</td><td style="width: 10%; text-align: center">{{ value }}</td></tr>
+                                {% endfor %}
+                                <tr> <td style="width: 10%; text-align: center">Điểm tổng</td><td style="width: 10%; text-align: center">{{ admission.meta_data.average_score}}</td></tr>
                                 </tbody>
                                 </table>
-                                <div class="status"><span>Kết quả: Đã đậu</span><a href="#">Xem thông tin quy cách nhập học</a></div>
+                                 {% if ad.result == "waiting" %}
+                                <div class="status ">
+                                    <span class="alert-warning">Trạng thái: Chờ duyệt</span>
+                                </div>
+                                {% endif %}
+                                {% if ad.result == "passed" %}
+                                <div class="status ">
+                                    <span class="alert-success">Trạng thái: Đã đậu</span>
+                                </div>
+                                {% endif %}
+                                {% if ad.result == "failed" %}
+                                <div class="status ">
+                                    <span class="alert-danger">Trạng thái: Không đủ điều kiện</span>
+                                </div>
+                                {% endif %}
                             </div>
                         </div>
                     </div>
-                    <div class="panel panel-default">
-                        <div class="panel-heading">
-                            <h4 class="panel-title">
-                                <a data-toggle="collapse" data-parent="#my-acc-result" href="#collapse4">
-                                    Kết quả nguyện vọng 2</a>
-                            </h4>
-                        </div>
-                        <div id="collapse4" class="panel-collapse collapse">
-                            <div class="panel-body">
-                                <h4>Mã ngành: 7480201 | Công nghệ thông tin	| A00 - Toán, Vật lý, Hóa học</h4>
-                                <table border="1" style="border-collapse: collapse;margin: auto;">
-                                    <tbody><tr>
-                                        <th style="text-align: center">Môn</th>
-                                        <th style=" text-align: center">Điểm M</th>
-                                    </tr>
-                                    </tbody><tbody>
-                                <tr> <td style="width: 10%; text-align: center">Toán</td><td style="width: 10%; text-align: center">8.30</td>        </tr>
-                                <tr> <td style="width: 10%; text-align: center">Vật lý</td><td style="width: 10%; text-align: center">8.02</td>        </tr>
-                                <tr> <td style="width: 10%; text-align: center">Hóa học</td><td style="width: 10%; text-align: center">8.40</td>        </tr>
-                                <tr>         </tr>
-                                <tr>         </tr>
-                                <tr>         </tr>
-                                <tr>         </tr>
-                                <tr>         </tr>
-                                <tr>         </tr>
-                                <tr>         </tr>
-                                </tbody>
-                                </table>
-                                <div class="status"><span>Kết quả: Đã trượt</span><a href="#">Xem thêm</a></div>
-                            </div>
-                        </div>
-                    </div>
+                    {% endif %}
+                    {% endfor %}
+                    {% endif %}
+
+
                 </div>
             </div>
         </div>
