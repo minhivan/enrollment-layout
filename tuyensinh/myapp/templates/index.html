@@ -55,9 +55,15 @@
                         <li>
                             <a href="/method">Đăng ký xét tuyển</a>
                         </li>
+                        {% if user.is_authenticated %}
                         <li>
+                            <a href="user/dashboard/">Tài khoản</a>
+                        </li>
+                        {% else %}
+                         <li>
                             <a href="/login">Đăng nhập</a>
                         </li>
+                        {% endif %}
                     </ul>
                 </div>
             </nav>

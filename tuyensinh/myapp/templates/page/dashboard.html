@@ -1,5 +1,6 @@
 {% extends 'base/base.html' %}
 {% load static %}
+{% block title %}Quản lý tài khoản{% endblock %}
 
 {% block content %}
 <section class="section-body my-acc">
@@ -11,9 +12,9 @@
                     <img src="{% static 'myapp/assets/image/user/undraw_male_avatar_323b.png' %}" alt="">
                 </div>
                 <div class="user-info">
-                    <p class="user-name">TEST</p>
+                    <p class="user-name">{{ user.get_username }}</p>
                     <span class="logout">
-                        <a href="#">Logout</a>
+                        <a href="/logout/">Logout</a>
                     </span>
                 </div>
             </div>
@@ -26,171 +27,45 @@
         </div>
         <div class="col-md-9 col-sm-12 my-acc-content student-info">
             <div class="value-choice my-acc-form active" id="tab1">
-                <form action="" method="post">
+                <form action="update/{{ user.id }}" method="post">
+                    {% csrf_token %}
                     <fieldset class="student-info-details">
                         <h4>Thông tin cá nhân</h4>
                         <div class="col-md-6">
                             <label for="student_name">Họ và tên</label>
-                            <input id="student_name" name="student_name" type="text">
+                            <input id="student_name" name="student_name" type="text" value="{{ applicant.name }}">
                         </div>
                         <div class="col-md-6">
                             <label for="student_birth">Ngày sinh</label>
-                            <input id="student_birth" name="student_birth" type="date">
+                            <input id="student_birth" name="student_birth" type="date" value="{{ applicant.dob }}">
                         </div>
                         <div class="col-md-6">
                             <label for="student_sex">Giới tính</label>
-                            <select id="student_sex" name="student_sex">
+                            <select id="student_sex" name="student_gender">
+                                {% if applicant.gender == 'M' }
                                 <option value="M">Male</option>
+                                {% if  applicant.gender == 'F' %}
                                 <option value="F">Female</option>
+                                {% else %}
                                 <option value="O">Other</option>
-                            </select>
-                        </div>
-                        <div class="col-md-6">
-                            <label for="student_country">Nơi sinh</label>
-                            <select id="student_country" name="student_country">
-                                <option value="">Chọn tỉnh (thành phố)</option>
-                                <option value="51">An Giang</option>
-                                <option value="60">Bạc Liêu</option>
-                                <option value="56">Bến Tre</option>
-                                <option value="61">Cà Mau</option>
-                                <option value="55">Cần Thơ</option>
-                                <option value="50">Đồng Tháp</option>
-                                <option value="64">Hậu Giang</option>
-                                <option value="54">Kiên Giang</option>
-                                <option value="49">Long An</option>
-                                <option value="59">Sóc Trăng</option>
-                                <option value="53">Tiền Giang</option>
-                                <option value="58">Trà Vinh</option>
-                                <option value="57">Vĩnh Long</option>
-                                <option value="52">Bà Rịa-Vũng Tàu</option>
-                                <option value="18">Bắc Giang</option>
-                                <option value="11">Bắc Kạn</option>
-                                <option value="19">Bắc Ninh</option>
-                                <option value="37">Bình Định</option>
-                                <option value="44">Bình Dương</option>
-                                <option value="43">Bình Phước</option>
-                                <option value="47">Bình Thuận</option>
-                                <option value="06">Cao Bằng</option>
-                                <option value="04">Đà Nẵng</option>
-                                <option value="40">Đắk Lắk</option>
-                                <option value="63">Đăk Nông</option>
-                                <option value="62">Điện Biên</option>
-                                <option value="48">Đồng Nai</option>
-                                <option value="38">Gia Lai</option>
-                                <option value="05">Hà Giang</option>
-                                <option value="24">Hà Nam</option>
-                                <option value="01">Hà Nội</option>
-                                <option value="30">Hà Tĩnh</option>
-                                <option value="21">Hải Dương</option>
-                                <option value="03">Hải Phòng</option>
-                                <option value="23">Hoà Bình</option>
-                                <option value="22">Hưng Yên</option>
-                                <option value="41">Khánh Hoà</option>
-                                <option value="36">Kon Tum</option>
-                                <option value="07">Lai Châu</option>
-                                <option value="42">Lâm Đồng</option>
-                                <option value="10">Lạng Sơn</option>
-                                <option value="08">Lào Cai</option>
-                                <option value="25">Nam Định</option>
-                                <option value="29">Nghệ An</option>
-                                <option value="27">Ninh Bình</option>
-                                <option value="45">Ninh Thuận</option>
-                                <option value="15">Phú Thọ</option>
-                                <option value="39">Phú Yên</option>
-                                <option value="31">Quảng Bình</option>
-                                <option value="34">Quảng Nam</option>
-                                <option value="35">Quảng Ngãi</option>
-                                <option value="17">Quảng Ninh</option>
-                                <option value="32">Quảng Trị</option>
-                                <option value="14">Sơn La</option>
-                                <option value="46">Tây Ninh</option>
-                                <option value="26">Thái Bình</option>
-                                <option value="12">Thái Nguyên</option>
-                                <option value="28">Thanh Hoá</option>
-                                <option value="33">Thừa Thiên -Huế</option>
-                                <option value="02">Tp. Hồ Chí Minh</option>
-                                <option value="09">Tuyên Quang</option>
-                                <option value="16">Vĩnh Phúc</option>
-                                <option value="13">Yên Bái</option>
-                                <option value="99">Nước ngoài</option>
-                            </select>
-                        </div>
-                        <div class="col-md-6">
-                            <label for="student_ethnic">Dân tộc</label>
-                            <select id="student_ethnic" name="student_ethnic">
-                                <option value="">Chọn dân tộc</option>
-                                <option value="01">Kinh</option>
-                                <option value="05">Khơ-me</option>
-                                <option value="04">Hoa</option>
-                                <option value="17">Chăm</option>
-                                <option value="02">Tày</option>
-                                <option value="03">Thái</option>
-                                <option value="06">Mường</option>
-                                <option value="07">Nùng</option>
-                                <option value="08">Hmông</option>
-                                <option value="09">Dao</option>
-                                <option value="10">Gia-rai</option>
-                                <option value="11">Ngái</option>
-                                <option value="12">Ê-đê</option>
-                                <option value="13">Ba-na</option>
-                                <option value="14">Xơ-đăng</option>
-                                <option value="15">Sán Chay</option>
-                                <option value="16">Cơ-ho</option>
-                                <option value="18">Sán Dìu</option>
-                                <option value="19">Hrê</option>
-                                <option value="20">Mnông</option>
-                                <option value="21">Ra-glai</option>
-                                <option value="22">Xtiêng</option>
-                                <option value="23">Bru-Vân Kiều</option>
-                                <option value="24">Thổ</option>
-                                <option value="25">Giáy</option>
-                                <option value="26">Cơ-tu</option>
-                                <option value="27">Gié-Triêng</option>
-                                <option value="28">Mạ</option>
-                                <option value="29">Khơ-mú</option>
-                                <option value="30">Co</option>
-                                <option value="31">Ta-ôi</option>
-                                <option value="32">Chơ-ro</option>
-                                <option value="33">Kháng</option>
-                                <option value="34">Xinh-mun</option>
-                                <option value="35">Hà Nhì</option>
-                                <option value="36">Chu-ru</option>
-                                <option value="37">Lào</option>
-                                <option value="38">La Chi</option>
-                                <option value="39">La Ha</option>
-                                <option value="40">Phù Lá</option>
-                                <option value="41">La Hủ</option>
-                                <option value="42">Lự</option>
-                                <option value="55">Người nước ngoài</option>
-                                <option value="43">Lô Lô</option>
-                                <option value="44">Chứt</option>
-                                <option value="45">Mảng</option>
-                                <option value="46">Pà Thẻn</option>
-                                <option value="47">Cơ Lao</option>
-                                <option value="48">Cống</option>
-                                <option value="49">Bố Y</option>
-                                <option value="50">Si La</option>
-                                <option value="51">Pu Péo</option>
-                                <option value="52">Brâu</option>
-                                <option value="53">Ơ Đu</option>
-                                <option value="54">Rơ-măm</option>
+                                {% endif %}
                             </select>
                         </div>
                         <div class="col-md-6">
                             <label for="student_phone">Số điện thoại</label>
-                            <input id="student_phone" name="student_phone" type="number">
+                            <input id="student_phone" name="student_phone" type="text" value="{{ applicant.phone }}" >
                         </div>
                         <div class="col-md-6">
-                            <label for="student_id">CMND/ID</label>
-                            <input id="student_id" name="student_id" type="number">
+                            <label for="student_identify">CMND/ID</label>
+                            <input id="student_identify" name="student_identify" type="number" value="{{ applicant.identity }}">
                         </div>
                         <div class="col-md-6">
                             <label for="student_email">Email</label>
-                            <input id="student_email" name="student_email" type="email">
+                            <input id="student_email" name="student_email" type="email" value="{{ applicant.email }}">
                         </div>
                         <div class="col-md-6">
                             <label for="student_address">Địa chỉ liên hệ</label>
-                            <input id="student_address" name="student_address" type="text">
+                            <input id="student_address" name="student_address" type="text" value="{{ applicant.address }}">
                         </div>
                     </fieldset>
                     <fieldset class="accout-details">
@@ -210,31 +85,28 @@
 
             <div id="tab2" class="value-choice my-acc-wish">
                 <div class="panel-group" id="accordion">
+                    {% if data %}
+                    {% for admission, major in data %}
                     <div class="panel panel-default">
                         <div class="panel-heading">
                             <h4 class="panel-title">
-                                <a data-toggle="collapse" data-parent="#accordion" href="#collapse1">
-                                    Nguyện vọng 1</a>
+                                <a data-toggle="collapse" data-parent="#accordion" href="#collapse{{ forloop.counter }}">
+                                    Nguyện vọng {{ forloop.counter }}</a>
                             </h4>
                         </div>
-                        <div id="collapse1" class="panel-collapse collapse in">
+                        <div id="collapse{{ forloop.counter }}" class="panel-collapse collapse in">
                             <div class="panel-body">
-                                <h4>Mã ngành: 7480201 | Công nghệ thông tin	| A00 - Toán, Vật lý, Hóa học</h4>
+                                <h4>Mã ngành: {{ admission.meta_data.Major }} | {{ major }}
+                                    | Khối: {{ admission.meta_data.subject_cluster }}</h4>
                                 <table border="1" style="border-collapse: collapse;margin: auto;">
                                     <tbody><tr>
-
                                         <th style="text-align: center">Môn</th>
-                                        <th style=" text-align: center">HK1-L10</th>
-                                        <th style=" text-align: center">HK2-L10</th>
-                                        <th style=" text-align: center">HK1-L11</th>
-                                        <th style=" text-align: center">HK2-L11</th>
-                                        <th style=" text-align: center">HK1-L12</th>
                                         <th style=" text-align: center">Điểm M</th>
                                     </tr>
                                     </tbody><tbody>
-                                <tr> <td style="width: 10%; text-align: center">Toán</td><td style="width: 10%; text-align: center">8.50</td><td style="width: 10%; text-align: center">8.00</td><td style="width: 10%; text-align: center">7.00</td><td style="width: 10%; text-align: center">9.00</td><td style="width: 10%; text-align: center">9.00</td><td style="width: 10%; text-align: center">8.30</td>        </tr>
-                                <tr> <td style="width: 10%; text-align: center">Vật lý</td><td style="width: 10%; text-align: center">7.00</td><td style="width: 10%; text-align: center">8.30</td><td style="width: 10%; text-align: center">7.90</td><td style="width: 10%; text-align: center">8.40</td><td style="width: 10%; text-align: center">8.50</td><td style="width: 10%; text-align: center">8.02</td>        </tr>
-                                <tr> <td style="width: 10%; text-align: center">Hóa học</td><td style="width: 10%; text-align: center">7.00</td><td style="width: 10%; text-align: center">9.00</td><td style="width: 10%; text-align: center">9.20</td><td style="width: 10%; text-align: center">7.80</td><td style="width: 10%; text-align: center">9.00</td><td style="width: 10%; text-align: center">8.40</td>        </tr>
+                                <tr> <td style="width: 10%; text-align: center">{{ cluster }}</td><td style="width: 10%; text-align: center">{{ admission.details.Subject_1 }}</td>        </tr>
+                                <tr> <td style="width: 10%; text-align: center">Vật lý</td><td style="width: 10%; text-align: center">{{ admission.details.Subject_2 }}</td>        </tr>
+                                <tr> <td style="width: 10%; text-align: center">Hóa học</td><td style="width: 10%; text-align: center">{{ admission.details.Subject_3 }}</td>        </tr>
                                 <tr>         </tr>
                                 <tr>         </tr>
                                 <tr>         </tr>
@@ -244,48 +116,18 @@
                                 <tr>         </tr>
                                 </tbody>
                                 </table>
-                                <div class="status"><span>Trạng thái: Đã lập phiếu</span><a href="#">Có thể nộp phiếu</a></div>
+                                <div class="status">
+                                    <span>Trạng thái: {{ admission.status }}</span>
+                                    <a href="#">Có thể nộp phiếu</a>
+                                </div>
+                                <div class="status">
+                                    <a href="#" class="alert-danger">Xóa phiếu</a>
+                                </div>
                             </div>
                         </div>
                     </div>
-                    <div class="panel panel-default">
-                        <div class="panel-heading">
-                            <h4 class="panel-title">
-                                <a data-toggle="collapse" data-parent="#accordion" href="#collapse2">
-                                    Nguyện vọng 2</a>
-                            </h4>
-                        </div>
-                        <div id="collapse2" class="panel-collapse collapse">
-                            <div class="panel-body">
-                                <h4>Mã ngành: 7480201 | Công nghệ thông tin	| A00 - Toán, Vật lý, Hóa học</h4>
-                                <table border="1" style="border-collapse: collapse;margin: auto;">
-                                    <tbody><tr>
-
-                                        <th style="text-align: center">Môn</th>
-                                        <th style=" text-align: center">HK1-L10</th>
-                                        <th style=" text-align: center">HK2-L10</th>
-                                        <th style=" text-align: center">HK1-L11</th>
-                                        <th style=" text-align: center">HK2-L11</th>
-                                        <th style=" text-align: center">HK1-L12</th>
-                                        <th style=" text-align: center">Điểm M</th>
-                                    </tr>
-                                    </tbody><tbody>
-                                <tr> <td style="width: 10%; text-align: center">Toán</td><td style="width: 10%; text-align: center">8.50</td><td style="width: 10%; text-align: center">8.00</td><td style="width: 10%; text-align: center">7.00</td><td style="width: 10%; text-align: center">9.00</td><td style="width: 10%; text-align: center">9.00</td><td style="width: 10%; text-align: center">8.30</td>        </tr>
-                                <tr> <td style="width: 10%; text-align: center">Vật lý</td><td style="width: 10%; text-align: center">7.00</td><td style="width: 10%; text-align: center">8.30</td><td style="width: 10%; text-align: center">7.90</td><td style="width: 10%; text-align: center">8.40</td><td style="width: 10%; text-align: center">8.50</td><td style="width: 10%; text-align: center">8.02</td>        </tr>
-                                <tr> <td style="width: 10%; text-align: center">Hóa học</td><td style="width: 10%; text-align: center">7.00</td><td style="width: 10%; text-align: center">9.00</td><td style="width: 10%; text-align: center">9.20</td><td style="width: 10%; text-align: center">7.80</td><td style="width: 10%; text-align: center">9.00</td><td style="width: 10%; text-align: center">8.40</td>        </tr>
-                                <tr>         </tr>
-                                <tr>         </tr>
-                                <tr>         </tr>
-                                <tr>         </tr>
-                                <tr>         </tr>
-                                <tr>         </tr>
-                                <tr>         </tr>
-                                </tbody>
-                                </table>
-                                <div class="status"><span>Trạng thái: Đã lập phiếu</span><a href="#">Có thể nộp phiếu</a></div>
-                            </div>
-                        </div>
-                    </div>
+                    {% endfor %}
+                    {% endif %}
                 </div>
             </div>
 
@@ -303,19 +145,13 @@
                                 <h4>Mã ngành: 7480201 | Công nghệ thông tin	| A00 - Toán, Vật lý, Hóa học</h4>
                                 <table border="1" style="border-collapse: collapse;margin: auto;">
                                     <tbody><tr>
-
                                         <th style="text-align: center">Môn</th>
-                                        <th style=" text-align: center">HK1-L10</th>
-                                        <th style=" text-align: center">HK2-L10</th>
-                                        <th style=" text-align: center">HK1-L11</th>
-                                        <th style=" text-align: center">HK2-L11</th>
-                                        <th style=" text-align: center">HK1-L12</th>
                                         <th style=" text-align: center">Điểm M</th>
                                     </tr>
                                     </tbody><tbody>
-                                <tr> <td style="width: 10%; text-align: center">Toán</td><td style="width: 10%; text-align: center">8.50</td><td style="width: 10%; text-align: center">8.00</td><td style="width: 10%; text-align: center">7.00</td><td style="width: 10%; text-align: center">9.00</td><td style="width: 10%; text-align: center">9.00</td><td style="width: 10%; text-align: center">8.30</td>        </tr>
-                                <tr> <td style="width: 10%; text-align: center">Vật lý</td><td style="width: 10%; text-align: center">7.00</td><td style="width: 10%; text-align: center">8.30</td><td style="width: 10%; text-align: center">7.90</td><td style="width: 10%; text-align: center">8.40</td><td style="width: 10%; text-align: center">8.50</td><td style="width: 10%; text-align: center">8.02</td>        </tr>
-                                <tr> <td style="width: 10%; text-align: center">Hóa học</td><td style="width: 10%; text-align: center">7.00</td><td style="width: 10%; text-align: center">9.00</td><td style="width: 10%; text-align: center">9.20</td><td style="width: 10%; text-align: center">7.80</td><td style="width: 10%; text-align: center">9.00</td><td style="width: 10%; text-align: center">8.40</td>        </tr>
+                                <tr> <td style="width: 10%; text-align: center">Toán</td><td style="width: 10%; text-align: center">8.30</td>        </tr>
+                                <tr> <td style="width: 10%; text-align: center">Vật lý</td><td style="width: 10%; text-align: center">8.02</td>        </tr>
+                                <tr> <td style="width: 10%; text-align: center">Hóa học</td><td style="width: 10%; text-align: center">8.40</td>        </tr>
                                 <tr>         </tr>
                                 <tr>         </tr>
                                 <tr>         </tr>
@@ -341,19 +177,13 @@
                                 <h4>Mã ngành: 7480201 | Công nghệ thông tin	| A00 - Toán, Vật lý, Hóa học</h4>
                                 <table border="1" style="border-collapse: collapse;margin: auto;">
                                     <tbody><tr>
-
                                         <th style="text-align: center">Môn</th>
-                                        <th style=" text-align: center">HK1-L10</th>
-                                        <th style=" text-align: center">HK2-L10</th>
-                                        <th style=" text-align: center">HK1-L11</th>
-                                        <th style=" text-align: center">HK2-L11</th>
-                                        <th style=" text-align: center">HK1-L12</th>
                                         <th style=" text-align: center">Điểm M</th>
                                     </tr>
                                     </tbody><tbody>
-                                <tr> <td style="width: 10%; text-align: center">Toán</td><td style="width: 10%; text-align: center">8.50</td><td style="width: 10%; text-align: center">8.00</td><td style="width: 10%; text-align: center">7.00</td><td style="width: 10%; text-align: center">9.00</td><td style="width: 10%; text-align: center">9.00</td><td style="width: 10%; text-align: center">8.30</td>        </tr>
-                                <tr> <td style="width: 10%; text-align: center">Vật lý</td><td style="width: 10%; text-align: center">7.00</td><td style="width: 10%; text-align: center">8.30</td><td style="width: 10%; text-align: center">7.90</td><td style="width: 10%; text-align: center">8.40</td><td style="width: 10%; text-align: center">8.50</td><td style="width: 10%; text-align: center">8.02</td>        </tr>
-                                <tr> <td style="width: 10%; text-align: center">Hóa học</td><td style="width: 10%; text-align: center">7.00</td><td style="width: 10%; text-align: center">9.00</td><td style="width: 10%; text-align: center">9.20</td><td style="width: 10%; text-align: center">7.80</td><td style="width: 10%; text-align: center">9.00</td><td style="width: 10%; text-align: center">8.40</td>        </tr>
+                                <tr> <td style="width: 10%; text-align: center">Toán</td><td style="width: 10%; text-align: center">8.30</td>        </tr>
+                                <tr> <td style="width: 10%; text-align: center">Vật lý</td><td style="width: 10%; text-align: center">8.02</td>        </tr>
+                                <tr> <td style="width: 10%; text-align: center">Hóa học</td><td style="width: 10%; text-align: center">8.40</td>        </tr>
                                 <tr>         </tr>
                                 <tr>         </tr>
                                 <tr>         </tr>

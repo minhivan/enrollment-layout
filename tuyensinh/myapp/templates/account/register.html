@@ -1,0 +1,38 @@
+{% extends 'base/loginbase.html' %}
+{% load static %}
+
+{% block content %}
+<body>
+<div class="login-banner">
+    <div class="container-fluid login-sec">
+        <div class="col-md-6 lg-left"></div>
+        <div class="col-md-6 lg-right">
+            <div class="login-frame">
+                {% if messages %}
+                {% for message in messages %}
+                <div class="alert alert-info" role="alert">
+                    {{ message }}
+                </div>
+                {% endfor %}
+                {% endif %}
+                <h3>ĐĂNG KÝ TÀI KHOẢN</h3>
+                <div class="divider"></div>
+                <form action="" class="register" method="post">
+                    {% csrf_token %}
+                    <input placeholder="Username" type="text" name="username" required>
+                    <input placeholder="Email" type="email" name="email" required>
+                    <input placeholder="First Name" type="text" name="firstname" required>
+                    <input placeholder="Last Name" type="text" name="lastname" required>
+                    <input placeholder="Password" type="password" name="password" required>
+                    <input placeholder="Re-Password" type="password" name="re-password" required>
+                    <button type="submit">ĐĂNG KÝ</button>
+                    <a href="sign-in.html">Đã có tài khoản ? Đăng nhập ngay</a>
+                </form>
+            </div>
+        </div>
+        <div class="clearfix"></div>
+    </div>
+</div>
+</body>
+</html>
+{% endblock %}

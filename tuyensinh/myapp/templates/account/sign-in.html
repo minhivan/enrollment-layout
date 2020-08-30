@@ -8,13 +8,21 @@
         <div class="col-md-6 lg-left"></div>
         <div class="col-md-6 lg-right">
             <div class="login-frame">
+                {% if messages %}
+                {% for message in messages %}
+                <div class="alert alert-info" role="alert">
+                    {{ message }}
+                </div>
+                {% endfor %}
+                {% endif %}
                 <h3>ĐĂNG NHẬP</h3>
                 <div class="divider"></div>
                 <form action="" method="post">
-                    <input placeholder="Email" type="text">
-                    <input placeholder="Password" type="password">
+                    {% csrf_token %}
+                    <input placeholder="Username" type="text" name="username" required>
+                    <input placeholder="Password" type="password" name="password" required>
                     <button type="submit">ĐĂNG NHẬP</button>
-                    <a href="./register.html">Chưa có tài khoản ? Đăng ký ngay</a>
+                    <a href="/register/">Chưa có tài khoản ? Đăng ký ngay</a>
                 </form>
             </div>
         </div>
@@ -23,3 +31,5 @@
 </div>
 </body>
 </html>
+
+{% endblock %}

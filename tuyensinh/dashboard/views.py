@@ -1,10 +1,12 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.http import HttpResponse
 
 # Create your views here.
 
 
 def indexdash(request):
+    if not request.user.is_authenticated:
+        return redirect("login")
     return render(request, 'admindash.html', {})
 
 

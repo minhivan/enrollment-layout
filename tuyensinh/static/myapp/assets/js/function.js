@@ -32,3 +32,18 @@ function change_nvonge(id){
 
 }
 
+$(document).ready(function(){
+    var current = location.pathname;
+    $('#header_nav li a').each(function(){
+        var $this = $(this);
+        // if the current path is like this link, make it active
+        if($this.attr('href').indexOf(current) !== -1){
+            $this.parent().addClass('active');
+        }else{
+            $this.parent().removeClass('active');
+        }
+    });
+});
+
+
+

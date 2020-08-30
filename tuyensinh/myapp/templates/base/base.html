@@ -24,7 +24,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@600&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Anton&display=swap" rel="stylesheet">
-    <title>Đăng ký xét tuyển</title>
+    <title>{% block title %} {% endblock %}</title>
 </head>
 <body>
 <!--  Header  -->
@@ -45,7 +45,7 @@
                     <span class="icon-bar"></span>
                 </button>
                 <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                    <ul class="nav navbar-nav">
+                    <ul class="nav navbar-nav" id="header_nav">
                         <li class="active">
                             <a href="/">Trang chủ</a>
                         </li>
@@ -53,11 +53,17 @@
                             <a href="#">Đại học chính quy</a>
                         </li>
                         <li>
-                            <a href="/method">Đăng ký xét tuyển</a>
+                            <a href="/method/">Đăng ký xét tuyển</a>
                         </li>
+                        {% if user.is_authenticated %}
                         <li>
-                            <a href="/login">Đăng nhập</a>
+                            <a href="/user/dashboard/">Tài khoản</a>
                         </li>
+                        {% else %}
+                         <li>
+                            <a href="/login/">Đăng nhập</a>
+                        </li>
+                        {% endif %}
                     </ul>
                 </div>
             </nav>

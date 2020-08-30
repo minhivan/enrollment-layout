@@ -1,8 +1,13 @@
 from bson import ObjectId
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.http import HttpResponse
 from django.views.decorators.csrf import csrf_exempt
-from .models import SubjectCluster,Posts
+from .models import SubjectCluster, Applicants, Registers, Majors
+from django.contrib.auth.forms import UserCreationForm
+from django.contrib.auth.models import User, auth
+from django.contrib import messages
+from django.views.generic import ListView, DetailView
+from django.core.files.storage import FileSystemStorage
 
 
 # Create your views here.
@@ -11,19 +16,168 @@ def index(request):
 
 
 def login(request):
-    return render(request, 'sign-in.html', {})
+    if request.method == "POST":
+        username = request.POST.get('username')
+        password = request.POST.get('password')
+        user = auth.authenticate(username=username, password=password)
+        if user is not None:
+            auth.login(request, user)
+            if user.is_superuser:
+                return redirect("admin_dash")
+            messages.success(request, 'Login success')
+            HttpResponse("Login successfully")
+        else:
+            messages.error(request, 'Login failed')
+            HttpResponse("Login failed")
+        return redirect(index)
+    return render(request, 'account/sign-in.html', {})
 
 
 def register(request):
-    return render(request, 'register.html', {})
+    if request.method == "POST":
+        username = request.POST.get("username")
+        email = request.POST.get("email")
+        password = request.POST.get("password")
+        repass = request.POST.get("re-password")
+        first_name = request.POST.get("firstname")
+        last_name = request.POST.get("lastname")
+        full_name = first_name + " " + last_name
+        if repass == password:
+            user = User.objects.create_user(username=username, email=email, password=password, first_name=first_name,
+                                            last_name=last_name)
+            user.save()
+            messages.success(request, 'Account created successfully')
+            applicant = Applicants()
+            applicant.id = User.objects.get(username=username).pk
+            applicant.email = email
+            applicant.name = full_name
+            applicant.save()
+            HttpResponse("Created")
+            return redirect("home")
+        else:
+            messages.error(request, 'Failed to create account')
+            return redirect(register)
+    else:
+        return render(request, 'account/register.html')
 
 
-def clientdashboard(request):
-    return render(request, 'page/dashboard.html', {})
+def logout(request):
+    auth.logout(request)
+    return render(request, 'index.html', {})
+
+
+def client_dashboard(request):
+    if not request.user.is_authenticated:
+        return redirect("login")
+    else:
+        username = request.user.get_username()
+        user_id = User.objects.get(username=username).pk
+        user = User.objects.get(id=user_id)
+        applicant = Applicants.objects.get(id=user_id)
+        admissions = Registers.objects.filter(user=user_id)
+        major = []
+        for admission in admissions:
+            test = admission.meta_data
+            majors = Majors.objects.get(label=test['Major']).name
+            major.append(majors)
+            clusters = SubjectCluster.objects.filter(label=test['subject_cluster'])
+            print(clusters)
+        data = zip(admissions, major)
+        context = {
+            "user": user,
+            "applicant": applicant,
+            "data": data
+        }
+    return render(request, 'page/dashboard.html', context)
+
+
+def update_info(request, id):
+    if request.method == "POST":
+        password = request.POST.get("password")
+        repass = request.POST.get("re-password")
+        student_name = request.POST.get("student_name")
+        student_dob = request.POST.get("student_birth")
+        student_gender = request.POST.get("student_gender")
+        student_phone = request.POST.get("student_phone")
+        student_id = request.POST.get("student_identify")
+        student_address = request.POST.get("student_address")
+        user = User.objects.get(id=id)
+        applicant = Applicants.objects.get(id=id)
+
+        if None not in (password, repass):
+            if repass == password:
+                user.password = password
+                user.save()
+        if None not in (student_dob, student_address,
+                        student_gender, student_phone, student_id, student_name):
+            applicant.dob = student_dob
+            applicant.gender = student_gender
+            applicant.phone = student_phone
+            applicant.identity = student_id
+            applicant.address = student_address
+            applicant.name = student_name
+            applicant.save()
+            context = {
+                "user": user,
+                "applicant": applicant
+            }
+            HttpResponse("Updated")
+            return render(request, 'page/dashboard.html', context)
+        else:
+            messages.error(request, 'Failed to update account')
+            HttpResponse("Updated")
+            return redirect("account")
 
 
 def apply(request):
-    return render(request, 'apply.html', {})
+    if not request.user.is_authenticated:
+        return redirect("login")
+    else:
+        if request.method == "POST" and request.FILES['score_image']:
+            username = request.user.get_username()
+            user_id = User.objects.get(username=username).pk
+            user = User.objects.get(id=user_id)
+            applicant = Applicants.objects.get(id=user_id)
+            student_name = request.POST.get("student_name")
+            student_dob = request.POST.get("student_birth")
+            student_gender = request.POST.get("student_gender")
+            student_phone = request.POST.get("student_phone")
+            student_id = request.POST.get("student_identify")
+            student_address = request.POST.get("student_address")
+            # SCORE
+            major = request.POST.get("nvong")
+            subject_name = request.POST.get("thop")
+            avg_scores = {}
+            for i in range(0, 3):
+                temp_name = "avg_score"+str(i)
+                avg_score = request.POST.get("avg_score"+str(i))
+                avg_scores["Subject_"+str(i+1)] = avg_score
+            print(avg_scores)
+            avg = request.POST.get("final_score")
+            meta = {"Major": major, "subject_cluster": subject_name, "average_score": avg}
+            my_file = request.FILES['score_image']
+            fs = FileSystemStorage()
+            file = fs.save(my_file.name, my_file)
+            uploaded_file_url = fs.url(file)
+            apply_form = Registers(user=user_id, status="pending", meta_data=meta, details=avg_scores, image=file)
+            apply_form.save()
+            messages.success(request, 'Upload success')
+            context = {
+                "user": user,
+                "applicant": applicant
+            }
+            HttpResponse("Updated")
+            return render(request, 'apply.html', context)
+        else:
+            username = request.user.get_username()
+            user_id = User.objects.get(username=username).pk
+            user = User.objects.get(id=user_id)
+            applicant = Applicants.objects.get(id=user_id)
+            context = {
+                "user": user,
+                "applicant": applicant
+            }
+            return render(request, 'apply.html', context)
 
 
 def method(request):
@@ -58,22 +212,32 @@ def pedagogy(request):
 # API
 @csrf_exempt
 def add_subject(request):
-    subject = request.POST.get("subject")
+    subject_names = request.POST.get("subject").split(',')
+    sub = {}
+    index = 1
+    for subject_name in subject_names:
+        sub["Subject_"+str(index)] = subject_name
+        index += 1
     name = request.POST.get("name")
     label = request.POST.get("label")
     detail = request.POST.get("detail")
-    subject_cluster = SubjectCluster(name=name, detail=detail, subject=subject, label=label)
+    subject_cluster = SubjectCluster(name=name, detail=detail, subject=sub, label=label)
     subject_cluster.save()
     return HttpResponse("Inserted")
 
 
 @csrf_exempt
-def add_post(request):
-    comment = request.POST.get("comment").split(",")
-    tags = request.POST.get("tags").split(",")
-    user_details = {"first_name":request.POST.get("first_name"),"last_name":request.POST.get("last_name")}
-    post = Posts(post_title=request.POST.get("post_title"),post_description=request.POST.get("post_description"),comment=comment,tags=tags,user_details=user_details)
-    post.save()
-    return HttpResponse("Inserted")
-
-# FORM
+def add_major(request):
+    if request.method == "POST":
+        subject_names = request.POST.get("subject_id").split(',')
+        sub = {}
+        index = 1
+        for subject_name in subject_names:
+            sub["cluster_" + str(index)] = subject_name
+            index += 1
+        name = request.POST.get("name")
+        label = request.POST.get("label")
+        detail = request.POST.get("detail")
+        major = Majors(name=name, detail=detail, subject_id=sub, label=label)
+        major.save()
+        return HttpResponse("Inserted")

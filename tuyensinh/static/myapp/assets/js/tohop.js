@@ -99,33 +99,50 @@ function change_score_input(){
     var innerHTML = "";
 
 
-    for(var i = 0; i < arr.length; i++){
+    for(var i = 0; i < arr.length; i++) {
         console.log(arr[i]);
         var div = document.getElementById("score_input");
         innerHTML += '                    <div class="score-row">\n' +
             '                        <div class="col-md-1">\n' +
-            '                            <h5>'+arr[i]+'</h5>\n' +
+            '                            <h5>' + arr[i] + '</h5>\n' +
             '                        </div>\n' +
             '                        <div class="col-md-2">\n' +
-            '                            <input id="'+slug[i]+'10_hk1" name="'+slug[i]+'10_hk1" type="number" max="10" min="0">\n' +
+            '                            <input id="' + slug[i] + '10_hk1" name="score" type="number" max="10" min="0" class="index'+i+'">\n' +
             '                        </div>\n' +
             '                        <div class="col-md-2">\n' +
-            '                            <input id="'+slug[i]+'10_hk2" name="'+slug[i]+'10_hk2" type="number" max="10" min="0">\n' +
+            '                            <input id="' + slug[i] + '10_hk2" name="score" type="number" max="10" min="0" class="index'+i+'">\n' +
             '                        </div>\n' +
             '                        <div class="col-md-2">\n' +
-            '                            <input id="'+slug[i]+'11_hk1" name="'+slug[i]+'11_hk1" type="number" max="10" min="0">\n' +
+            '                            <input id="' + slug[i] + '11_hk1" name="score" type="number" max="10" min="0" class="index'+i+'">\n' +
             '                        </div>\n' +
             '                        <div class="col-md-2">\n' +
-            '                            <input id="'+slug[i]+'11_hk2" name="'+slug[i]+'11_hk2" type="number" max="10" min="0">\n' +
+            '                            <input id="' + slug[i] + '11_hk2" name="score" type="number" max="10" min="0" class="index'+i+'">\n' +
             '                        </div>\n' +
             '                        <div class="col-md-2">\n' +
-            '                            <input id="'+slug[i]+'12_hk1" name="'+slug[i]+'12_hk1" type="number" max="10" min="0">\n' +
+            '                            <input id="' + slug[i] + '12_hk1" name="score" type="number" max="10" min="0" class="index'+i+'">\n' +
             '                        </div>\n' +
             '                        <div class="col-md-1">\n' +
-            '                            <input id="'+slug[i]+'TB" name="'+slug[i]+'TB" type="number" max="10" min="0">\n' +
+            '                            <input id="' + slug[i] + 'TB" class="avg_score" name="avg_score'+i+'" type="number" max="10" min="0" readonly>\n' +
             '                        </div>\n' +
             '                    </div>\n';
-
         div.innerHTML = innerHTML;
     }
+}
+
+function calculate_score(){
+    var final = 0;
+    for(var x =0;x<3;x++){
+        var temp = 0;
+        var avg_score = document.getElementsByClassName("avg_score");
+        var a = document.getElementsByClassName("index"+x);
+        for(var i =0;i<a.length;i++) {
+            temp = temp + parseFloat(a[i].value);
+        }
+        avg_score[x].value = parseFloat(temp/5);
+        console.log(temp);
+        final+=parseFloat(temp/5);
+    }
+    var final_score = document.getElementById("avg_final");
+    final_score.value = final;
+
 }
