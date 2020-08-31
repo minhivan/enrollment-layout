@@ -24,8 +24,14 @@ urlpatterns = [
     path('myapp/v1/addsubjectCluster/', views.add_subject),
     path('myapp/v1/update/<int:id>', views.update_info),
     path('myapp/v1/addmajor/', views.add_major),
-    path('myapp/v1/user/admission/delete/<int:id>', views.delete_admission, name="delete_admission"),
-    path('myapp/v1/user/admission/submit/<int:id>', views.submit_admission, name="submit_admission")
+    path('myapp/v1/user/admission/delete/<int:id>/', views.delete_admission, name="delete_admission"),
+    path('myapp/v1/user/admission/submit/<int:id>/', views.submit_admission, name="submit_admission"),
+    # ADMIN
+    path('dashboard/', views.index_dash, name="admin_dash"),
+    path('dashboard/list/user/', views.user, name="admin_user"),
+    path('dashboard/profile/<int:id>/', views.profile_user, name="admin_my_profile"),
+    path('dashboard/list/admission/', views.list_choice, name="admin_list_choice"),
+    path('dashboard/list/admission/<int:id>/', views.list_choice, name="admin_list_choice"),
 ]
 
 

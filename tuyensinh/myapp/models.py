@@ -11,7 +11,7 @@ class Applicants(models.Model):
     pob = models.CharField(max_length=255)
     nation = models.CharField(max_length=200)
     phone = models.CharField(max_length=12)
-    email = models.EmailField(max_length=12)
+    email = models.EmailField(max_length=50)
     identity = models.CharField(max_length=12)
     address = models.CharField(max_length=255)
     city = models.CharField(max_length=50)
@@ -47,7 +47,8 @@ class Majors(models.Model):
 
 
 class Registers(models.Model):
-    user = models.IntegerField()
+    user = models.ForeignKey(Applicants, null=True, on_delete=models.CASCADE)
+    # major = models.IntegerField(default=None)
     result = models.CharField(max_length=10)
     status = models.CharField(max_length=20)
     meta_data = models.JSONField()
@@ -55,3 +56,4 @@ class Registers(models.Model):
     details = models.JSONField()
     image = models.ImageField(upload_to='images/', default="")
     objects = models.DjongoManager()
+

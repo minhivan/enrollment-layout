@@ -1,0 +1,74 @@
+{% extends 'base/admin.html' %}
+{% load static %}
+{% block title %}Danh sách thành viên{% endblock %}
+{% block content %}
+<div class="st-content-body col-md-9">
+                <div class="st-content-wrap">
+                    <div class="st-block-head">
+                        <h2 class="st-block-title ">Danh sách thành viên</h2>
+                        <div class="st-block-des">
+                            <p>Here is your list of account.</p>
+                        </div>
+                    </div>
+                    <div class="st-block">
+                        <div class="row">
+                            <div class="card card-bordered">
+                                <table class="table table-member">
+                                    <thead class="tb-member-head thead-light">
+                                    <tr class="tb-member-item">
+                                        <th class="tb-member-info"><span class="overline-title">Team Member</span></th>
+                                        <th class="tb-member-role tb-col-md"><span class="overline-title">Role</span>
+                                        </th>
+                                        <th class="tb-member-action"><span class="overline-title">Action</span></th>
+                                    </tr>
+                                    </thead>
+                                    <tbody class="tb-member-body">
+                                    {% if users %}
+                                    {% for user in users %}
+                                    <tr class="tb-member-item">
+                                        <td class="tb-member-info">
+                                            <div class="user-card">
+                                                <div class="user-avatar bg-primary"><span></span></div>
+                                                <div class="user-info"><span
+                                                        class="lead-text">Username: {{ user.username }} | Full name: {{ user.first_name }} {{ user.last_name }} </span>
+                                                    <span class="sub-text">{{ user.email }}</span>
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td class="tb-member-role tb-col-md">
+                                            <span>
+                                                {% if user.is_superuser %}
+                                                    Admin
+                                                {%else%}
+                                                    User
+                                                {% endif %}
+                                            </span>
+                                        </td>
+                                        <td class="tb-member-action">
+                                            <div class="d-none d-md-inline"><a class="link link-sm"
+                                                                               href="#"><span>Edit</span></a><a
+                                                    class="link link-sm link-danger" href="#"><span>Remove</span></a>
+                                            </div>
+                                            <div class="dropdown d-md-none"><a
+                                                    class="dropdown-toggle btn btn-icon btn-trigger"
+                                                    data-toggle="dropdown"><em class="icon ni ni-more-v"></em></a>
+                                                <div class="dropdown-menu dropdown-menu-right dropdown-menu-xs">
+                                                    <ul class="link-list-plain no-bdr">
+                                                        <li class="active"><a class="link link-sm" href="#">Edit</a>
+                                                        </li>
+                                                        <li><a class="link link-sm link-danger" href="#">Remove</a></li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    {% endfor %}
+                                    {% endif %}
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+{% endblock %}

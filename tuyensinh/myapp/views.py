@@ -187,6 +187,7 @@ def apply(request):
             student_address = request.POST.get("student_address")
             # SCORE
             major = request.POST.get("nvong")
+            major_obj = Majors.objects.get(label=major)
             subject_name = request.POST.get("thop")
             avg_scores = {}
             for i in range(0, 3):
@@ -201,7 +202,7 @@ def apply(request):
             fs = FileSystemStorage()
             file = fs.save(my_file.name, my_file)
             uploaded_file_url = fs.url(file)
-            apply_form = Registers(user=user_id, status="pending", result="waiting", meta_data=meta, details=avg_scores, image=file)
+            apply_form = Registers(user=applicant, status="pending", result="waiting", meta_data=meta, details=avg_scores, image=file)
             apply_form.save()
             messages.success(request, 'Upload success')
             context = {
@@ -283,3 +284,39 @@ def add_major(request):
         major = Majors(name=name, detail=detail, subject_id=sub, label=label)
         major.save()
         return HttpResponse("Inserted")
+
+
+# ADMIN
+
+def index_dash(request):
+    if not request.user.is_authenticated:
+        return redirect("login")
+    else:
+        if request.user.is_superuser:
+            admissions = Registers.objects.all()
+            context = {
+                "user": user,
+                "admissions": admissions
+            }
+    return render(request, 'admin/admindash.html', context)
+
+
+def user(request):
+    if not request.user.is_authenticated:
+        return redirect("login")
+    else:
+        if request.user.is_superuser:
+            users = User.objects.all()
+            context = {
+                "users": users,
+            }
+            return render(request, 'admin/page/user.html', context)
+
+
+def profile_user(request):
+    return render(request, 'admin/page/profile.html', {})
+
+
+def list_choice(request):
+    return render(request, 'admin/page/list-choice.html', {})
+
