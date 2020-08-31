@@ -46,19 +46,8 @@
                                         </td>
                                         <td class="tb-member-action">
                                             <div class="d-none d-md-inline"><a class="link link-sm"
-                                                                               href="#"><span>Edit</span></a><a
-                                                    class="link link-sm link-danger" href="#"><span>Remove</span></a>
-                                            </div>
-                                            <div class="dropdown d-md-none"><a
-                                                    class="dropdown-toggle btn btn-icon btn-trigger"
-                                                    data-toggle="dropdown"><em class="icon ni ni-more-v"></em></a>
-                                                <div class="dropdown-menu dropdown-menu-right dropdown-menu-xs">
-                                                    <ul class="link-list-plain no-bdr">
-                                                        <li class="active"><a class="link link-sm" href="#">Edit</a>
-                                                        </li>
-                                                        <li><a class="link link-sm link-danger" href="#">Remove</a></li>
-                                                    </ul>
-                                                </div>
+                                                                               href="/dashboard/user/profile/{{ user.id }}/"><span>Edit</span></a><a
+                                                    class="link link-sm link-danger" onclick="return confirm('Are you sure you want to delete this user?');" href="/dashboard/user/delete/{{ user.id }}/"><span>Remove</span></a>
                                             </div>
                                         </td>
                                     </tr>

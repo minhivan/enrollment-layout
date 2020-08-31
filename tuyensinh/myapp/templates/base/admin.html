@@ -47,7 +47,7 @@
                                         <img src="{% static 'dashboard/assets/image/user.svg' %}" alt="">
                                     </div>
                                     <div class="user-name">
-                                        <span>Nhật Minh</span>
+                                        <a href="/dashboard/profile/{{ request.user.id}}/"><span>{{ request.user}}</span></a>
                                     </div>
                                 </div>
                             </a>
@@ -82,12 +82,12 @@
                                     Tổng quan </a>
                             </li>
                             <li>
-                                <a href="/dashboard/list/user/">
+                                <a href="/dashboard/user/list/">
                                     <i class="glyphicon glyphicon-user"></i>
                                     Danh sách </a>
                             </li>
                             <li>
-                                <a href="/dashboard/list/admission/">
+                                <a href="/dashboard/admission/list/">
                                     <i class="glyphicon glyphicon-ok"></i>
                                     Ứng tuyển </a>
                             </li>

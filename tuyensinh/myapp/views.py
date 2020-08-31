@@ -57,9 +57,7 @@ def register(request):
         else:
             messages.error(request, 'Failed to create account')
             return redirect("register")
-    else:
-        return redirect("register")
-
+    return render(request, 'account/register.html', {})
 
 def logout(request):
     auth.logout(request)
@@ -295,7 +293,6 @@ def index_dash(request):
         if request.user.is_superuser:
             admissions = Registers.objects.all()
             context = {
-                "user": user,
                 "admissions": admissions
             }
     return render(request, 'admin/admindash.html', context)
@@ -313,10 +310,76 @@ def user(request):
             return render(request, 'admin/page/user.html', context)
 
 
-def profile_user(request):
-    return render(request, 'admin/page/profile.html', {})
+def profile_user(request, id):
+    if not request.user.is_authenticated:
+        return redirect("login")
+    else:
+        if request.user.is_superuser:
+            request_user = User.objects.get(id=id)
+            check = Applicants.objects.filter(id=id)
+            if check:
+                applicant = Applicants.objects.get(id=id)
+                context = {
+                    "applicant": applicant,
+                    "request_user": request_user
+                }
+                if request.method == "POST":
+                    password = request.POST.get("password")
+                    repass = request.POST.get("re-password")
+                    first_name = request.POST.get("firstname")
+                    last_name = request.POST.get("lastname")
+                    phone = request.POST.get("phone")
+                    if repass == "":
+                        request_user.first_name = first_name
+                        request_user.last_name = last_name
+                        request_user.save()
+                        applicant.phone = request.POST.get("phone")
+                        applicant.address = request.POST.get("address")
+                        applicant.dob = request.POST.get("dob")
+                        applicant.save()
+                        messages.success(request, "Success")
+                        return redirect("profile_user", id)
+                    else:
+                        if repass == password:
+                            request_user.first_name = first_name
+                            request_user.last_name = last_name
+                            request_user.password = password
+                            request_user.save()
+                            applicant.phone = request.POST.get("phone")
+                            applicant.address = request.POST.get("address")
+                            applicant.dob = request.POST.get("dob")
+                            applicant.save()
+                            messages.success(request, "Success")
+                            return redirect("profile_user", id)
+                        else:
+                            messages.error(request, "Cannot update")
+                            return redirect("profile_user", id)
+            else:
+                context = {
+                    "request_user": request_user
+                }
+
+    return render(request, 'admin/page/profile.html', context)
 
 
-def list_choice(request):
-    return render(request, 'admin/page/list-choice.html', {})
+def delete_user(request, id):
+    if not request.user.is_authenticated:
+        return redirect("login")
+    else:
+        if request.user.is_superuser:
+            request_user = User.objects.filter(id=id)
+            request_user.delete()
+    return redirect("admin_list_user")
+
+
+def admission_list(request):
+    if not request.user.is_authenticated:
+        return redirect("login")
+    else:
+        if request.user.is_superuser:
+            admissions = Registers.objects.all()
+            context = {
+                "admissions": admissions
+            }
+    return render(request, 'admin/page/list-choice.html', context)
 
