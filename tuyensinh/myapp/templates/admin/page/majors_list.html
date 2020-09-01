@@ -1,11 +1,11 @@
 {% extends 'base/admin.html' %}
 {% load static %}
-{% block title %}Danh sách thành viên{% endblock %}
+{% block title %}Danh sách chuyên ngành{% endblock %}
 {% block content %}
 <div class="st-content-body col-md-9">
                 <div class="st-content-wrap">
                     <div class="st-block-head">
-                        <h2 class="st-block-title ">Danh sách thành viên</h2>
+                        <h2 class="st-block-title ">Danh sách chuyên ngành</h2>
                         <div class="st-block-des">
                             <p>Here is your list of account.</p>
                         </div>
@@ -16,33 +16,30 @@
                                 <table class="table table-member">
                                     <thead class="tb-member-head thead-light">
                                     <tr class="tb-member-item">
-                                        <th class="tb-member-info"><span class="overline-title">Team Member</span></th>
-                                        <th class="tb-member-role tb-col-md"><span class="overline-title">Role</span>
+                                        <th class="tb-member-info"><span class="overline-title">Tên chuyên ngành</span></th>
+                                        <th class="tb-member-role tb-col-md"><span class="overline-title">Mã chuyên ngành</span>
                                         </th>
                                         <th class="tb-member-action"><span class="overline-title">Action</span></th>
                                     </tr>
                                     </thead>
                                     <tbody class="tb-member-body">
-                                    {% if users %}
-                                    {% for user in users %}
+                                    {% if majors %}
+                                    {% for major in majors %}
                                     <tr class="tb-member-item">
                                         <td class="tb-member-info">
                                             <div class="user-card">
                                                 <div class="user-avatar bg-primary"><span></span></div>
                                                 <div class="user-info"><span
-                                                        class="lead-text">Username: {{ user.username }}</span>
-                                                    <span class="sub-text">Full name: {{ user.first_name }} {{ user.last_name }} </span>
+                                                        class="lead-text">{{ major.name }}</span>
                                                 </div>
                                             </div>
                                         </td>
                                         <td class="tb-member-role tb-col-md">
-                                            <span>
-                                                {% if user.is_superuser %}Admin{%else%}User{% endif %}
-                                            </span>
+                                            <span>{{ major.label }}</span>
                                         </td>
                                         <td class="tb-member-action">
                                             <div class="d-none d-md-inline"><a class="link link-sm"
-                                                                               href="/dashboard/user/profile/{{ user.id }}/"><span>Edit</span></a><a
+                                                                               href="/dashboard/major/{{ major.id }}/"><span>Edit</span></a><a
                                                     class="link link-sm link-danger" onclick="return confirm('Are you sure you want to delete this user?');" href="/dashboard/user/delete/{{ user.id }}/"><span>Remove</span></a>
                                             </div>
                                         </td>

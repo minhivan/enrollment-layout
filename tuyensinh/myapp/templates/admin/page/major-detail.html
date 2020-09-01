@@ -1,0 +1,59 @@
+{% extends 'base/admin.html' %}
+{% load static %}
+{% block title %}Chi tiết xét tuyển{% endblock %}
+{% block content %}
+<div class="st-content-body col-md-9">
+                <div class="st-content-wrap">
+                    <div class="st-block-head">
+                        <h2 class="st-block-title ">Thông tin của chuyên ngành</h2>
+                        <div class="st-block-des">
+                            <p>You have full control to manage your own account setting. </p>
+                        </div>
+                    </div>
+                    <div class="divider"></div>
+                    <div class="st-block">
+                        <div class="row">
+                            {% if messages %}
+                            {% for message in messages %}
+                                <div class="alert alert-info" role="alert">{{ message }}</div>
+                            {% endfor %}
+                            {% endif %}
+                            <form action="" method="POST">
+                                {% csrf_token %}
+                                <div class="card card-bordered">
+                                <div class="nk-data data-list">
+                                    <div class="data-item" >
+                                        <div class="data-col"><span class="data-label">Tên chuyên ngành</span><span
+                                                class="data-value"><input type="text" name="name" value="{{ major.name }}"></span></div>
+                                        <div class="data-col data-col-end"><span class="data-more"><i
+                                                class="fas fa-arrow-right"></i></span></div>
+                                    </div>
+                                    <div class="data-item" >
+                                        <div class="data-col"><span class="data-label">Mã chuyên ngành</span><span
+                                                class="data-value"><input type="text" name="label" value="{{ major.label }}"></span></div>
+                                        <div class="data-col data-col-end"><span class="data-more"><i
+                                                class="fas fa-arrow-right"></i></span></div>
+                                    </div>
+                                    <div class="data-item" >
+                                        <div class="data-col"><span class="data-label">Chỉ tiêu</span><span
+                                                class="data-value"><input type="number" name="target_amount" max="150" min="0" step="1" value="{{ major.target_amount }}"></span></div>
+                                        <div class="data-col data-col-end"><span class="data-more"><i
+                                                class="fas fa-arrow-right"></i></span></div>
+                                    </div>
+                                    <div class="data-item" >
+                                        <div class="data-col"><span class="data-label">Đợt xét tuyển</span><span
+                                                class="data-value"><input type="date" name="date_expired" value="{{ major.date_expired }}"></span></div>
+                                        <div class="data-col data-col-end"><span class="data-more"><i
+                                                class="fas fa-arrow-right"></i></span></div>
+                                    </div>
+                                    <div class="data-item">
+                                        <button type="submit" class="admin_btn">Update</button>
+                                    </div>
+                                </div>
+                            </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+{% endblock %}

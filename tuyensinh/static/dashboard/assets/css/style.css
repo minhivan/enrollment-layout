@@ -401,7 +401,7 @@ ul.ts-quick-nav{
     white-space: nowrap;
 }
 .tb-member-action div > .link {
-    margin-left: .75rem;
+    margin-right: .75rem;
 }
 .link-danger {
     color: #e85347 !important;

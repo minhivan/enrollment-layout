@@ -47,7 +47,7 @@
                                         <img src="{% static 'dashboard/assets/image/user.svg' %}" alt="">
                                     </div>
                                     <div class="user-name">
-                                        <a href="/dashboard/profile/{{ request.user.id}}/"><span>{{ request.user}}</span></a>
+                                        <a href="/dashboard/user/profile/{{ request.user.id}}/"><span>{{ request.user}}</span></a>
                                     </div>
                                 </div>
                             </a>
@@ -84,7 +84,7 @@
                             <li>
                                 <a href="/dashboard/user/list/">
                                     <i class="glyphicon glyphicon-user"></i>
-                                    Danh sách </a>
+                                    Người dùng</a>
                             </li>
                             <li>
                                 <a href="/dashboard/admission/list/">
@@ -92,14 +92,14 @@
                                     Ứng tuyển </a>
                             </li>
                             <li>
-                                <a href="#">
-                                    <i class="glyphicon glyphicon-flag"></i>
-                                    Help </a>
+                                <a href="/dashboard/major/list/">
+                                    <i class="glyphicon glyphicon-list-alt"></i>
+                                    Chuyên ngành</a>
                             </li>
                             <li>
                                 <a href="#">
                                     <i class="glyphicon glyphicon-user"></i>
-                                    Account Settings </a>
+                                    Tài khoản của bạn </a>
                             </li>
                         </ul>
                     </div>

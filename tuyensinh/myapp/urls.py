@@ -27,12 +27,15 @@ urlpatterns = [
     path('myapp/v1/user/admission/delete/<int:id>/', views.delete_admission, name="delete_admission"),
     path('myapp/v1/user/admission/submit/<int:id>/', views.submit_admission, name="submit_admission"),
     # ADMIN
+
     path('dashboard/', views.index_dash, name="admin_dash"),
     path('dashboard/user/list/', views.user, name="admin_list_user"),
     path('dashboard/user/profile/<int:id>/', views.profile_user, name="profile_user"),
     path('dashboard/user/delete/<int:id>/', views.delete_user, name="delete_user"),
     path('dashboard/admission/list/', views.admission_list, name="admission_list"),
-    path('dashboard/admission/<int:id>/', views.admission_list, name="admin_list_choice"),
+    path('dashboard/admission/<int:id>/', views.admission_detail, name="admission_detail"),
+    path('dashboard/major/list/', views.major_list, name="major_list"),
+    path('dashboard/major/<int:id>/', views.major_detail, name="major_detail"),
 ]
 
 

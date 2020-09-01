@@ -19,6 +19,7 @@ class Applicants(models.Model):
     wards = models.CharField(max_length=100)
     created_at = models.DateTimeField(auto_now_add=True)
     objects = models.DjongoManager()
+
     def __str__(self):
         return self.name
 
@@ -36,6 +37,8 @@ class Majors(models.Model):
     detail = models.CharField(max_length=100)
     label = models.CharField(max_length=10)
     subject_id = models.JSONField()
+    target_amount = models.IntegerField(null=True)
+    date_expired = models.CharField(max_length=100, null=True)
     objects = models.DjongoManager()
 
     def item(self, i):

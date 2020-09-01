@@ -26,10 +26,11 @@ def login(request):
                 return redirect("admin_dash")
             messages.success(request, 'Login success')
             HttpResponse("Login successfully")
+            return redirect("home")
         else:
             messages.error(request, 'Login failed')
             HttpResponse("Login failed")
-        return redirect(index)
+            return redirect("login")
     return render(request, 'account/sign-in.html', {})
 
 
@@ -59,6 +60,7 @@ def register(request):
             return redirect("register")
     return render(request, 'account/register.html', {})
 
+
 def logout(request):
     auth.logout(request)
     return render(request, 'index.html', {})
@@ -71,24 +73,28 @@ def client_dashboard(request):
     else:
         username = request.user.get_username()
         user_id = User.objects.get(username=username).pk
-        user = User.objects.get(id=user_id)
-        applicant = Applicants.objects.get(id=user_id)
-        admissions = Registers.objects.filter(user=user_id)
-        majors = []
-        for admission in admissions:
-            major_label = admission.meta_data
-            major = Majors.objects.get(label=major_label['Major'])
-            majors.append(major)
-        data = zip(admissions, majors)
-        data1 = zip(admissions, majors)
-        context = {
-            "user": user,
-            "applicant": applicant,
-            "data": data,
-            "data1": data1,
-            "admission": admissions
-        }
-    return render(request, 'page/dashboard.html', context)
+        request_user = User.objects.get(id=user_id)
+        check = Applicants.objects.filter(id=user_id)
+        if check:
+            applicant = Applicants.objects.get(id=user_id)
+            admissions = Registers.objects.filter(user=user_id)
+            majors = []
+            for admission in admissions:
+                major_label = admission.meta_data
+                major = Majors.objects.get(label=major_label['Major'])
+                majors.append(major)
+            data = zip(admissions, majors)
+            data1 = zip(admissions, majors)
+            context = {
+                "user": user,
+                "applicant": applicant,
+                "data": data,
+                "data1": data1,
+                "admission": admissions
+            }
+            return render(request, 'page/dashboard.html', context)
+        else:
+            return redirect("login")
 
 
 def delete_admission(request, id):
@@ -368,6 +374,9 @@ def delete_user(request, id):
     else:
         if request.user.is_superuser:
             request_user = User.objects.filter(id=id)
+            request_applicant = Applicants.objects.filter(id=id)
+            if request_applicant:
+                request_applicant.delete()
             request_user.delete()
     return redirect("admin_list_user")
 
@@ -381,5 +390,67 @@ def admission_list(request):
             context = {
                 "admissions": admissions
             }
-    return render(request, 'admin/page/list-choice.html', context)
+            return render(request, 'admin/page/admission_list.html', context)
+        else:
+            return redirect("login")
+
+
+def admission_detail(request, id):
+    if not request.user.is_authenticated:
+        return redirect("login")
+    else:
+        if request.user.is_superuser:
+            check = Registers.objects.filter(id=id)
+            if check:
+                admissions = Registers.objects.get(id=id)
+                major = Majors.objects.get(label=admissions.meta_data['Major'])
+                context = {
+                    "admissions": admissions,
+                    "major": major
+                }
+                return render(request, 'admin/page/admission-detail.html', context)
+            else:
+                return redirect("admission_list")
+        else:
+            return redirect("login")
+
+
+def major_list(request):
+    if not request.user.is_authenticated:
+        return redirect("login")
+    else:
+        if request.user.is_superuser:
+            major = Majors.objects.all()
+            context = {
+                "majors": major
+            }
+            return render(request, 'admin/page/majors_list.html', context)
+        else:
+            return redirect("login")
+
+
+def major_detail(request, id):
+    if not request.user.is_authenticated:
+        return redirect("login")
+    else:
+        if request.user.is_superuser:
+            check = Majors.objects.filter(id=id)
+            if check:
+                major = Majors.objects.get(id=id)
+                context = {
+                    "major": major
+                }
+                if request.method == "POST":
+                    major = Majors.objects.get(id=id)
+                    major.name = request.POST.get("name")
+                    major.label = request.POST.get("label")
+                    major.target_amount = request.POST.get("target_amount")
+                    major.date_expired = request.POST.get("date_expired")
+                    major.save()
+                    return redirect("major_detail", id)
+                return render(request, 'admin/page/major-detail.html', context)
+            else:
+                return redirect("major_list")
+        else:
+            return redirect("login")
 

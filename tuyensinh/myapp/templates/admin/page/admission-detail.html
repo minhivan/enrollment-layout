@@ -1,0 +1,109 @@
+{% extends 'base/admin.html' %}
+{% load static %}
+{% block title %}Chi tiết xét tuyển{% endblock %}
+{% block content %}
+<div class="st-content-body col-md-9">
+                <div class="st-content-wrap">
+                    <div class="st-block-head">
+                        <h2 class="st-block-title ">Thông tin của bản xét tuyển</h2>
+                        <div class="st-block-des">
+                            <p>You have full control to manage your own account setting. </p>
+                        </div>
+                    </div>
+                    <div class="divider"></div>
+                    <div class="st-block">
+                        <div class="row">
+                            <div class="ts-block-head">
+                                <div class="ts-block-head-content"><h5 class="ts-block-title">Personal Information</h5>
+                                </div>
+                            </div>
+                            {% if messages %}
+                            {% for message in messages %}
+                                <div class="alert alert-info" role="alert">{{ message }}</div>
+                            {% endfor %}
+                            {% endif %}
+                            <form action="" method="post">
+                                {% csrf_token %}
+                                <div class="card card-bordered">
+                                <div class="nk-data data-list">
+                                    <div class="data-item" >
+                                        <div class="data-col"><span class="data-label">Họ tên thí sinh</span><span
+                                                class="data-value">{{ admissions.user.name }}</span></div>
+                                        <div class="data-col data-col-end"><span class="data-more"><i
+                                                class="fas fa-arrow-right"></i></span></div>
+                                    </div>
+                                    <div class="data-item" >
+                                        <div class="data-col"><span class="data-label">Email</span><span
+                                                class="data-value">{{ admissions.user.email }}</span></div>
+                                        <div class="data-col data-col-end"><span class="data-more"><i
+                                                class="fas fa-arrow-right"></i></span></div>
+                                    </div>
+                                    <div class="data-item" >
+                                        <div class="data-col"><span class="data-label">CMND/ID</span><span
+                                                class="data-value">{{ admissions.user.identity }}</span></div>
+                                        <div class="data-col data-col-end"><span class="data-more"><i
+                                                class="fas fa-arrow-right"></i></span></div>
+                                    </div>
+                                    <div class="data-item" >
+                                        <div class="data-col"><span class="data-label">Địa chỉ</span><span
+                                                class="data-value">{{ admissions.user.address }}</span></div>
+                                        <div class="data-col data-col-end"><span class="data-more"><i
+                                                class="fas fa-arrow-right"></i></span></div>
+                                    </div>
+                                    <div class="data-item" >
+                                        <div class="data-col"><span class="data-label">Ngành xét tuyển</span><span
+                                                class="data-value">{{ major }}</span></div>
+                                        <div class="data-col data-col-end"><span class="data-more"><i
+                                                class="fas fa-arrow-right"></i></span></div>
+                                    </div>
+                                    <div class="data-item" >
+                                        <div class="data-col"><span class="data-label">Tổ hợp xét tuyển</span>
+                                            <span class="data-value">
+                                                {{ admissions.meta_data.subject_cluster }}
+                                            </span>
+                                        </div>
+                                        <div class="data-col data-col-end"><span class="data-more"><i
+                                                class="fas fa-arrow-right"></i></span></div>
+                                    </div>
+                                    <!--  Result  -->
+                                    <div class="data-item" >
+                                        <div class="data-col"><span class="data-label">Chi tiết</span>
+                                            <span class="data-value">
+                                                <table border="1" style="border-collapse: collapse;margin: auto; width: 500px">
+                                                    <tbody>
+                                                        <tr><th style="text-align: center">Môn</th><th style=" text-align: center">Điểm M</th></tr>
+                                                    </tbody>
+                                                    <tbody>
+                                                    {% for key, value in admissions.details.items %}
+                                                    <tr> <td style="width: 10%; text-align: center">{{ key }}</td><td style="width: 10%; text-align: center">{{ value }}</td></tr>
+                                                    {% endfor %}
+                                                    <tr> <td style="width: 10%; text-align: center">Điểm tổng</td><td style="width: 10%; text-align: center; font-weight: bold; color: red">{{ admissions.meta_data.average_score}}</td></tr>
+                                                    </tbody>
+                                                </table>
+                                            </span>
+                                        </div>
+                                    </div>
+                                    <div class="data-item" >
+                                        <div class="data-col"><span class="data-label">Kết quả</span>
+                                            <span class="data-value">
+                                                {{ admissions.result }}
+                                            </span>
+                                        </div>
+                                    </div>
+                                    <div class="data-item" >
+                                        <div class="data-col"><span class="data-label">Thời gian nộp</span><span
+                                                class="data-value">{{ admissions.created_at }}</span></div>
+                                        <div class="data-col data-col-end"><span class="data-more"><i
+                                                class="fas fa-arrow-right"></i></span></div>
+                                    </div>
+                                    <div class="data-item">
+                                        <button type="submit" class="admin_btn">Update</button>
+                                    </div>
+                                </div>
+                            </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+{% endblock %}
