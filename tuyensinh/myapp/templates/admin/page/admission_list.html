@@ -31,9 +31,9 @@
                                     <tbody>
                                     {% for admission in admissions %}
                                     <tr class="tb-ts-item">
-                                        <td class="tb-tnx-id"><a href="#"><span>{{ admission.id }}</span></a></td>
+                                        <td class="tb-tnx-id"><a href="/dashboard/admission/{{ admission.id }}"><span>{{ admission.id }}</span></a></td>
                                         <td class=" tb-tnx-amount">
-                                            <div class="tb-tnx-desc"><span class="title">{{ admission.user.name }}</span>
+                                            <div class="tb-tnx-desc"><a href="/dashboard/admission/{{ admission.id }}"><span class="title">{{ admission.user.name }}</span></a>
                                             </div>
                                             <div class="tb-tnx-date"><span class="date">{{ admission.created_at }}</span><span class="date">{{ admission.meta_data.Major }}</span>
                                             </div>

@@ -8,6 +8,7 @@ from django.contrib.auth.models import User, auth
 from django.contrib import messages
 from django.views.generic import ListView, DetailView
 from django.core.files.storage import FileSystemStorage
+from django.db.models.expressions import RawSQL
 
 
 # Create your views here.
@@ -63,7 +64,7 @@ def register(request):
 
 def logout(request):
     auth.logout(request)
-    return render(request, 'index.html', {})
+    return redirect("login")
 
 
 # CLIENT DASHBOARD ONLY
@@ -77,20 +78,26 @@ def client_dashboard(request):
         check = Applicants.objects.filter(id=user_id)
         if check:
             applicant = Applicants.objects.get(id=user_id)
-            admissions = Registers.objects.filter(user=user_id)
-            majors = []
-            for admission in admissions:
+            admissions1 = Registers.objects.filter(user=user_id, status="pending")
+            admissions2 = Registers.objects.filter(user=user_id, status="submitted")
+            majors1 = []
+            majors2 = []
+            for admission in admissions1:
                 major_label = admission.meta_data
                 major = Majors.objects.get(label=major_label['Major'])
-                majors.append(major)
-            data = zip(admissions, majors)
-            data1 = zip(admissions, majors)
+                majors1.append(major)
+            for admission in admissions2:
+                major_label = admission.meta_data
+                major = Majors.objects.get(label=major_label['Major'])
+                majors2.append(major)
+            data1 = zip(admissions1, majors1)
+            data2 = zip(admissions2, majors2)
             context = {
                 "user": user,
                 "applicant": applicant,
-                "data": data,
                 "data1": data1,
-                "admission": admissions
+                "data2": data2,
+                "admission": admissions1
             }
             return render(request, 'page/dashboard.html', context)
         else:
@@ -437,20 +444,54 @@ def major_detail(request, id):
             check = Majors.objects.filter(id=id)
             if check:
                 major = Majors.objects.get(id=id)
+                label = major.label
+                print(label)
+                admissions = Registers.objects.filter(meta_data={'Major': label}, status="submitted")
                 context = {
-                    "major": major
+                    "major": major,
+                    "admissions": admissions
                 }
-                if request.method == "POST":
+                if request.method == "POST" and 'update_major' in request.POST:
                     major = Majors.objects.get(id=id)
                     major.name = request.POST.get("name")
                     major.label = request.POST.get("label")
                     major.target_amount = request.POST.get("target_amount")
                     major.date_expired = request.POST.get("date_expired")
+                    major.score_base = request.POST.get("score_base")
                     major.save()
                     return redirect("major_detail", id)
+                if request.method == "POST" and 'result_major' in request.POST:
+                    target = major.target_amount
+                    score_base = major.score_base
+                    list = {}
+                    for admission in admissions:
+                        user_score = admission.meta_data['average_score']
+                        if score_base <= float(user_score):
+                            list[admission.id] = float(user_score)
+                        else:
+                            admission.result = "failed"
+                            admission.save()
+                    if list:
+                        sort_list = sorted(list.items(), key=lambda x: x[1], reverse=True)
+                        print(sort_list)
+                        count = 0
+                        for i in sort_list:
+                            if count < target-1:
+                                print(i[0])
+                                k = admissions.get(id=i[0])
+                                print(k)
+                                k.result = "passed"
+                                k.save()
+                                count = count + 1
+                            else:
+                                k = admissions.get(id=i[0])
+                                print(k)
+                                k.result = "failed"
+                                k.save()
                 return render(request, 'admin/page/major-detail.html', context)
             else:
                 return redirect("major_list")
         else:
             return redirect("login")
+
 

@@ -39,6 +39,7 @@ class Majors(models.Model):
     subject_id = models.JSONField()
     target_amount = models.IntegerField(null=True)
     date_expired = models.CharField(max_length=100, null=True)
+    score_base = models.FloatField(null=True)
     objects = models.DjongoManager()
 
     def item(self, i):
@@ -59,3 +60,5 @@ class Registers(models.Model):
     image = models.ImageField(upload_to='images/', default="")
     objects = models.DjongoManager()
 
+    def major_label(self):
+        return self.meta_data

@@ -55,7 +55,7 @@
                         <li>
                             <a href="/method/">Đăng ký xét tuyển</a>
                         </li>
-                        {% if user.is_authenticated %}
+                        {% if request.user.is_authenticated %}
                         <li>
                             <a href="/user/dashboard/">Tài khoản</a>
                         </li>

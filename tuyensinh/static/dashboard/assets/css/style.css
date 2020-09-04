@@ -480,4 +480,6 @@ h5.ts-block-title{
     background: linear-gradient(108deg, #f7434c, #ff8949) !important;
     border-radius: 0.125rem;
     color: #fff;
+    width: 150px;
+    margin: 0 15px 0 0;
 }
