@@ -1,0 +1,22 @@
+List chuc nang:
+- Client:
+	Đăng ký tài khoản
+	Đăng nhập
+	Xem thông tin các chương trình đào tạo
+	Xem thông tin các phương thức xét tuyển
+	Thực hiện đăng ký xét tuyển bằng hình thức online
+	Nộp bảng điểm ở định dạng hình ảnh
+	Quản lý cơ chế và tài khoản cá nhân
+	Quản lý phiếu đăng ký nguyện vọng online 
+	
+- Admin:
+	Đăng nhập
+	Quản lý người dùng
+	Quản lý chuyên ngành
+	Quản lý danh sách ứng tuyển
+	Liệt kê danh sách các thí sinh ứng tuyển
+	Trích xuất kết quả ứng tuyển
+	
+		
+	
+	

@@ -1,0 +1,4 @@
+{"_id":{"$oid":"5f4b28483713d23eb5c67c24"},"name":"Khoi A00","detail":"Khoi du thi A00","subject":{"Subject_1":"Toán","Subject_2":"Lý","Subject_3":"Hóa"},"label":"A00"}
+{"_id":{"$oid":"5f4b28f93713d23eb5c67c25"},"name":"Khoi B00","detail":"Khoi du thi B00","subject":{"Subject_1":"Toán","Subject_2":"Hóa","Subject_3":"Sinh"},"label":"B00"}
+{"_id":{"$oid":"5f4b29183713d23eb5c67c26"},"name":"Khoi D01","detail":"Khoi du thi D01","subject":{"Subject_1":"Toán","Subject_2":"Văn","Subject_3":"Anh Văn"},"label":"D01"}
+{"_id":{"$oid":"5f4b29423713d23eb5c67c27"},"name":"Khoi A01","detail":"Khoi du thi A01","subject":{"Subject_1":"Toán","Subject_2":"Lý","Subject_3":"Anh Văn"},"label":"A01"}
